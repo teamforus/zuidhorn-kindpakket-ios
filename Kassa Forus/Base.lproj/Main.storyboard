@@ -102,7 +102,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <segue destination="gOd-yN-wi6" kind="show" identifier="showResultViewController" id="1bP-8j-Cnm"/>
+                        <segue destination="6c9-eZ-2Io" kind="show" identifier="showResultViewController" id="6TT-WN-fhO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -208,7 +208,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEF-Xr-AWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="428.63568215892059"/>
+            <point key="canvasLocation" x="1924" y="429"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="Icb-9C-TeL">
+            <objects>
+                <viewController id="6c9-eZ-2Io" customClass="ResultViewController" customModule="Kassa_Forus" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kk5-eQ-hNw"/>
+                        <viewControllerLayoutGuide type="bottom" id="InO-3I-TiG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pBN-Pq-bPj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irg-Lf-Ss6">
+                                <rect key="frame" x="122" y="315.5" width="131" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Irg-Lf-Ss6" firstAttribute="centerX" secondItem="pBN-Pq-bPj" secondAttribute="centerX" id="aZ5-Fh-V2v"/>
+                            <constraint firstItem="Irg-Lf-Ss6" firstAttribute="centerY" secondItem="pBN-Pq-bPj" secondAttribute="centerY" id="t39-GH-2fD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="gOd-yN-wi6" kind="show" identifier="proceedToCheckout" id="lgH-V0-qHr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cCq-94-kMo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1121" y="429"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
