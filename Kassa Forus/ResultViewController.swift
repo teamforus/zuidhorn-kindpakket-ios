@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ResultViewController: UIViewController {
+class ResultViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
