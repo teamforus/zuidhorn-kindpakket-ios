@@ -10,8 +10,16 @@ import UIKit
 
 class CheckoutViewController: UIViewController {
 
+    @IBOutlet weak var budgetLabel: UILabel!
+    
+    var availableBudget = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        delay(0.5) { 
+            self.budgetLabel.text = self.availableBudget
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -20,16 +28,4 @@ class CheckoutViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

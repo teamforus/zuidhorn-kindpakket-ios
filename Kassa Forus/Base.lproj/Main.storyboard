@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="304.80000000000001" y="428.63568215892059"/>
         </scene>
-        <!--Result View Controller-->
+        <!--Checkout View Controller-->
         <scene sceneID="mo2-26-uaR">
             <objects>
-                <viewController id="gOd-yN-wi6" customClass="ResultViewController" customModule="Kassa_Forus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gOd-yN-wi6" customClass="CheckoutViewController" customModule="Kassa_Forus" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xfg-tQ-55Q"/>
                         <viewControllerLayoutGuide type="bottom" id="PEi-Fi-pxh"/>
@@ -203,7 +203,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="resultField" destination="gf4-bZ-beQ" id="etI-of-yGi"/>
+                        <outlet property="budgetLabel" destination="gf4-bZ-beQ" id="jbH-m8-Gd9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEF-Xr-AWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,29 +222,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irg-Lf-Ss6">
-                                <rect key="frame" x="122" y="315.5" width="131" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irg-Lf-Ss6">
+                                <rect key="frame" x="16" y="223" width="343" height="221"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utv-Gk-Z4c">
+                                <rect key="frame" x="118" y="567" width="138" height="30"/>
+                                <state key="normal" title="Scan nieuwe code &gt;"/>
+                                <connections>
+                                    <action selector="scanNewCodeButton:" destination="6c9-eZ-2Io" eventType="touchUpInside" id="fzU-fj-7LR"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="R5R-q1-MX9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="InO-3I-TiG" firstAttribute="top" secondItem="utv-Gk-Z4c" secondAttribute="bottom" constant="70" id="F25-b4-ckq"/>
                             <constraint firstItem="Irg-Lf-Ss6" firstAttribute="centerX" secondItem="pBN-Pq-bPj" secondAttribute="centerX" id="aZ5-Fh-V2v"/>
+                            <constraint firstItem="utv-Gk-Z4c" firstAttribute="centerX" secondItem="pBN-Pq-bPj" secondAttribute="centerX" id="nvC-r9-JzC"/>
                             <constraint firstItem="Irg-Lf-Ss6" firstAttribute="centerY" secondItem="pBN-Pq-bPj" secondAttribute="centerY" id="t39-GH-2fD"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="resultField" destination="Irg-Lf-Ss6" id="hTw-AU-tfA"/>
+                        <outlet property="scanNewCodeButton" destination="utv-Gk-Z4c" id="6pK-kt-ghd"/>
                         <segue destination="gOd-yN-wi6" kind="show" identifier="proceedToCheckout" id="lgH-V0-qHr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCq-94-kMo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1121" y="429"/>
+            <point key="canvasLocation" x="1120.8" y="428.63568215892059"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PMm-dV-aXX"/>
+        <segue reference="R5R-q1-MX9"/>
     </inferredMetricsTieBreakers>
 </document>

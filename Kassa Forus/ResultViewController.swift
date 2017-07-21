@@ -11,12 +11,36 @@ import UIKit
 class ResultViewController: UIViewController {
     
     @IBOutlet weak var resultField: UILabel!
+    @IBOutlet weak var scanNewCodeButton: UIButton!
+    
     var scanResult = String()
-
+    
+    @IBAction func scanNewCodeButton(_ sender: Any) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.resultField.text = scanResult
+//        self.resultField.text = scanResult
+        
+        delay(1) {
+            if self.scanResult != "€120" {
+                self.resultField.text = "Success!"
+                
+                delay(1) {
+                    self.performSegue(withIdentifier: "proceedToCheckout", sender: self)
+                }
+            } else {
+                self.resultField.text = "Deze code is ongeldig.\n Bel 0900-1234 als u \nniet verder komt."
+                
+                delay(1) {
+                    self.scanNewCodeButton.isHidden = false
+                }
+            }
+            
+            
+            
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -26,17 +50,9 @@ class ResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let target = segue.destination as? CheckoutViewController {
+            target.availableBudget = self.scanResult
+        }
     }
-    */
-    
-    
-
 }
