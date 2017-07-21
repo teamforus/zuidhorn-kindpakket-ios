@@ -52,7 +52,7 @@ public final class ToggleTorchButton: UIButton {
     let width   = rect.width
     let height  = rect.height
     let centerX = width / 2
-    let centerY = height / 2
+    let centerY = (height / 2) + 8
 
     let strokeLineWidth: CGFloat = 2
     let circleRadius: CGFloat    = width / 10

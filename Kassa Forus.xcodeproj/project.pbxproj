@@ -28,16 +28,18 @@
 		8926F8761F227F2C004CDD13 /* SwitchCameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926F8601F227F2C004CDD13 /* SwitchCameraButton.swift */; };
 		8926F8771F227F2C004CDD13 /* ToggleTorchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926F8611F227F2C004CDD13 /* ToggleTorchButton.swift */; };
 		8926F8781F227F2C004CDD13 /* ToggleTorchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926F8611F227F2C004CDD13 /* ToggleTorchButton.swift */; };
-		8926F87A1F227F39004CDD13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926F8791F227F39004CDD13 /* ViewController.swift */; };
-		8926F87B1F227F39004CDD13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926F8791F227F39004CDD13 /* ViewController.swift */; };
+		8926F87A1F227F39004CDD13 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926F8791F227F39004CDD13 /* ScannerViewController.swift */; };
+		8926F87B1F227F39004CDD13 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8926F8791F227F39004CDD13 /* ScannerViewController.swift */; };
 		8926F87D1F227F42004CDD13 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8926F87C1F227F42004CDD13 /* Launch Screen.storyboard */; };
 		8926F8821F227F87004CDD13 /* QRCodeReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8926F8811F227F87004CDD13 /* QRCodeReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8926F8881F2280B6004CDD13 /* #1. Splash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8926F8861F2280B6004CDD13 /* #1. Splash.jpg */; };
 		8926F88A1F2280B6004CDD13 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8926F8871F2280B6004CDD13 /* Info.plist */; };
+		89776B131F22934500E79B0F /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89776B121F22934500E79B0F /* ResultViewController.swift */; };
 		89C894141F228431000C2318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C894131F228431000C2318 /* Main.storyboard */; };
 		89C894151F228431000C2318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C894131F228431000C2318 /* Main.storyboard */; };
 		89C8941C1F228550000C2318 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8926F8871F2280B6004CDD13 /* Info.plist */; };
 		89C894201F228720000C2318 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C8941F1F228720000C2318 /* Images.xcassets */; };
+		89C894221F22881B000C2318 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C894211F22881B000C2318 /* SetupViewController.swift */; };
 		CE8FFEEB1BAB4E7F00D43F38 /* QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8FFED61BAB4E7F00D43F38 /* QRCodeReader.framework */; };
 		CE8FFEEC1BAB4E7F00D43F38 /* QRCodeReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE8FFED61BAB4E7F00D43F38 /* QRCodeReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -78,13 +80,15 @@
 		8926F85F1F227F2C004CDD13 /* ReaderOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReaderOverlayView.swift; path = "Kassa Forus.swift/QRCodeReader/ReaderOverlayView.swift"; sourceTree = SOURCE_ROOT; };
 		8926F8601F227F2C004CDD13 /* SwitchCameraButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchCameraButton.swift; path = "Kassa Forus.swift/QRCodeReader/SwitchCameraButton.swift"; sourceTree = SOURCE_ROOT; };
 		8926F8611F227F2C004CDD13 /* ToggleTorchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToggleTorchButton.swift; path = "Kassa Forus.swift/QRCodeReader/ToggleTorchButton.swift"; sourceTree = SOURCE_ROOT; };
-		8926F8791F227F39004CDD13 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "Kassa Forus.swift/ViewController.swift"; sourceTree = "<group>"; };
+		8926F8791F227F39004CDD13 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScannerViewController.swift; path = "Kassa Forus.swift/ScannerViewController.swift"; sourceTree = "<group>"; };
 		8926F87C1F227F42004CDD13 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Kassa Forus.swift/Resources/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8926F8811F227F87004CDD13 /* QRCodeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeReader.h; path = "Kassa Forus.swift/QRCodeReader/QRCodeReader.h"; sourceTree = SOURCE_ROOT; };
 		8926F8861F2280B6004CDD13 /* #1. Splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "#1. Splash.jpg"; path = "Kassa Forus.swift/Resources/#1. Splash.jpg"; sourceTree = SOURCE_ROOT; };
 		8926F8871F2280B6004CDD13 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Kassa Forus.swift/Resources/Info.plist"; sourceTree = SOURCE_ROOT; };
+		89776B121F22934500E79B0F /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultViewController.swift; path = "Kassa Forus/ResultViewController.swift"; sourceTree = "<group>"; };
 		89C894131F228431000C2318 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "Kassa Forus.swift/QRCodeReader/Main.storyboard"; sourceTree = "<group>"; };
 		89C8941F1F228720000C2318 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Kassa Forus/Images.xcassets"; sourceTree = "<group>"; };
+		89C894211F22881B000C2318 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetupViewController.swift; path = "Kassa Forus/SetupViewController.swift"; sourceTree = "<group>"; };
 		CE412E8919D9A1E4000F294E /* Kassa Forus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kassa Forus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8FFED61BAB4E7F00D43F38 /* QRCodeReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QRCodeReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -111,10 +115,12 @@
 		CE412E8019D9A1E4000F294E = {
 			isa = PBXGroup;
 			children = (
-				8926F8521F227EF7004CDD13 /* AppDelegate.swift */,
-				8926F87C1F227F42004CDD13 /* Launch Screen.storyboard */,
-				8926F8791F227F39004CDD13 /* ViewController.swift */,
 				89C894131F228431000C2318 /* Main.storyboard */,
+				8926F87C1F227F42004CDD13 /* Launch Screen.storyboard */,
+				8926F8521F227EF7004CDD13 /* AppDelegate.swift */,
+				89C894211F22881B000C2318 /* SetupViewController.swift */,
+				8926F8791F227F39004CDD13 /* ScannerViewController.swift */,
+				89776B121F22934500E79B0F /* ResultViewController.swift */,
 				89C8941F1F228720000C2318 /* Images.xcassets */,
 				CE8FFED71BAB4E7F00D43F38 /* QRCodeReader */,
 				CE412E8C19D9A1E4000F294E /* Supporting Files */,
@@ -287,10 +293,12 @@
 				8926F8531F227EF7004CDD13 /* AppDelegate.swift in Sources */,
 				8926F86D1F227F2C004CDD13 /* QRCodeReaderViewController.swift in Sources */,
 				8926F8671F227F2C004CDD13 /* QRCodeReaderResult.swift in Sources */,
-				8926F87A1F227F39004CDD13 /* ViewController.swift in Sources */,
+				8926F87A1F227F39004CDD13 /* ScannerViewController.swift in Sources */,
 				8926F8691F227F2C004CDD13 /* QRCodeReaderView.swift in Sources */,
+				89776B131F22934500E79B0F /* ResultViewController.swift in Sources */,
 				8926F8711F227F2C004CDD13 /* QRCodeReaderViewControllerDelegate.swift in Sources */,
 				8926F8751F227F2C004CDD13 /* SwitchCameraButton.swift in Sources */,
+				89C894221F22881B000C2318 /* SetupViewController.swift in Sources */,
 				8926F86B1F227F2C004CDD13 /* QRCodeReaderViewContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +311,7 @@
 				8926F8721F227F2C004CDD13 /* QRCodeReaderViewControllerDelegate.swift in Sources */,
 				8926F8661F227F2C004CDD13 /* QRCodeReader.swift in Sources */,
 				8926F8741F227F2C004CDD13 /* ReaderOverlayView.swift in Sources */,
-				8926F87B1F227F39004CDD13 /* ViewController.swift in Sources */,
+				8926F87B1F227F39004CDD13 /* ScannerViewController.swift in Sources */,
 				8926F8701F227F2C004CDD13 /* QRCodeReaderViewControllerBuilder.swift in Sources */,
 				8926F8761F227F2C004CDD13 /* SwitchCameraButton.swift in Sources */,
 				8926F86E1F227F2C004CDD13 /* QRCodeReaderViewController.swift in Sources */,
