@@ -28,6 +28,9 @@ import AVFoundation
 import UIKit
 
 class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegate {
+    
+    var scanResult = String()
+    
     @IBOutlet weak var previewView: UIView!
     lazy var reader: QRCodeReader = QRCodeReader()
     lazy var readerVC: QRCodeReaderViewController = {
@@ -95,13 +98,12 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
         
-//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        print("YO!")
-        self.performSegue(withIdentifier: "showResultViewController", sender: nil)
-        
-        
-//        dismiss(animated: true) { [weak self] in
+        dismiss(animated: true) { [weak self] in
+            
+            self?.scanResult = result.value
+            
+            self?.performSegue(withIdentifier: "showResultViewController", sender: self)
+            
 //            let alert = UIAlertController(
 //                title: "QRCodeReader",
 //                message: String (format:"%@ (of type %@)", result.value, result.metadataType),
@@ -110,7 +112,7 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
 //            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 //            
 //            self?.present(alert, animated: false, completion: nil)
-//        }
+        }
     }
     
     func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
@@ -137,8 +139,8 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let target = segue.destination as? UIViewController {
-//            target.data = data
+        if let target = segue.destination as? ResultViewController {
+            target.scanResult = self.scanResult
         }
     }
 }

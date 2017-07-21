@@ -9,10 +9,15 @@
 import UIKit
 
 class ResultViewController: UIViewController {
+    
+    @IBOutlet weak var resultField: UILabel!
+    var scanResult = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.resultField.text = scanResult
+        
         // Do any additional setup after loading the view.
     }
 
