@@ -8,4 +8,4 @@
 
 import Foundation
 
-var loadSetup = false
+var loadSetup = true

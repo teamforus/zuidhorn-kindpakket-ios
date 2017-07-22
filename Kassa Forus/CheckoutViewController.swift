@@ -17,6 +17,9 @@ class CheckoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // check if budget > 0
+        // 
+        
         delay(0.5) { 
             self.budgetLabel.text = self.availableBudget
         }
