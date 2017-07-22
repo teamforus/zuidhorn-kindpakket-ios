@@ -28,6 +28,7 @@
 		8993F9131F22AC4200B3BCDB /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */; };
 		8993F9151F22AD7F00B3BCDB /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */; };
 		89A3B1101F2350BA004986B6 /* DevConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3B10F1F2350BA004986B6 /* DevConfig.swift */; };
+		89A3B1121F2387B9004986B6 /* ScannerMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3B1111F2387B9004986B6 /* ScannerMarkerView.swift */; };
 		89C894201F228720000C2318 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C8941F1F228720000C2318 /* Images.xcassets */; };
 		89C894221F22881B000C2318 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C894211F22881B000C2318 /* SetupViewController.swift */; };
 		CE8FFEEB1BAB4E7F00D43F38 /* QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8FFED61BAB4E7F00D43F38 /* QRCodeReader.framework */; };
@@ -80,6 +81,7 @@
 		8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutViewController.swift; path = "Kassa Forus/CheckoutViewController.swift"; sourceTree = "<group>"; };
 		8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalFunctions.swift; path = "Kassa Forus/GlobalFunctions.swift"; sourceTree = "<group>"; };
 		89A3B10F1F2350BA004986B6 /* DevConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DevConfig.swift; path = "Kassa Forus/DevConfig.swift"; sourceTree = "<group>"; };
+		89A3B1111F2387B9004986B6 /* ScannerMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScannerMarkerView.swift; path = "Kassa Forus/ScannerMarkerView.swift"; sourceTree = "<group>"; };
 		89C8941F1F228720000C2318 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Kassa Forus/Images.xcassets"; sourceTree = "<group>"; };
 		89C894211F22881B000C2318 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetupViewController.swift; path = "Kassa Forus/SetupViewController.swift"; sourceTree = "<group>"; };
 		CE412E8919D9A1E4000F294E /* Kassa Forus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kassa Forus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +114,7 @@
 				890F461E1F229A2200A2B006 /* Main.storyboard */,
 				89C894211F22881B000C2318 /* SetupViewController.swift */,
 				890F46251F229A5400A2B006 /* ScannerViewController.swift */,
+				89A3B1111F2387B9004986B6 /* ScannerMarkerView.swift */,
 				89776B121F22934500E79B0F /* ResultViewController.swift */,
 				8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */,
 				890F46211F229A3300A2B006 /* Launch Screen.storyboard */,
@@ -285,6 +288,7 @@
 				890F46371F229A6700A2B006 /* QRCodeReaderViewControllerBuilder.swift in Sources */,
 				890F46241F229A3F00A2B006 /* AppDelegate.swift in Sources */,
 				890F463A1F229A6700A2B006 /* SwitchCameraButton.swift in Sources */,
+				89A3B1121F2387B9004986B6 /* ScannerMarkerView.swift in Sources */,
 				890F46381F229A6700A2B006 /* QRCodeReaderViewControllerDelegate.swift in Sources */,
 				890F46351F229A6700A2B006 /* QRCodeReaderViewContainer.swift in Sources */,
 				89776B131F22934500E79B0F /* ResultViewController.swift in Sources */,
