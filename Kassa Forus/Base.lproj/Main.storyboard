@@ -104,9 +104,42 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xlf-Hb-K4F">
+                                <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJ0-2o-7gN">
+                                <rect key="frame" x="0.0" y="-8" width="375" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan aub een code." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzf-PA-yEq">
+                                        <rect key="frame" x="112" y="32.5" width="151" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Uzf-PA-yEq" firstAttribute="centerX" secondItem="JJ0-2o-7gN" secondAttribute="centerX" id="Agu-Qa-Ssj"/>
+                                    <constraint firstAttribute="height" constant="70" id="iRO-Dw-DKR"/>
+                                    <constraint firstAttribute="width" constant="375" id="xcX-VZ-bOs"/>
+                                    <constraint firstItem="Uzf-PA-yEq" firstAttribute="centerY" secondItem="JJ0-2o-7gN" secondAttribute="centerY" constant="8" id="yAv-f9-TnI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xlf-Hb-K4F" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="2Py-lw-pNF"/>
+                            <constraint firstItem="Xlf-Hb-K4F" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4p9-Y2-pxd"/>
+                            <constraint firstItem="JJ0-2o-7gN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-28" id="RK0-VF-Owy"/>
+                            <constraint firstItem="Xlf-Hb-K4F" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="gD3-BN-nTQ"/>
+                            <constraint firstItem="JJ0-2o-7gN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t3f-4Z-aad"/>
+                            <constraint firstItem="Xlf-Hb-K4F" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xqU-jK-uXc"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="previewView" destination="Xlf-Hb-K4F" id="NJh-Il-YGp"/>
                         <segue destination="6c9-eZ-2Io" kind="show" identifier="showResultViewController" id="6TT-WN-fhO"/>
                         <segue destination="nVV-h3-LP4" kind="show" identifier="loadSetup" id="JzN-cm-lD2"/>
                     </connections>

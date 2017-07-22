@@ -21,8 +21,6 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        self.resultField.text = scanResult
-        
         delay(1) {
             if self.scanResult != "€120" {
                 self.resultField.text = "Success!"
@@ -37,12 +35,7 @@ class ResultViewController: UIViewController {
                     self.scanNewCodeButton.isHidden = false
                 }
             }
-            
-            
-            
         }
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
