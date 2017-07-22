@@ -62,7 +62,7 @@ public final class QRCodeReaderViewControllerBuilder {
   /**
    Flag to display the cancel button.
    */
-  public var showCancelButton = true
+  public var showCancelButton = false
 
   /**
    Flag to display the switch camera button.
