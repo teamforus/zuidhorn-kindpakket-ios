@@ -21,6 +21,10 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // check if the scanResult is a valid voucher
+        
+        // if valid: connect to server to check the voucher
+        
         delay(1) {
             if self.scanResult != "€120" {
                 self.resultField.text = "Success!"
