@@ -211,10 +211,10 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="69J-Z9-Vta">
                                 <rect key="frame" x="337" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="D1m-wR-rqH" kind="show" id="eUX-74-sBK"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <segue destination="D1m-wR-rqH" kind="show" id="901-jP-x9j"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -435,7 +435,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEZ-4T-C1L">
-                                <rect key="frame" x="24" y="111" width="327" height="667"/>
+                                <rect key="frame" x="24" y="70" width="327" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" red="0.047058823530000002" green="0.1333333333" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -448,7 +448,7 @@
                             <constraint firstItem="sEZ-4T-C1L" firstAttribute="height" secondItem="Lat-5w-VDH" secondAttribute="height" id="A3j-R7-ZL2"/>
                             <constraint firstItem="sEZ-4T-C1L" firstAttribute="leading" secondItem="Lat-5w-VDH" secondAttribute="leadingMargin" constant="8" id="SfO-oW-ghc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sEZ-4T-C1L" secondAttribute="trailing" constant="8" id="oMe-Dv-akf"/>
-                            <constraint firstItem="sEZ-4T-C1L" firstAttribute="top" secondItem="jdw-v2-lq8" secondAttribute="bottom" constant="91" id="pcy-KY-fMl"/>
+                            <constraint firstItem="sEZ-4T-C1L" firstAttribute="top" secondItem="jdw-v2-lq8" secondAttribute="bottom" constant="50" id="pcy-KY-fMl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Info" id="Lf8-Wh-0Pe"/>
