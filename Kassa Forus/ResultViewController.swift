@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ResultViewController: UIViewController {
     
@@ -14,6 +16,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var scanNewCodeButton: UIButton!
     
     var scanResult = String()
+    var budget = Double()
     
     @IBAction func scanNewCodeButton(_ sender: Any) {
     }
@@ -21,22 +24,19 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // check if the scanResult is a valid voucher
-        
-        // if valid: connect to server to check the voucher
-        
-        delay(1) {
-            if self.scanResult != "€120" {
-                self.resultField.text = "Success!"
-                
-                delay(1) {
+        checkCode(scanResult)
+    }
+    
+    func checkCode(_ code: String) {
+        Alamofire.request("http://mvp.forus.io/app/voucher/\(code)", method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
+            if let json = response.data {
+                let data = JSON(data: json)
+                let max_amount = data["response"]["max_amount"]
+                if let amount = max_amount.double {
+                    self.budget = amount
                     self.performSegue(withIdentifier: "proceedToCheckout", sender: self)
-                }
-            } else {
-                self.resultField.text = "Deze code is ongeldig.\n Bel 0900-1234 als u \nniet verder komt."
-                
-                delay(1) {
-                    self.scanNewCodeButton.isHidden = false
+                } else {
+                    self.resultField.text = "Dit is waarschijnlijk geen\nkindpakket voucher."
                 }
             }
         }
@@ -49,7 +49,8 @@ class ResultViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let target = segue.destination as? CheckoutViewController {
-            target.availableBudget = self.scanResult
+            target.availableBudget = self.budget
+            target.voucherCode = self.scanResult
         }
     }
 }

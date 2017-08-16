@@ -417,6 +417,9 @@
                                     <constraint firstAttribute="width" constant="59" id="i9q-eH-gdZ"/>
                                 </constraints>
                                 <state key="normal" title="Bevestig"/>
+                                <connections>
+                                    <action selector="confirmationButton:" destination="gOd-yN-wi6" eventType="touchUpInside" id="vr0-qk-ZFZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wkc-1k-rp5">
                                 <rect key="frame" x="31" y="272" width="118" height="81"/>
@@ -496,6 +499,7 @@
                     </view>
                     <connections>
                         <outlet property="budgetLabel" destination="gf4-bZ-beQ" id="jbH-m8-Gd9"/>
+                        <outlet property="expenceInputField" destination="pEK-iA-fnY" id="msW-xd-eLF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wEF-Xr-AWE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -590,11 +594,11 @@
                                     <constraint firstAttribute="height" constant="221" id="OPF-7k-wct"/>
                                     <constraint firstAttribute="width" constant="343" id="qYu-lR-AsM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.047058823530000002" green="0.1333333333" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utv-Gk-Z4c">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utv-Gk-Z4c">
                                 <rect key="frame" x="118" y="567" width="138" height="30"/>
                                 <state key="normal" title="Scan nieuwe code &gt;"/>
                                 <connections>
@@ -633,8 +637,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PMm-dV-aXX"/>
-        <segue reference="toE-4U-TVy"/>
+        <segue reference="lgH-V0-qHr"/>
+        <segue reference="R5R-q1-MX9"/>
         <segue reference="KAm-Ha-7fc"/>
     </inferredMetricsTieBreakers>
 </document>
