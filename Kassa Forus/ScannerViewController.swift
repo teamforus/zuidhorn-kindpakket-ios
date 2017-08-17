@@ -8,11 +8,14 @@
 
 import AVFoundation
 import QRCodeReader
+import Alamofire
+import SwiftyJSON
 import UIKit
 
 class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegate {
     
     var scanResult = String()
+    var budget = Double()
     
     @IBOutlet weak var previewView: UIView!
     lazy var reader: QRCodeReader = QRCodeReader()
@@ -69,12 +72,23 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         
         reader.startScanning()
         reader.didFindCode = { result in
-            
-            print("Completion with result: \(result.value) of type \(result.metadataType)")
-            
             self.scanResult = result.value
-            
-            self.performSegue(withIdentifier: "showResultViewController", sender: self)
+            self.checkCode(self.scanResult)
+        }
+    }
+    
+    func checkCode(_ code: String) {
+        Alamofire.request("http://mvp.forus.io/app/voucher/\(code)", method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
+            if let json = response.data {
+                let data = JSON(data: json)
+                let max_amount = data["response"]["max_amount"]
+                if let amount = max_amount.double {
+                    self.budget = amount
+                    self.performSegue(withIdentifier: "proceedToCheckout", sender: self)
+                } else {
+                    // display an error
+                }
+            }
         }
     }
     
@@ -102,6 +116,7 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     
     override func viewDidAppear(_ animated: Bool) {
         
+        // loading the setup screen
 //        if UserDefaults.standard.value(forKey: "setupComplete") == nil || loadSetup == true {
 //            performSegue(withIdentifier: "loadSetup", sender: self)
 //            loadSetup = false
@@ -111,8 +126,9 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let target = segue.destination as? ResultViewController {
-            target.scanResult = self.scanResult
+        if let target = segue.destination as? CheckoutViewController {
+            target.availableBudget = self.budget
+            target.voucherCode = self.scanResult
         }
     }
 }

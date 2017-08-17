@@ -89,7 +89,7 @@
                     <connections>
                         <outlet property="previewView" destination="VPt-mw-9Fm" id="Stk-eY-XhQ"/>
                         <segue destination="3pP-7j-tCF" kind="show" identifier="loadSetup" id="Ynq-Mx-az2"/>
-                        <segue destination="Stj-Xv-8pj" kind="show" identifier="showResultViewController" id="lU8-OW-Kqg"/>
+                        <segue destination="g5W-Mh-t2y" kind="show" identifier="proceedToCheckout" id="uZD-xh-U6q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfb-zo-kpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -227,55 +227,6 @@
             </objects>
             <point key="canvasLocation" x="505" y="837"/>
         </scene>
-        <!--Resultaat-->
-        <scene sceneID="ot3-6e-7kP">
-            <objects>
-                <viewController id="Stj-Xv-8pj" customClass="ResultViewController" customModule="Kassa_Forus" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DpR-i9-Gzp"/>
-                        <viewControllerLayoutGuide type="bottom" id="hCY-cC-h5z"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HSp-VA-Bfj">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ps-no-47X">
-                                <rect key="frame" x="16" y="191" width="343" height="221"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="Dl0-ud-Fci"/>
-                                    <constraint firstAttribute="height" constant="221" id="X2Q-DV-csH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.047058823530000002" green="0.1333333333" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esv-O9-mtr">
-                                <rect key="frame" x="118" y="503" width="138" height="30"/>
-                                <state key="normal" title="Scan nieuwe code &gt;"/>
-                                <connections>
-                                    <action selector="scanNewCodeButton:" destination="Stj-Xv-8pj" eventType="touchUpInside" id="yLg-tz-vgR"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="9Ps-no-47X" firstAttribute="centerX" secondItem="HSp-VA-Bfj" secondAttribute="centerX" id="KRq-wK-8Sr"/>
-                            <constraint firstItem="9Ps-no-47X" firstAttribute="centerY" secondItem="HSp-VA-Bfj" secondAttribute="centerY" id="XX5-E2-kF9"/>
-                            <constraint firstItem="hCY-cC-h5z" firstAttribute="top" secondItem="Esv-O9-mtr" secondAttribute="bottom" constant="70" id="ZNK-1t-1eF"/>
-                            <constraint firstItem="Esv-O9-mtr" firstAttribute="centerX" secondItem="HSp-VA-Bfj" secondAttribute="centerX" id="l92-j7-Ngn"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Resultaat" id="BlO-t1-Cbl"/>
-                    <connections>
-                        <outlet property="resultField" destination="9Ps-no-47X" id="pY3-ex-fA3"/>
-                        <outlet property="scanNewCodeButton" destination="Esv-O9-mtr" id="P9t-GA-7CD"/>
-                        <segue destination="g5W-Mh-t2y" kind="show" identifier="proceedToCheckout" id="BXL-jk-EK4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nsA-KW-HYA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1303" y="105"/>
-        </scene>
         <!--Checkout-->
         <scene sceneID="iW1-Lw-Cyz">
             <objects>
@@ -383,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOM-L4-OqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2110" y="105"/>
+            <point key="canvasLocation" x="1302" y="105"/>
         </scene>
         <!--Info-->
         <scene sceneID="EkV-i8-yHD">
@@ -420,7 +371,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exc-8M-FAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2110" y="-558"/>
+            <point key="canvasLocation" x="1302" y="-558"/>
         </scene>
         <!--Info-->
         <scene sceneID="BzU-6c-MVo">
