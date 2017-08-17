@@ -102,10 +102,10 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     
     override func viewDidAppear(_ animated: Bool) {
         
-        if UserDefaults.standard.value(forKey: "setupComplete") == nil || loadSetup == true {
-            performSegue(withIdentifier: "loadSetup", sender: self)
-            loadSetup = false
-        }
+//        if UserDefaults.standard.value(forKey: "setupComplete") == nil || loadSetup == true {
+//            performSegue(withIdentifier: "loadSetup", sender: self)
+//            loadSetup = false
+//        }
         
         loadScanner()
     }
