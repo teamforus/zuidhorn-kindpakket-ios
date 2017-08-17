@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import QRCodeReader
 import UIKit
 
 class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegate {

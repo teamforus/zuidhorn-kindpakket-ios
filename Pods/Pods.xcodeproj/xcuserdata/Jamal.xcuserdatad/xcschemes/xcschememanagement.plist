@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>QRCodeReader.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2132B3FC50607F96F75806248C5FBC8F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4E6334A1636A9CE860C91CA5194025C1</key>
+		<key>14619252DEAC48B374A1A02E57021467</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>945E21CA07DC5438B58030BB424E2E56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA95EF0843DCB276B57F5083FEB4D352</key>
 		<dict>
 			<key>primary</key>
 			<true/>

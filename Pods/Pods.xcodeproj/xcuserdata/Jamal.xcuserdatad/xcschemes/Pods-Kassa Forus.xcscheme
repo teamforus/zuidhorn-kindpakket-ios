@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2132B3FC50607F96F75806248C5FBC8F"
+               BlueprintIdentifier = "AA95EF0843DCB276B57F5083FEB4D352"
                BuildableName = "Pods_Kassa_Forus.framework"
                BlueprintName = "Pods-Kassa Forus"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2132B3FC50607F96F75806248C5FBC8F"
+            BlueprintIdentifier = "AA95EF0843DCB276B57F5083FEB4D352"
             BuildableName = "Pods_Kassa_Forus.framework"
             BlueprintName = "Pods-Kassa Forus"
             ReferencedContainer = "container:Pods.xcodeproj">
