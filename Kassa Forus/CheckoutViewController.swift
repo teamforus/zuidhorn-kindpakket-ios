@@ -20,7 +20,18 @@ class CheckoutViewController: UIViewController {
     
     @IBAction func confirmationButton(_ sender: Any) {
         if let amount = expenceInputField.text?.doubleValue {
-            processPaymentFor(voucherCode, amount: amount)
+            let refreshAlert = UIAlertController(title: "Betaling: €\(String(format: "%.2f", arguments: [amount]))", message: "Wilt u deze transactie uitvoeren?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Bevestig", style: .default, handler: { (action: UIAlertAction!) in
+                self.processPaymentFor(self.voucherCode, amount: amount)
+                self.expenceInputField.text = ""
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "Annuleer", style: .cancel, handler: { (action: UIAlertAction!) in
+                print("Handle Cancel Logic here")
+            }))
+            
+            present(refreshAlert, animated: true, completion: nil)
         }
     }
     
