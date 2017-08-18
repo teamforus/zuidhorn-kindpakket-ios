@@ -119,15 +119,18 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         dismiss(animated: true, completion: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.setHidesBackButton(true, animated:true)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        
-        // loading the setup screen
-//        if UserDefaults.standard.value(forKey: "setupComplete") == nil || loadSetup == true {
-//            performSegue(withIdentifier: "loadSetup", sender: self)
-//            loadSetup = false
-//        }
-        
-        loadScanner()
+        if UserDefaults.standard.value(forKey: "setupComplete") == nil || loadSetup == true {
+            performSegue(withIdentifier: "loadSetup", sender: self)
+            loadSetup = false
+        } else {
+            loadScanner()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

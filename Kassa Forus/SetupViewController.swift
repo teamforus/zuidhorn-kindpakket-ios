@@ -24,6 +24,11 @@ class SetupViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "continueToQRScanner", sender: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.setHidesBackButton(true, animated:true)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         self.shopNameInput.delegate = self;
         self.shopIBANInput.delegate = self;
