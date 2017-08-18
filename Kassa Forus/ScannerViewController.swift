@@ -86,7 +86,12 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
                     self.budget = amount
                     self.performSegue(withIdentifier: "proceedToCheckout", sender: self)
                 } else {
-                    // display an error
+                    let alert = UIAlertController(title: "Error", message: "Dit is geen valide voucher of er was een verbindingsprobleem.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                        self.loadScanner()
+                    }))
+                    
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
