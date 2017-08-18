@@ -50,6 +50,11 @@ class CheckoutViewController: UIViewController {
                 let max_amount = data["response"]["max_amount"]
                 if let amount = max_amount.double {
                     self.budgetLabel.text = "€\(String(format: "%.2f", arguments: [amount]))"
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "De transactie is mislukt, controleer uw verbinding en probeer het opnieuw.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    
+                    self.present(alert, animated: true)
                 }
             }
         }
