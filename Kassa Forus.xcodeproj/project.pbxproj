@@ -14,6 +14,7 @@
 		890F463F1F229A7300A2B006 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 890F463D1F229A7300A2B006 /* Info.plist */; };
 		8926674E1F446F250018398E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8926674D1F446F250018398E /* Main.storyboard */; };
 		892D1F1D1F4B502300E0A0E7 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D1F1C1F4B502300E0A0E7 /* RegistrationViewController.swift */; };
+		892D1F1F1F4B595400E0A0E7 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D1F1E1F4B595400E0A0E7 /* APIHeader.swift */; };
 		8993F9131F22AC4200B3BCDB /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */; };
 		8993F9151F22AD7F00B3BCDB /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */; };
 		89A3B1101F2350BA004986B6 /* DevConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3B10F1F2350BA004986B6 /* DevConfig.swift */; };
@@ -35,6 +36,7 @@
 		891E92B61F417E5B007B4FE0 /* API.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = API.playground; sourceTree = "<group>"; };
 		8926674D1F446F250018398E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "Kassa Forus/Main.storyboard"; sourceTree = "<group>"; };
 		892D1F1C1F4B502300E0A0E7 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = "Kassa Forus/RegistrationViewController.swift"; sourceTree = "<group>"; };
+		892D1F1E1F4B595400E0A0E7 /* APIHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHeader.swift; path = "Kassa Forus/APIHeader.swift"; sourceTree = "<group>"; };
 		8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutViewController.swift; path = "Kassa Forus/CheckoutViewController.swift"; sourceTree = "<group>"; };
 		8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalFunctions.swift; path = "Kassa Forus/GlobalFunctions.swift"; sourceTree = "<group>"; };
 		89A3B10F1F2350BA004986B6 /* DevConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DevConfig.swift; path = "Kassa Forus/DevConfig.swift"; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				89A3B1111F2387B9004986B6 /* ScannerMarkerView.swift */,
 				8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */,
 				890F46231F229A3F00A2B006 /* AppDelegate.swift */,
+				892D1F1E1F4B595400E0A0E7 /* APIHeader.swift */,
 				89C8941F1F228720000C2318 /* Images.xcassets */,
 				891E92B61F417E5B007B4FE0 /* API.playground */,
 				CE412E8C19D9A1E4000F294E /* Supporting Files */,
@@ -256,6 +259,7 @@
 				89A3B1121F2387B9004986B6 /* ScannerMarkerView.swift in Sources */,
 				8993F9151F22AD7F00B3BCDB /* GlobalFunctions.swift in Sources */,
 				89C894221F22881B000C2318 /* SetupViewController.swift in Sources */,
+				892D1F1F1F4B595400E0A0E7 /* APIHeader.swift in Sources */,
 				8993F9131F22AC4200B3BCDB /* CheckoutViewController.swift in Sources */,
 				890F46261F229A5400A2B006 /* ScannerViewController.swift in Sources */,
 			);

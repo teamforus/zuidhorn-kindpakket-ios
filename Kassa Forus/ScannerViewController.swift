@@ -78,10 +78,10 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     func checkCode(_ code: String) {
-        Alamofire.request("http://mvp.forus.io/app/voucher/\(code)", method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request("http://mvp.forus.io/api/voucher/\(code)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let json = response.data {
                 let data = JSON(data: json)
-                let max_amount = data["response"]["max_amount"]
+                let max_amount = data["max_amount"]
                 if let amount = max_amount.double {
                     self.budget = amount
                     self.performSegue(withIdentifier: "proceedToCheckout", sender: self)
@@ -125,11 +125,15 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if UserDefaults.standard.value(forKey: "setupComplete") == nil || loadSetup == true {
+        if UserDefaults.standard.value(forKey: "APItoken") == nil || loadSetup == true {
             performSegue(withIdentifier: "loadSetup", sender: self)
             loadSetup = false
         } else {
             loadScanner()
+        }
+        
+        if let token = UserDefaults.standard.value(forKey: "APItoken") {
+            headers["Authorization"] = "Bearer \(token)"
         }
     }
     

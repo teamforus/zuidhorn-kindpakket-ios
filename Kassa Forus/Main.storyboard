@@ -41,19 +41,19 @@
                         <viewControllerLayoutGuide type="bottom" id="go1-YO-DwR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5Gd-0p-03Z">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPt-mw-9Fm" userLabel="Preview View">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="GDY-98-8i1" customClass="ScannerMarkerView" customModule="Kassa_Forus" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan de code op de voucher van een klant." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3O-yz-C9B">
-                                <rect key="frame" x="48" y="25" width="278" height="22"/>
+                                <rect key="frame" x="48" y="45" width="278" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="oMK-ry-Z0B"/>
                                 </constraints>
@@ -106,11 +106,11 @@
                         <viewControllerLayoutGuide type="bottom" id="zvB-7y-xyO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="76o-md-YpC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upr-le-fZ3">
-                                <rect key="frame" x="16" y="68" width="343" height="467"/>
+                                <rect key="frame" x="16" y="100" width="343" height="467"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="467" id="XNb-mm-6hd"/>
@@ -143,36 +143,36 @@
                         <viewControllerLayoutGuide type="bottom" id="tY1-al-W23"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sf9-CX-QFX">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welkom" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkW-Vf-Drq">
-                                <rect key="frame" x="142" y="50" width="92.5" height="31.5"/>
+                                <rect key="frame" x="142" y="70" width="92.5" height="31.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.047058823530000002" green="0.1333333333" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bent u al geregistreerd?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVN-l4-4by">
-                                <rect key="frame" x="96" y="101.5" width="183" height="21"/>
+                                <rect key="frame" x="96" y="121.5" width="183" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.047058823530000002" green="0.1333333333" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eerste keer?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bw7-5h-6pz">
-                                <rect key="frame" x="140" y="180.5" width="95" height="21"/>
+                                <rect key="frame" x="140" y="200.5" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.047058823530000002" green="0.1333333333" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1h-K4-kbe">
-                                <rect key="frame" x="157" y="130" width="60" height="30"/>
+                                <rect key="frame" x="157" y="150" width="60" height="30"/>
                                 <state key="normal" title="Inloggen"/>
                                 <connections>
                                     <segue destination="oxq-V8-xc5" kind="show" id="X4T-PB-9Cf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diK-g2-LiJ">
-                                <rect key="frame" x="148" y="209" width="79" height="30"/>
+                                <rect key="frame" x="148" y="229" width="79" height="30"/>
                                 <state key="normal" title="Registreren"/>
                                 <connections>
                                     <segue destination="js4-Te-ZLF" kind="show" id="635-Tu-LHy"/>
@@ -218,11 +218,11 @@
                         <viewControllerLayoutGuide type="bottom" id="aI0-D1-0fG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5Dk-1b-5Jl">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beschikbaar budget: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joW-4v-kY8">
-                                <rect key="frame" x="106" y="50" width="163" height="29"/>
+                                <rect key="frame" x="106" y="70" width="163" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="43P-iT-dZb"/>
                                 </constraints>
@@ -231,7 +231,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aankoop bedrag:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHF-z2-lcg">
-                                <rect key="frame" x="106" y="170" width="163" height="26"/>
+                                <rect key="frame" x="106" y="190" width="163" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="163" id="8hv-DL-7rO"/>
                                     <constraint firstAttribute="height" constant="26" id="Lqt-L8-nuV"/>
@@ -241,7 +241,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqu-By-cYw">
-                                <rect key="frame" x="95" y="79" width="185" height="81"/>
+                                <rect key="frame" x="95" y="99" width="185" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="185" id="3yQ-Ld-8UW"/>
                                     <constraint firstAttribute="height" constant="81" id="Loz-Il-iHj"/>
@@ -251,7 +251,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVs-wl-gqP">
-                                <rect key="frame" x="138" y="220" width="98" height="45"/>
+                                <rect key="frame" x="138" y="240" width="98" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="KyC-b7-KPu"/>
                                     <constraint firstAttribute="height" constant="45" id="aEU-H7-JEF"/>
@@ -261,7 +261,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCJ-GW-EfV">
-                                <rect key="frame" x="259" y="227" width="59" height="30"/>
+                                <rect key="frame" x="259" y="247" width="59" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="KDi-v3-hVu"/>
                                     <constraint firstAttribute="width" constant="59" id="SGy-uc-Hh3"/>
@@ -272,7 +272,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6I7-Bu-fCm">
-                                <rect key="frame" x="31" y="202" width="118" height="81"/>
+                                <rect key="frame" x="31" y="222" width="118" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="HvM-V6-pps"/>
                                     <constraint firstAttribute="width" constant="118" id="z3I-00-tT0"/>
@@ -327,11 +327,11 @@
                         <viewControllerLayoutGuide type="bottom" id="rn6-jl-sCg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Pac-KL-OMB">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVN-xp-Fao">
-                                <rect key="frame" x="16" y="68" width="343" height="467"/>
+                                <rect key="frame" x="16" y="100" width="343" height="467"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="467" id="liD-AU-ast"/>
@@ -364,11 +364,11 @@
                         <viewControllerLayoutGuide type="bottom" id="cKU-bJ-jpy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Lat-5w-VDH">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEZ-4T-C1L">
-                                <rect key="frame" x="24" y="50" width="327" height="603"/>
+                                <rect key="frame" x="24" y="70" width="327" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" red="0.047058823530000002" green="0.1333333333" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -399,23 +399,23 @@
                         <viewControllerLayoutGuide type="bottom" id="rx1-j5-gsu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="j7e-vO-T54">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2QZ-KS-CVG">
-                                <rect key="frame" x="37.5" y="100" width="300" height="30"/>
+                                <rect key="frame" x="37.5" y="120" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wachtwoord" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1xS-Gv-VrU">
-                                <rect key="frame" x="38.5" y="148" width="300" height="30"/>
+                                <rect key="frame" x="37.5" y="168" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVc-X7-LcP">
-                                <rect key="frame" x="157" y="203" width="60" height="30"/>
+                                <rect key="frame" x="157" y="223" width="60" height="30"/>
                                 <state key="normal" title="Inloggen"/>
                             </button>
                         </subviews>
@@ -459,35 +459,35 @@
                         <viewControllerLayoutGuide type="bottom" id="pnh-lh-ff7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NP2-fR-9vn">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="KVK nummer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="grs-l4-z7r">
-                                <rect key="frame" x="38" y="20" width="300" height="30"/>
+                                <rect key="frame" x="38" y="40" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="IBAN rekeningnummer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cbX-28-rQc">
-                                <rect key="frame" x="37" y="65" width="300" height="30"/>
+                                <rect key="frame" x="37" y="85" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="IBAN tenaamstelling" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ps5-6a-pRJ">
-                                <rect key="frame" x="37.5" y="110" width="300" height="30"/>
+                                <rect key="frame" x="37.5" y="130" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Emailadres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MVS-es-6km">
-                                <rect key="frame" x="37.5" y="155" width="300" height="30"/>
+                                <rect key="frame" x="37.5" y="175" width="300" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CK-az-aIh">
-                                <rect key="frame" x="152" y="205" width="71" height="30"/>
+                                <rect key="frame" x="152" y="225" width="71" height="30"/>
                                 <state key="normal" title="Registreer"/>
                                 <connections>
                                     <action selector="registerButton:" destination="js4-Te-ZLF" eventType="touchUpInside" id="SW6-Fe-Pwj"/>
@@ -529,6 +529,7 @@
                         <outlet property="KVKInput" destination="grs-l4-z7r" id="Zm0-W0-aAt"/>
                         <outlet property="emailInput" destination="MVS-es-6km" id="4Fu-3r-kQ6"/>
                         <segue destination="7lh-z1-vPy" kind="show" id="AJ6-KZ-Vnl"/>
+                        <segue destination="xvb-pV-pSp" kind="show" identifier="loadScanner" id="OMH-ht-EkA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2mF-fN-ufD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -544,11 +545,11 @@
                         <viewControllerLayoutGuide type="bottom" id="LzD-Xi-iTD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wd9-YC-mQx">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Uw aanvraag wordt beoordeeld. U krijgt een email met een wachtwoord wanneer deze is goedgekeurd. " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIu-R5-Bzj">
-                                <rect key="frame" x="57" y="237.5" width="261" height="128"/>
+                                <rect key="frame" x="57" y="269.5" width="261" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="261" id="2eQ-Wz-Q0Q"/>
@@ -586,11 +587,11 @@
                         <viewControllerLayoutGuide type="bottom" id="UcL-HN-MqC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fGr-rn-hPa">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="U heeft een email ontvangen op: xxx@xxx.com, klik op de link om de aanmelding van dit apparaat te bevestigen." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKI-OW-rIV">
-                                <rect key="frame" x="57" y="237.5" width="261" height="128"/>
+                                <rect key="frame" x="57" y="269.5" width="261" height="128"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="261" id="0de-U1-8Hp"/>
@@ -621,6 +622,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="OMH-ht-EkA"/>
         <segue reference="389-jl-t2q"/>
     </inferredMetricsTieBreakers>
 </document>
