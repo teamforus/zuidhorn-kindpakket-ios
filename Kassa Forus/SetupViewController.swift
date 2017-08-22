@@ -11,18 +11,16 @@ import UIKit
 
 class SetupViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var shopNameInput: UITextField!
-    @IBOutlet weak var shopIBANInput: UITextField!
     
-    @IBAction func continueButton(_ sender: Any) {
-        UserDefaults.standard.setValue(shopNameInput.text, forKey: "ShopName")
-        UserDefaults.standard.setValue(shopIBANInput.text, forKey: "ShopIBAN")
-        
-        // TODO: display loading screen and send to server
-        // if successfully sent to server:
-        UserDefaults.standard.setValue(true, forKey: "setupComplete")
-        performSegue(withIdentifier: "continueToQRScanner", sender: self)
-    }
+//    @IBAction func continueButton(_ sender: Any) {
+//        UserDefaults.standard.setValue(shopNameInput.text, forKey: "ShopName")
+//        UserDefaults.standard.setValue(shopIBANInput.text, forKey: "ShopIBAN")
+//        
+//        // TODO: display loading screen and send to server
+//        // if successfully sent to server:
+//        UserDefaults.standard.setValue(true, forKey: "setupComplete")
+//        performSegue(withIdentifier: "continueToQRScanner", sender: self)
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,8 +28,8 @@ class SetupViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.shopNameInput.delegate = self;
-        self.shopIBANInput.delegate = self;
+//        self.shopNameInput.delegate = self
+//        self.shopIBANInput.delegate = self
     }
     
     override func viewDidLoad() {
