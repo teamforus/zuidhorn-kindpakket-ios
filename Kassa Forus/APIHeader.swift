@@ -10,5 +10,4 @@ import Alamofire
 
 var headers: HTTPHeaders = [
     "Accept": "application/json",
-    "Device-Id": "c28d266b8088ffb8f176bc7823cdccfa44bb19df",
 ]

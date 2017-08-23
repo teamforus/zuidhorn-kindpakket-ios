@@ -132,6 +132,8 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
             loadScanner()
         }
         
+        headers["Device-Id"] = UIDevice.current.identifierForVendor!.uuidString
+        
         if let token = UserDefaults.standard.value(forKey: "APItoken") {
             headers["Authorization"] = "Bearer \(token)"
         }
