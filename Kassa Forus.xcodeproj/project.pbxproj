@@ -15,6 +15,7 @@
 		8926674E1F446F250018398E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8926674D1F446F250018398E /* Main.storyboard */; };
 		892D1F1D1F4B502300E0A0E7 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D1F1C1F4B502300E0A0E7 /* RegistrationViewController.swift */; };
 		892D1F1F1F4B595400E0A0E7 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D1F1E1F4B595400E0A0E7 /* APIHeader.swift */; };
+		894C6DEC1F4DC10E0008D161 /* AddRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C6DEB1F4DC10E0008D161 /* AddRegisterViewController.swift */; };
 		8993F9131F22AC4200B3BCDB /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */; };
 		8993F9151F22AD7F00B3BCDB /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */; };
 		89A3B1101F2350BA004986B6 /* DevConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3B10F1F2350BA004986B6 /* DevConfig.swift */; };
@@ -37,6 +38,7 @@
 		8926674D1F446F250018398E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "Kassa Forus/Main.storyboard"; sourceTree = "<group>"; };
 		892D1F1C1F4B502300E0A0E7 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = "Kassa Forus/RegistrationViewController.swift"; sourceTree = "<group>"; };
 		892D1F1E1F4B595400E0A0E7 /* APIHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHeader.swift; path = "Kassa Forus/APIHeader.swift"; sourceTree = "<group>"; };
+		894C6DEB1F4DC10E0008D161 /* AddRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddRegisterViewController.swift; path = "Kassa Forus/AddRegisterViewController.swift"; sourceTree = "<group>"; };
 		8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutViewController.swift; path = "Kassa Forus/CheckoutViewController.swift"; sourceTree = "<group>"; };
 		8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalFunctions.swift; path = "Kassa Forus/GlobalFunctions.swift"; sourceTree = "<group>"; };
 		89A3B10F1F2350BA004986B6 /* DevConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DevConfig.swift; path = "Kassa Forus/DevConfig.swift"; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				8926674D1F446F250018398E /* Main.storyboard */,
 				89C894211F22881B000C2318 /* SetupViewController.swift */,
 				892D1F1C1F4B502300E0A0E7 /* RegistrationViewController.swift */,
+				894C6DEB1F4DC10E0008D161 /* AddRegisterViewController.swift */,
 				890F46251F229A5400A2B006 /* ScannerViewController.swift */,
 				8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */,
 				890F46211F229A3300A2B006 /* Launch Screen.storyboard */,
@@ -232,12 +235,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Kassa Forus/Pods-Kassa Forus-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/QRCode/QRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -258,6 +263,7 @@
 				892D1F1D1F4B502300E0A0E7 /* RegistrationViewController.swift in Sources */,
 				89A3B1121F2387B9004986B6 /* ScannerMarkerView.swift in Sources */,
 				8993F9151F22AD7F00B3BCDB /* GlobalFunctions.swift in Sources */,
+				894C6DEC1F4DC10E0008D161 /* AddRegisterViewController.swift in Sources */,
 				89C894221F22881B000C2318 /* SetupViewController.swift in Sources */,
 				892D1F1F1F4B595400E0A0E7 /* APIHeader.swift in Sources */,
 				8993F9131F22AC4200B3BCDB /* CheckoutViewController.swift in Sources */,

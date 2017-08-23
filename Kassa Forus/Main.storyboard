@@ -396,7 +396,7 @@
         <!--Kassa Aanmelden-->
         <scene sceneID="j1a-Zv-8j0">
             <objects>
-                <viewController id="oxq-V8-xc5" sceneMemberID="viewController">
+                <viewController id="oxq-V8-xc5" customClass="AddRegisterViewController" customModule="Kassa_Forus" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3q8-gf-qmx"/>
                         <viewControllerLayoutGuide type="bottom" id="rx1-j5-gsu"/>
@@ -417,15 +417,16 @@ geregistreerd apparaat</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qrcodesample" translatesAutoresizingMaskIntoConstraints="NO" id="kqC-2h-eMh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kqC-2h-eMh">
                                 <rect key="frame" x="67" y="137" width="240" height="240"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kqC-2h-eMh" secondAttribute="height" multiplier="1:1" id="sat-wl-7ez"/>
                                     <constraint firstAttribute="width" constant="240" id="t6E-dq-spB"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dwF-WH-C5J" firstAttribute="top" secondItem="3q8-gf-qmx" secondAttribute="bottom" constant="66" id="4Cv-cs-jnJ"/>
                             <constraint firstItem="dwF-WH-C5J" firstAttribute="centerX" secondItem="j7e-vO-T54" secondAttribute="centerX" id="9SP-kn-yPE"/>
@@ -444,6 +445,9 @@ geregistreerd apparaat</string>
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="qrCode" destination="kqC-2h-eMh" id="kVR-8h-5vo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ht-rQ-eYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -578,9 +582,6 @@ geregistreerd apparaat</string>
             <point key="canvasLocation" x="2130" y="836"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="qrcodesample" width="400" height="400"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eyg-Te-Nn7"/>
         <segue reference="Uwk-de-3QH"/>
