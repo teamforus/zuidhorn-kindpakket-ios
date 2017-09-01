@@ -12,10 +12,20 @@ import SwiftyJSON
 
 class RegistrationViewController: UIViewController {
 
+    @IBOutlet weak var registrationView: UIView!
     @IBOutlet weak var KVKInput: UITextField!
     @IBOutlet weak var IBANInput: UITextField!
     @IBOutlet weak var IBANNameInput: UITextField!
     @IBOutlet weak var emailInput: UITextField!
+    
+    @IBOutlet weak var pendingView: UIView!
+    
+    @IBAction func autofill(_ sender: Any) {
+        KVKInput.text = "68492235"
+        IBANInput.text = "NL10INGB0006364301"
+        IBANNameInput.text = "Fietsen Zuidhorn"
+        emailInput.text = "jamal@stichtingforus.nl"
+    }
     
     @IBAction func registerButton(_ sender: Any) {
         signup(kvk: KVKInput.text!, iban: IBANInput.text!, email: emailInput.text!)
@@ -30,17 +40,22 @@ class RegistrationViewController: UIViewController {
             if let json = response.data {
                 let data = JSON(data: json)
                 let token = data["access_token"]
-                UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
-                headers["Authorization"] = "Bearer \(token)"
-                self.performSegue(withIdentifier: "loadScanner", sender: self)
+//                UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
+//                headers["Authorization"] = "Bearer \(token)"
+                self.pendingView.isHidden = false
+                self.registrationView.isHidden = true
             }
         }
+    }
+    
+    func loadScanner() {
+        self.performSegue(withIdentifier: "loadScanner", sender: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        pendingView.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
