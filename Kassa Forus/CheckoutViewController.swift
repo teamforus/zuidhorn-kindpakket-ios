@@ -38,7 +38,11 @@ class CheckoutViewController: UIViewController {
     func processPaymentFor(_ code: String, amount: Double) {
         Alamofire.request("http://mvp.forus.io/api/voucher/\(code)", method: .post, parameters: ["amount": "\(amount)", "_method": "PUT"], encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
-                self.updateBudget()
+                // if shortage: display notification "Deze transactie overschrijd het budget met €x. [klant betaald bij] [annuleer]"
+                    // another notification "Bevestig dat de klant u €x heeft betaald [bevestig] [annuleer]"
+                
+                
+                // if success: display notification "Transactie Successvol. Er is €x afgeschreven"
         }
     }
     
