@@ -17,6 +17,13 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var IBANNameInput: UITextField!
     @IBOutlet weak var emailInput: UITextField!
     
+    @IBAction func autofill(_ sender: Any) {
+        KVKInput.text = "69097488"
+        IBANInput.text = "NL91RABO0134369122"
+        IBANNameInput.text = "Fietsen Zuidhorn"
+        emailInput.text = "jamal@stichtingforus.nl"
+    }
+    
     @IBAction func registerButton(_ sender: Any) {
         signup(kvk: KVKInput.text!, iban: IBANInput.text!, email: emailInput.text!)
     }
@@ -31,16 +38,20 @@ class RegistrationViewController: UIViewController {
                 let data = JSON(data: json)
                 let token = data["access_token"]
                 UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
+                UserDefaults.standard.setValue("pending", forKey: "registrationStatus")
                 headers["Authorization"] = "Bearer \(token)"
-                self.performSegue(withIdentifier: "loadScanner", sender: self)
+                
+                self.returnToSetup()
             }
         }
     }
     
+    func returnToSetup() {
+        self.performSegue(withIdentifier: "returnToSetup", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

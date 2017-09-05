@@ -63,6 +63,15 @@ func processPaymentFor(_ code: String, amount: Double) {
 //processPaymentFor("HBYHPY-E6UDM3-8T3UXE-ZASNRW", amount: 3.33)
 
 
+func getStatus() {
+    // new method
+    Alamofire.request("http://mvp.forus.io/api/user", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            if let json = response.data {
+                let data = JSON(data: json)
+                print(data)
+            }
+    }
+}
 
 
 

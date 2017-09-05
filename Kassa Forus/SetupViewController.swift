@@ -8,41 +8,61 @@
 
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
-class SetupViewController: UIViewController, UITextFieldDelegate {
+class SetupViewController: UIViewController {
 
+    @IBOutlet weak var setupView: UIView!
+    @IBOutlet weak var pendingView: UIView!
     
-//    @IBAction func continueButton(_ sender: Any) {
-//        UserDefaults.standard.setValue(shopNameInput.text, forKey: "ShopName")
-//        UserDefaults.standard.setValue(shopIBANInput.text, forKey: "ShopIBAN")
-//        
-//        // TODO: display loading screen and send to server
-//        // if successfully sent to server:
-//        UserDefaults.standard.setValue(true, forKey: "setupComplete")
-//        performSegue(withIdentifier: "continueToQRScanner", sender: self)
-//    }
+    @IBAction func cancelRequest(_ sender: Any) {
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated:true)
+        
+        if let registrationStatus = UserDefaults.standard.value(forKey: "registrationStatus") as? String {
+            if registrationStatus == "pending" {
+                setupView.isHidden = true
+                getStatus()
+            }
+        } else {
+            pendingView.isHidden = true
+        }
+    }
+    
+    func getStatus() {
+        Alamofire.request("http://mvp.forus.io/api/user", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            if let json = response.data {
+                let data = JSON(data: json)
+                if data["shop_keeper"]["state"] == "approved" {
+                    let alert = UIAlertController(title: "Aanvraag afgerond.", message: "U kunt vanaf nu vouchers scannen.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Open Scanner", style: .cancel, handler: { (_) in
+                        UserDefaults.standard.setValue("approved", forKey: "registrationStatus")
+                        self.performSegue(withIdentifier: "loadScanner", sender: self)
+                    }))
+                    
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        self.shopNameInput.delegate = self
-//        self.shopIBANInput.delegate = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(getStatus), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
     }
 }
