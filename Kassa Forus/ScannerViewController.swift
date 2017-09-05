@@ -125,17 +125,25 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        headers["Device-Id"] = UIDevice.current.identifierForVendor!.uuidString
+        
+        if let token = UserDefaults.standard.value(forKey: "APItoken") {
+            headers["Authorization"] = "Bearer \(token)"
+        }
+        
+        if let registrationStatus = UserDefaults.standard.value(forKey: "registrationStatus") as? String {
+            if registrationStatus == "pending" {
+                print("Registration pending!")
+                performSegue(withIdentifier: "loadSetup", sender: self)
+                return
+            }
+        }
+        
         if UserDefaults.standard.value(forKey: "APItoken") == nil || loadSetup == true {
             performSegue(withIdentifier: "loadSetup", sender: self)
             loadSetup = false
         } else {
             loadScanner()
-        }
-        
-        headers["Device-Id"] = UIDevice.current.identifierForVendor!.uuidString
-        
-        if let token = UserDefaults.standard.value(forKey: "APItoken") {
-            headers["Authorization"] = "Bearer \(token)"
         }
     }
     
