@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class AddRegisterViewController: UIViewController {
 
@@ -30,9 +32,24 @@ class AddRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let message = generateQRCode(from: "test")
-        
-        qrCode.image = message
+        getToken()
+    }
+    
+    func getToken() {
+        Alamofire.request("http://mvp.forus.io/api/shop-keeper/device/token", method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+            .responseJSON { response in
+                
+                if let json = response.data {
+                    let data = JSON(data: json)
+                    let token = data["token"]
+                    
+                    print(String(describing: token))
+                    
+                    let message = self.generateQRCode(from: String(describing: token))
+                    self.qrCode.image = message
+                }
+                
+        }
     }
 
     override func didReceiveMemoryWarning() {
