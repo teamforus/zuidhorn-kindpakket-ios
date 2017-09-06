@@ -14,10 +14,15 @@ import UIKit
 
 class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegate {
     
+    @IBOutlet weak var instruction: UILabel!
+    
     var scanResult = String()
     var budget = Double()
     
+    var addingDevice = false
+    
     @IBOutlet weak var previewView: UIView!
+    
     lazy var reader: QRCodeReader = QRCodeReader()
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
@@ -78,20 +83,44 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     func checkCode(_ code: String) {
-        Alamofire.request("http://mvp.forus.io/api/voucher/\(code)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            if let json = response.data {
-                let data = JSON(data: json)
-                let max_amount = data["max_amount"]
-                if let amount = max_amount.double {
-                    self.budget = amount
-                    self.performSegue(withIdentifier: "proceedToCheckout", sender: self)
-                } else {
-                    let alert = UIAlertController(title: "Error", message: "Dit is geen valide voucher of er was een verbindingsprobleem.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+        if !addingDevice {
+            Alamofire.request("http://mvp.forus.io/api/voucher/\(code)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                if let json = response.data {
+                    let data = JSON(data: json)
+                    let max_amount = data["max_amount"]
+                    if let amount = max_amount.double {
+                        self.budget = amount
+                        self.performSegue(withIdentifier: "proceedToCheckout", sender: self)
+                    } else {
+                        let alert = UIAlertController(title: "Error", message: "Dit is geen valide voucher of er was een verbindingsprobleem.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                            self.loadScanner()
+                        }))
+                        
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            }
+        } else {
+            Alamofire.request("http://mvp.forus.io/api/shop-keeper/device", method: .post, parameters: ["token": "\(code)"], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                if let json = response.data {
+                    let data = JSON(data: json)
+                    let token = data["access_token"]
+                    UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
+                    UserDefaults.standard.setValue("approved", forKey: "registrationStatus")
+                    headers["Authorization"] = "Bearer \(token)"
+                    
+                    print(data["access_token"])
+                    
+                    // notification that it worked, then loadscanner
+                    let alert = UIAlertController(title: "Success", message: "Dit apparaat is succesvol toegevoegd", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
+                        self.addingDevice = false
+                        self.instruction.text = "Scan de code op de voucher van een klant."
                         self.loadScanner()
                     }))
                     
-                    self.present(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true)
                 }
             }
         }
@@ -131,18 +160,26 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
             headers["Authorization"] = "Bearer \(token)"
         }
         
-        if let registrationStatus = UserDefaults.standard.value(forKey: "registrationStatus") as? String {
-            if registrationStatus == "pending" {
-                print("Registration pending!")
-                performSegue(withIdentifier: "loadSetup", sender: self)
-                return
-            }
-        }
+        print("adding device = \(addingDevice)")
         
-        if UserDefaults.standard.value(forKey: "APItoken") == nil || loadSetup == true {
-            performSegue(withIdentifier: "loadSetup", sender: self)
-            loadSetup = false
+        if !addingDevice {
+            if let registrationStatus = UserDefaults.standard.value(forKey: "registrationStatus") as? String {
+                if registrationStatus == "pending" {
+                    print("Registration pending!")
+                    performSegue(withIdentifier: "loadSetup", sender: self)
+                    return
+                }
+            }
+            
+            if UserDefaults.standard.value(forKey: "APItoken") == nil || loadSetup == true {
+                performSegue(withIdentifier: "loadSetup", sender: self)
+                loadSetup = false
+            } else {
+                loadScanner()
+            }
         } else {
+            instruction.text = "Scan de code code op het andere apparaat."
+            
             loadScanner()
         }
     }

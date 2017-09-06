@@ -19,6 +19,9 @@ class SetupViewController: UIViewController {
     @IBAction func cancelRequest(_ sender: Any) {
     }
     
+    @IBAction func addRegister(_ sender: Any) {
+        self.performSegue(withIdentifier: "loadScanner", sender: self)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -64,5 +67,13 @@ class SetupViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("about to changex it")
+        if let target = segue.destination as? ScannerViewController {
+            print("changing it")
+            target.addingDevice = true
+        }
     }
 }

@@ -89,6 +89,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="instruction" destination="S3O-yz-C9B" id="tgE-2Q-eHJ"/>
                         <outlet property="previewView" destination="VPt-mw-9Fm" id="Stk-eY-XhQ"/>
                         <segue destination="3pP-7j-tCF" kind="show" identifier="loadSetup" id="Ynq-Mx-az2"/>
                         <segue destination="g5W-Mh-t2y" kind="show" identifier="proceedToCheckout" id="uZD-xh-U6q"/>
@@ -154,7 +155,7 @@
                                         <rect key="frame" x="128" y="400" width="120" height="30"/>
                                         <state key="normal" title="Kassa aanmelden"/>
                                         <connections>
-                                            <segue destination="oxq-V8-xc5" kind="show" id="X4T-PB-9Cf"/>
+                                            <action selector="addRegister:" destination="3pP-7j-tCF" eventType="touchUpInside" id="F74-Tc-hdS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diK-g2-LiJ">
@@ -604,8 +605,8 @@ geregistreerd apparaat</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dJZ-gh-Shi"/>
-        <segue reference="dDc-IS-RQg"/>
+        <segue reference="Ynq-Mx-az2"/>
+        <segue reference="7Mh-jk-8Pc"/>
         <segue reference="eUX-74-sBK"/>
     </inferredMetricsTieBreakers>
 </document>
