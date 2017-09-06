@@ -365,6 +365,7 @@
                     <connections>
                         <outlet property="budgetLabel" destination="Tqu-By-cYw" id="eyZ-tv-Qi5"/>
                         <outlet property="expenceInputField" destination="oVs-wl-gqP" id="7XX-qX-orV"/>
+                        <segue destination="xvb-pV-pSp" kind="show" identifier="returnToScanner" id="dJZ-gh-Shi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOM-L4-OqD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -603,8 +604,8 @@ geregistreerd apparaat</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eUX-74-sBK"/>
+        <segue reference="dJZ-gh-Shi"/>
         <segue reference="dDc-IS-RQg"/>
-        <segue reference="7Mh-jk-8Pc"/>
+        <segue reference="eUX-74-sBK"/>
     </inferredMetricsTieBreakers>
 </document>
