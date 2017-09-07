@@ -150,7 +150,19 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.setHidesBackButton(true, animated:true)
+        if !addingDevice {
+            let leftButton: UIButton = UIButton(type: UIButtonType.contactAdd)
+            leftButton.addTarget(self, action: #selector(ScannerViewController.showToken), for: UIControlEvents.touchUpInside)
+            
+            let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
+            self.navigationItem.setLeftBarButton(leftBarButtonItem, animated: false)
+        } else {
+            instruction.text = "Scan de code op het andere apparaat."
+        }
+    }
+    
+    func showToken() {
+        self.performSegue(withIdentifier: "showToken", sender: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -178,8 +190,6 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
                 loadScanner()
             }
         } else {
-            instruction.text = "Scan de code code op het andere apparaat."
-            
             loadScanner()
         }
     }
