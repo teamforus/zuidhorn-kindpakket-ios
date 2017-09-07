@@ -42,19 +42,19 @@
                         <viewControllerLayoutGuide type="bottom" id="go1-YO-DwR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5Gd-0p-03Z">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPt-mw-9Fm" userLabel="Preview View">
-                                <rect key="frame" x="-0.5" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="GDY-98-8i1" customClass="ScannerMarkerView" customModule="Kassa_Forus" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan de code op de voucher van een klant." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3O-yz-C9B">
-                                <rect key="frame" x="48" y="25" width="278" height="22"/>
+                                <rect key="frame" x="48" y="45" width="278" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="oMK-ry-Z0B"/>
                                 </constraints>
@@ -109,16 +109,16 @@
                         <viewControllerLayoutGuide type="bottom" id="zvB-7y-xyO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="76o-md-YpC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upr-le-fZ3">
-                                <rect key="frame" x="16" y="68" width="343" height="467"/>
+                                <rect key="frame" x="16" y="100" width="343" height="467"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="467" id="XNb-mm-6hd"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <string key="text">Deelnemende klanten zullen een voucher presenteren, richt de camera op de voucher om door te gaan naar het volgende scherm waar u de verkoop prijs kan invoeren. [mocht het niet werken, probeer dan / bel dan ...,]</string>
                                 <color key="textColor" red="0.047058823530000002" green="0.1333333333" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -146,63 +146,68 @@
                         <viewControllerLayoutGuide type="bottom" id="tY1-al-W23"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sf9-CX-QFX">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0R-OY-SYh" userLabel="SetupView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1h-K4-kbe">
-                                        <rect key="frame" x="128" y="400" width="120" height="30"/>
-                                        <state key="normal" title="Kassa aanmelden"/>
+                                        <rect key="frame" x="135" y="331" width="106" height="30"/>
+                                        <state key="normal" title="Meld kassa aan"/>
                                         <connections>
                                             <action selector="addRegister:" destination="3pP-7j-tCF" eventType="touchUpInside" id="F74-Tc-hdS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diK-g2-LiJ">
-                                        <rect key="frame" x="148" y="180" width="79" height="30"/>
-                                        <state key="normal" title="Registreren"/>
+                                        <rect key="frame" x="152" y="191" width="71" height="30"/>
+                                        <state key="normal" title="Registreer"/>
                                         <connections>
                                             <segue destination="js4-Te-ZLF" kind="show" id="635-Tu-LHy"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6S-hd-B1m">
-                                        <rect key="frame" x="16" y="40" width="343" height="120"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Bent u nog niet geregistreerd als winkelier en wilt u voucher codes kunnen accepteren?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6S-hd-B1m">
+                                        <rect key="frame" x="62.5" y="131" width="250" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="aUs-72-Vlo"/>
+                                            <constraint firstAttribute="width" constant="250" id="DaA-gQ-xGY"/>
+                                            <constraint firstAttribute="height" constant="60" id="aUs-72-Vlo"/>
                                         </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3f-eZ-izW">
-                                        <rect key="frame" x="16" y="260" width="343" height="120"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Bent u al geregistreerd en wilt u een nieuwe kassa toevoegen?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3f-eZ-izW">
+                                        <rect key="frame" x="62.5" y="271" width="250" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="aEh-9u-nac"/>
+                                            <constraint firstAttribute="width" constant="250" id="UgT-Rc-S3R"/>
+                                            <constraint firstAttribute="height" constant="60" id="aEh-9u-nac"/>
                                         </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welkom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5er-eX-fxK">
+                                        <rect key="frame" x="157" y="80" width="61" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="diK-g2-LiJ" firstAttribute="centerX" secondItem="p0R-OY-SYh" secondAttribute="centerX" id="2YF-Bd-Otk"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="f6S-hd-B1m" secondAttribute="trailing" constant="8" id="87f-nV-BLN"/>
+                                    <constraint firstItem="f6S-hd-B1m" firstAttribute="centerX" secondItem="p0R-OY-SYh" secondAttribute="centerX" id="4kk-YI-9TC"/>
                                     <constraint firstItem="d3f-eZ-izW" firstAttribute="top" secondItem="diK-g2-LiJ" secondAttribute="bottom" constant="50" id="9dn-hp-Faf"/>
-                                    <constraint firstItem="o1h-K4-kbe" firstAttribute="top" secondItem="d3f-eZ-izW" secondAttribute="bottom" constant="20" id="LS8-hu-I6i"/>
-                                    <constraint firstItem="f6S-hd-B1m" firstAttribute="top" secondItem="p0R-OY-SYh" secondAttribute="top" constant="40" id="M4Y-Uf-6bT"/>
-                                    <constraint firstAttribute="leadingMargin" secondItem="f6S-hd-B1m" secondAttribute="leading" constant="-8" id="T6o-8Z-ueg"/>
-                                    <constraint firstAttribute="leadingMargin" secondItem="d3f-eZ-izW" secondAttribute="leading" constant="-8" id="kWN-zj-ZFb"/>
-                                    <constraint firstItem="diK-g2-LiJ" firstAttribute="top" secondItem="f6S-hd-B1m" secondAttribute="bottom" constant="20" id="muF-vc-q9A"/>
+                                    <constraint firstItem="5er-eX-fxK" firstAttribute="top" secondItem="p0R-OY-SYh" secondAttribute="top" constant="80" id="F4r-SD-vrL"/>
+                                    <constraint firstItem="o1h-K4-kbe" firstAttribute="top" secondItem="d3f-eZ-izW" secondAttribute="bottom" id="LS8-hu-I6i"/>
+                                    <constraint firstItem="5er-eX-fxK" firstAttribute="centerX" secondItem="p0R-OY-SYh" secondAttribute="centerX" id="MNs-4A-4XU"/>
+                                    <constraint firstItem="f6S-hd-B1m" firstAttribute="top" secondItem="5er-eX-fxK" secondAttribute="bottom" constant="30" id="fHE-Dj-OTk"/>
+                                    <constraint firstItem="diK-g2-LiJ" firstAttribute="top" secondItem="f6S-hd-B1m" secondAttribute="bottom" id="muF-vc-q9A"/>
                                     <constraint firstItem="o1h-K4-kbe" firstAttribute="centerX" secondItem="p0R-OY-SYh" secondAttribute="centerX" constant="0.5" id="u2Q-oN-Xfv"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="d3f-eZ-izW" secondAttribute="trailing" constant="8" id="xnV-gy-xA0"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jia-lH-SgT">
-                                <rect key="frame" x="0.0" y="132" width="375" height="339"/>
+                                <rect key="frame" x="0.0" y="164" width="375" height="339"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Uw aanvraag wordt beoordeeld. U krijgt een email wanneer deze is goedgekeurd. " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIu-R5-Bzj">
                                         <rect key="frame" x="57" y="20" width="261" height="80"/>
@@ -238,10 +243,16 @@
                             <constraint firstItem="Jia-lH-SgT" firstAttribute="centerX" secondItem="sf9-CX-QFX" secondAttribute="centerX" id="6GQ-NW-ZMR"/>
                             <constraint firstItem="Jia-lH-SgT" firstAttribute="centerY" secondItem="sf9-CX-QFX" secondAttribute="centerY" id="DrP-lY-Y9s"/>
                             <constraint firstItem="Jia-lH-SgT" firstAttribute="width" secondItem="sf9-CX-QFX" secondAttribute="width" id="b4X-ue-96S"/>
+                            <constraint firstItem="d3f-eZ-izW" firstAttribute="centerX" secondItem="sf9-CX-QFX" secondAttribute="centerX" id="eM8-iC-6e7"/>
                             <constraint firstItem="p0R-OY-SYh" firstAttribute="centerX" secondItem="sf9-CX-QFX" secondAttribute="centerX" id="f7B-3Y-hYL"/>
                             <constraint firstItem="p0R-OY-SYh" firstAttribute="centerY" secondItem="sf9-CX-QFX" secondAttribute="centerY" id="hTd-21-R6k"/>
                             <constraint firstItem="p0R-OY-SYh" firstAttribute="width" secondItem="sf9-CX-QFX" secondAttribute="width" id="r0B-VN-y7d"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Jia-lH-SgT"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Aanmelden" id="3Gr-aK-O9x">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="OLl-QU-Goj">
@@ -273,11 +284,11 @@
                         <viewControllerLayoutGuide type="bottom" id="aI0-D1-0fG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5Dk-1b-5Jl">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beschikbaar budget: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joW-4v-kY8">
-                                <rect key="frame" x="106" y="50" width="163" height="29"/>
+                                <rect key="frame" x="106" y="70" width="163" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="43P-iT-dZb"/>
                                 </constraints>
@@ -286,7 +297,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aankoop bedrag:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHF-z2-lcg">
-                                <rect key="frame" x="106" y="170" width="163" height="26"/>
+                                <rect key="frame" x="106" y="190" width="163" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="163" id="8hv-DL-7rO"/>
                                     <constraint firstAttribute="height" constant="26" id="Lqt-L8-nuV"/>
@@ -296,7 +307,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqu-By-cYw">
-                                <rect key="frame" x="95" y="79" width="185" height="81"/>
+                                <rect key="frame" x="95" y="99" width="185" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="185" id="3yQ-Ld-8UW"/>
                                     <constraint firstAttribute="height" constant="81" id="Loz-Il-iHj"/>
@@ -306,7 +317,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVs-wl-gqP">
-                                <rect key="frame" x="138" y="220" width="98" height="45"/>
+                                <rect key="frame" x="138" y="240" width="98" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="KyC-b7-KPu"/>
                                     <constraint firstAttribute="height" constant="45" id="aEU-H7-JEF"/>
@@ -316,7 +327,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCJ-GW-EfV">
-                                <rect key="frame" x="259" y="227" width="59" height="30"/>
+                                <rect key="frame" x="259" y="247" width="59" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="KDi-v3-hVu"/>
                                     <constraint firstAttribute="width" constant="59" id="SGy-uc-Hh3"/>
@@ -327,7 +338,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6I7-Bu-fCm">
-                                <rect key="frame" x="31" y="202" width="118" height="81"/>
+                                <rect key="frame" x="31" y="222" width="118" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="HvM-V6-pps"/>
                                     <constraint firstAttribute="width" constant="118" id="z3I-00-tT0"/>
@@ -383,16 +394,15 @@
                         <viewControllerLayoutGuide type="bottom" id="rn6-jl-sCg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Pac-KL-OMB">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVN-xp-Fao">
-                                <rect key="frame" x="16" y="68" width="343" height="467"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="De betaling wordt automatisch van de rekening van de sponsor naar uw rekening overgemaakt. [retouneringen, etc..]" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVN-xp-Fao">
+                                <rect key="frame" x="16" y="100" width="343" height="467"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="467" id="liD-AU-ast"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" red="0.047058823530000002" green="0.1333333333" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -420,15 +430,15 @@
                         <viewControllerLayoutGuide type="bottom" id="cKU-bJ-jpy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Lat-5w-VDH">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEZ-4T-C1L">
-                                <rect key="frame" x="24" y="50" width="327" height="603"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEZ-4T-C1L">
+                                <rect key="frame" x="24" y="70" width="327" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <string key="text">Met deze app kunnen voucher codes worden gescand en betalingen worden verricht. [meer uitleg.. / leer of uw gemeente deelneemt op ...com etc.]</string>
                                 <color key="textColor" red="0.047058823530000002" green="0.1333333333" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -455,11 +465,11 @@
                         <viewControllerLayoutGuide type="bottom" id="rx1-j5-gsu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="j7e-vO-T54">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Scan deze code om een extra apparaat als kassa toe te voegen." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dwF-WH-C5J">
-                                <rect key="frame" x="67" y="66" width="240" height="51"/>
+                                <rect key="frame" x="67" y="86" width="240" height="51"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="9bz-qM-5k0"/>
@@ -469,7 +479,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kqC-2h-eMh">
-                                <rect key="frame" x="67" y="137" width="240" height="240"/>
+                                <rect key="frame" x="67" y="157" width="240" height="240"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kqC-2h-eMh" secondAttribute="height" multiplier="1:1" id="sat-wl-7ez"/>
@@ -510,11 +520,11 @@
                         <viewControllerLayoutGuide type="bottom" id="pnh-lh-ff7"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="NP2-fR-9vn">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PKg-vn-lnP">
-                                <rect key="frame" x="0.0" y="-20" width="375" height="325"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="325"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="KVK nummer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="grs-l4-z7r">
                                         <rect key="frame" x="38" y="42" width="300" height="30"/>
@@ -601,7 +611,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eyg-Te-Nn7"/>
+        <segue reference="7Mh-jk-8Pc"/>
         <segue reference="Ynq-Mx-az2"/>
         <segue reference="eUX-74-sBK"/>
     </inferredMetricsTieBreakers>
