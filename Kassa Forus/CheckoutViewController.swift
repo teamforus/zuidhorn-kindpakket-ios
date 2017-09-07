@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class CheckoutViewController: UIViewController {
+class CheckoutViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var budgetLabel: UILabel!
     @IBOutlet weak var expenceInputField: UITextField!
@@ -19,6 +19,10 @@ class CheckoutViewController: UIViewController {
     var voucherCode = String()
     
     @IBAction func confirmationButton(_ sender: Any) {
+        confirmPayment()
+    }
+    
+    func confirmPayment() {
         if let amount = expenceInputField.text?.doubleValue {
             let refreshAlert = UIAlertController(title: "Betaling: €\(String(format: "%.2f", arguments: [amount]))", message: "Wilt u deze transactie uitvoeren?", preferredStyle: UIAlertControllerStyle.alert)
             
@@ -74,11 +78,19 @@ class CheckoutViewController: UIViewController {
         }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        confirmPayment()
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // todo: check if budget > 0
         self.budgetLabel.text = "€\(String(format: "%.2f", arguments: [availableBudget]))"
+        
+        expenceInputField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
