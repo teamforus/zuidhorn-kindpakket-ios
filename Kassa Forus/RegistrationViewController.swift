@@ -43,6 +43,8 @@ class RegistrationViewController: UIViewController {
     }
     
     @IBAction func registerButton(_ sender: Any) {
+        self.progressHUD.isHidden = false
+        
         check(kvk: KVKInput.text!)
         check(iban: IBANInput.text!)
         check(ibanName: IBANNameInput.text!)
@@ -147,6 +149,7 @@ class RegistrationViewController: UIViewController {
     func display(error: String) {
         if !displayingError {
             displayingError = true
+            progressHUD.isHidden = true
             let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
                 self.displayingError = false
@@ -160,8 +163,14 @@ class RegistrationViewController: UIViewController {
         self.performSegue(withIdentifier: "returnToSetup", sender: self)
     }
     
+    var progressHUD = UIVisualEffectView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        progressHUD = ProgressHUDView(text: "Verzenden")
+        self.view.addSubview(progressHUD)
+        self.progressHUD.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
