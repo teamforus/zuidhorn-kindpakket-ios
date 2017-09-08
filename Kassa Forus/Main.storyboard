@@ -153,21 +153,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1h-K4-kbe">
-                                        <rect key="frame" x="135" y="331" width="106" height="30"/>
+                                        <rect key="frame" x="135" y="337.5" width="106" height="30"/>
                                         <state key="normal" title="Meld kassa aan"/>
                                         <connections>
                                             <action selector="addRegister:" destination="3pP-7j-tCF" eventType="touchUpInside" id="F74-Tc-hdS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diK-g2-LiJ">
-                                        <rect key="frame" x="152" y="191" width="71" height="30"/>
+                                        <rect key="frame" x="152" y="204.5" width="71" height="30"/>
                                         <state key="normal" title="Registreer"/>
                                         <connections>
                                             <segue destination="js4-Te-ZLF" kind="show" id="635-Tu-LHy"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Bent u nog niet geregistreerd als winkelier en wilt u voucher codes kunnen accepteren?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6S-hd-B1m">
-                                        <rect key="frame" x="62.5" y="131" width="250" height="60"/>
+                                        <rect key="frame" x="62.5" y="136.5" width="250" height="60"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="DaA-gQ-xGY"/>
@@ -177,18 +177,18 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Bent u al geregistreerd en wilt u een nieuwe kassa toevoegen?" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3f-eZ-izW">
-                                        <rect key="frame" x="62.5" y="271" width="250" height="60"/>
+                                        <rect key="frame" x="62.5" y="284.5" width="250" height="45"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="UgT-Rc-S3R"/>
-                                            <constraint firstAttribute="height" constant="60" id="aEh-9u-nac"/>
+                                            <constraint firstAttribute="height" constant="45" id="aEh-9u-nac"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welkom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5er-eX-fxK">
-                                        <rect key="frame" x="157" y="80" width="61" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="148.5" y="80" width="79" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -199,10 +199,10 @@
                                     <constraint firstItem="f6S-hd-B1m" firstAttribute="centerX" secondItem="p0R-OY-SYh" secondAttribute="centerX" id="4kk-YI-9TC"/>
                                     <constraint firstItem="d3f-eZ-izW" firstAttribute="top" secondItem="diK-g2-LiJ" secondAttribute="bottom" constant="50" id="9dn-hp-Faf"/>
                                     <constraint firstItem="5er-eX-fxK" firstAttribute="top" secondItem="p0R-OY-SYh" secondAttribute="top" constant="80" id="F4r-SD-vrL"/>
-                                    <constraint firstItem="o1h-K4-kbe" firstAttribute="top" secondItem="d3f-eZ-izW" secondAttribute="bottom" id="LS8-hu-I6i"/>
+                                    <constraint firstItem="o1h-K4-kbe" firstAttribute="top" secondItem="d3f-eZ-izW" secondAttribute="bottom" constant="8" id="LS8-hu-I6i"/>
                                     <constraint firstItem="5er-eX-fxK" firstAttribute="centerX" secondItem="p0R-OY-SYh" secondAttribute="centerX" id="MNs-4A-4XU"/>
                                     <constraint firstItem="f6S-hd-B1m" firstAttribute="top" secondItem="5er-eX-fxK" secondAttribute="bottom" constant="30" id="fHE-Dj-OTk"/>
-                                    <constraint firstItem="diK-g2-LiJ" firstAttribute="top" secondItem="f6S-hd-B1m" secondAttribute="bottom" id="muF-vc-q9A"/>
+                                    <constraint firstItem="diK-g2-LiJ" firstAttribute="top" secondItem="f6S-hd-B1m" secondAttribute="bottom" constant="8" id="muF-vc-q9A"/>
                                     <constraint firstItem="o1h-K4-kbe" firstAttribute="centerX" secondItem="p0R-OY-SYh" secondAttribute="centerX" constant="0.5" id="u2Q-oN-Xfv"/>
                                 </constraints>
                             </view>
