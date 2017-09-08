@@ -88,8 +88,9 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
                 if let json = response.data {
                     let data = JSON(data: json)
                     let max_amount = data["max_amount"]
-                    if let amount = max_amount.double {
-                        self.budget = amount
+                    
+                    if max_amount.doubleValue != 0.0 {
+                        self.budget = max_amount.doubleValue
                         self.performSegue(withIdentifier: "proceedToCheckout", sender: self)
                     } else {
                         let alert = UIAlertController(title: "Error", message: "Dit is geen valide voucher of er was een verbindingsprobleem.", preferredStyle: .alert)
@@ -104,13 +105,12 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         } else {
             Alamofire.request("http://mvp.forus.io/api/shop-keeper/device", method: .post, parameters: ["token": "\(code)"], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                 if let json = response.data {
+                    // TODO: check for positive confirmation
                     let data = JSON(data: json)
                     let token = data["access_token"]
                     UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
                     UserDefaults.standard.setValue("approved", forKey: "registrationStatus")
                     headers["Authorization"] = "Bearer \(token)"
-                    
-                    print(data["access_token"])
                     
                     // notification that it worked, then loadscanner
                     let alert = UIAlertController(title: "Success", message: "Dit apparaat is succesvol toegevoegd", preferredStyle: .alert)
@@ -118,6 +118,7 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
                         self.addingDevice = false
                         self.instruction.text = "Scan de code op de voucher van een klant."
                         self.loadScanner()
+                        self.showAddDeviceButton()
                     }))
                     
                     self.present(alert, animated: true)
@@ -151,14 +152,18 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if !addingDevice {
-            let leftButton: UIButton = UIButton(type: UIButtonType.contactAdd)
-            leftButton.addTarget(self, action: #selector(ScannerViewController.showToken), for: UIControlEvents.touchUpInside)
-            
-            let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
-            self.navigationItem.setLeftBarButton(leftBarButtonItem, animated: false)
+            showAddDeviceButton()
         } else {
             instruction.text = "Scan de code op het andere apparaat."
         }
+    }
+    
+    func showAddDeviceButton() {
+        let leftButton: UIButton = UIButton(type: UIButtonType.contactAdd)
+        leftButton.addTarget(self, action: #selector(ScannerViewController.showToken), for: UIControlEvents.touchUpInside)
+        
+        let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
+        self.navigationItem.setLeftBarButton(leftBarButtonItem, animated: false)
     }
     
     func showToken() {

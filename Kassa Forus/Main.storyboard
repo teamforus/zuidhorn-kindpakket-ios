@@ -248,11 +248,6 @@
                             <constraint firstItem="p0R-OY-SYh" firstAttribute="centerY" secondItem="sf9-CX-QFX" secondAttribute="centerY" id="hTd-21-R6k"/>
                             <constraint firstItem="p0R-OY-SYh" firstAttribute="width" secondItem="sf9-CX-QFX" secondAttribute="width" id="r0B-VN-y7d"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Jia-lH-SgT"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Aanmelden" id="3Gr-aK-O9x">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="OLl-QU-Goj">

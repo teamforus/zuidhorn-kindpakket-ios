@@ -44,11 +44,11 @@ class SetupViewController: UIViewController {
             if let json = response.data {
                 let data = JSON(data: json)
                 if data["shop_keeper"]["state"] == "approved" {
+                    UserDefaults.standard.setValue("approved", forKey: "registrationStatus")
                     self.stopStatusChecker()
                     self.approved = true
                     let alert = UIAlertController(title: "Aanvraag afgerond.", message: "U kunt vanaf nu vouchers scannen.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Open Scanner", style: .cancel, handler: { (_) in
-                        UserDefaults.standard.setValue("approved", forKey: "registrationStatus")
                         self.performSegue(withIdentifier: "loadScanner", sender: self)
                     }))
                     
@@ -61,10 +61,14 @@ class SetupViewController: UIViewController {
     var statusChecker = Timer()
     
     func startStatusChecker() {
-        if statusChecker.isValid {
-            self.statusChecker.invalidate()
-        } else {
-            self.statusChecker = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getStatus), userInfo: nil, repeats: true)
+        let registrationStatus = UserDefaults.standard.value(forKey: "registrationStatus") as? String
+        
+        if registrationStatus == "pending" {
+            if statusChecker.isValid {
+                self.statusChecker.invalidate()
+            } else {
+                self.statusChecker = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getStatus), userInfo: nil, repeats: true)
+            }
         }
     }
     
@@ -80,7 +84,7 @@ class SetupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector:#selector(getStatus), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(startStatusChecker), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
 
     }
 
