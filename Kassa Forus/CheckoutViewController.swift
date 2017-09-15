@@ -15,6 +15,8 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var budgetLabel: UILabel!
     @IBOutlet weak var expenceInputField: UITextField!
     
+    var progressHUD = UIVisualEffectView()
+    
     var availableBudget = Double()
     var voucherCode = String()
     
@@ -27,6 +29,7 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate {
             let refreshAlert = UIAlertController(title: "Betaling: €\(String(format: "%.2f", arguments: [amount]))", message: "Wilt u deze transactie uitvoeren?", preferredStyle: UIAlertControllerStyle.alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Bevestig", style: .default, handler: { (action: UIAlertAction!) in
+                self.progressHUD.isHidden = false
                 self.processPaymentFor(self.voucherCode, amount: amount)
                 self.expenceInputField.text = ""
             }))
@@ -43,6 +46,8 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate {
         Alamofire.request("http://mvp.forus.io/api/voucher/\(code)", method: .post, parameters: ["amount": "\(amount)", "_method": "PUT"], encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
                 self.updateBudget()
+                
+                self.progressHUD.isHidden = true
                 
                 let alert = UIAlertController(title: "Success", message: "De transactie was successvol", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Open Scanner", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -66,8 +71,8 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate {
             if let json = response.data {
                 let data = JSON(data: json)
                 let max_amount = data["max_amount"]
-                if let amount = max_amount.double {
-                    self.budgetLabel.text = "€\(String(format: "%.2f", arguments: [amount]))"
+                if max_amount.doubleValue != 0.0 {
+                    self.budgetLabel.text = "€\(String(format: "%.2f", arguments: [max_amount.doubleValue]))"
                 } else {
                     let alert = UIAlertController(title: "Error", message: "De transactie is mislukt, controleer uw verbinding en probeer het opnieuw.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -91,6 +96,10 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate {
         self.budgetLabel.text = "€\(String(format: "%.2f", arguments: [availableBudget]))"
         
         expenceInputField.delegate = self
+        
+        progressHUD = ProgressHUDView(text: "Verzenden")
+        self.view.addSubview(progressHUD)
+        self.progressHUD.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {

@@ -17,6 +17,8 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var IBANNameInput: UITextField!
     @IBOutlet weak var emailInput: UITextField!
     
+    var progressHUD = UIVisualEffectView()
+    
     var iban = String()
     var ibanValid = false
     var ibanName = String()
@@ -37,7 +39,7 @@ class RegistrationViewController: UIViewController {
     
     @IBAction func autofill(_ sender: Any) {
         KVKInput.text = "69097488"
-        IBANInput.text = "NL91RABO0134369122"
+        IBANInput.text = "NL06RABO0382896971"
         IBANNameInput.text = "Fietsen Zuidhorn"
         emailInput.text = "jamal@stichtingforus.nl"
     }
@@ -162,8 +164,6 @@ class RegistrationViewController: UIViewController {
     func returnToSetup() {
         self.performSegue(withIdentifier: "returnToSetup", sender: self)
     }
-    
-    var progressHUD = UIVisualEffectView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

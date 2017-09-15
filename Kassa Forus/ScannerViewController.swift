@@ -16,6 +16,8 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     
     @IBOutlet weak var instruction: UILabel!
     
+    var progressHUD = UIVisualEffectView()
+    
     var scanResult = String()
     var budget = Double()
     
@@ -77,6 +79,7 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         
         reader.startScanning()
         reader.didFindCode = { result in
+            self.progressHUD.isHidden = false
             self.scanResult = result.value
             self.checkCode(self.scanResult)
         }
@@ -96,6 +99,7 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
                         let alert = UIAlertController(title: "Error", message: "Dit is geen valide voucher of er was een verbindingsprobleem.", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
                             self.loadScanner()
+                            self.progressHUD.isHidden = true
                         }))
                         
                         self.present(alert, animated: true, completion: nil)
@@ -199,10 +203,17 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         }
     }
     
+    override func viewDidLoad() {
+        progressHUD = ProgressHUDView(text: "Verzenden")
+        self.view.addSubview(progressHUD)
+        self.progressHUD.isHidden = true
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let target = segue.destination as? CheckoutViewController {
             target.availableBudget = self.budget
             target.voucherCode = self.scanResult
+            self.progressHUD.isHidden = true	
         }
     }
 }
