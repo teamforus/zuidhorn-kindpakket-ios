@@ -28,7 +28,7 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     lazy var reader: QRCodeReader = QRCodeReader()
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
-            $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
+            $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObject.ObjectType.qr.rawValue], captureDevicePosition: .back)
             $0.showTorchButton = false
         }
         
@@ -142,9 +142,9 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
-        if let cameraName = newCaptureDevice.device.localizedName {
-            print("Switching capturing to: \(cameraName)")
-        }
+        let cameraName = newCaptureDevice.device.localizedName
+            
+        print("Switching capturing to: \(cameraName)")
     }
     
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
@@ -170,7 +170,7 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         self.navigationItem.setLeftBarButton(leftBarButtonItem, animated: false)
     }
     
-    func showToken() {
+    @objc func showToken() {
         self.performSegue(withIdentifier: "showToken", sender: self)
     }
     

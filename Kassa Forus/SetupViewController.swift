@@ -39,7 +39,7 @@ class SetupViewController: UIViewController {
         }
     }
     
-    func getStatus() {
+    @objc func getStatus() {
         Alamofire.request("http://mvp.forus.io/api/user", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let json = response.data {
                 let data = JSON(data: json)
@@ -60,7 +60,7 @@ class SetupViewController: UIViewController {
     
     var statusChecker = Timer()
     
-    func startStatusChecker() {
+    @objc func startStatusChecker() {
         let registrationStatus = UserDefaults.standard.value(forKey: "registrationStatus") as? String
         
         if registrationStatus == "pending" {
