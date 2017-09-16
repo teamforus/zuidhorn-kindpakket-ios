@@ -12,7 +12,6 @@ import SwiftyJSON
 
 class CheckoutViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var budgetLabel: UILabel!
     @IBOutlet weak var expenceInputField: UITextField!
     
     var progressHUD = UIVisualEffectView()
@@ -45,7 +44,7 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate {
     func processPaymentFor(_ code: String, amount: Double) {
         Alamofire.request("http://mvp.forus.io/api/voucher/\(code)", method: .post, parameters: ["amount": "\(amount)", "_method": "PUT"], encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
-                self.updateBudget()
+//                self.updateBudget()
                 
                 self.progressHUD.isHidden = true
                 
@@ -65,14 +64,14 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func updateBudget() {
+    func getBudget() {
         Alamofire.request("http://mvp.forus.io/api/voucher/\(voucherCode)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
             if let json = response.data {
                 let data = JSON(data: json)
                 let max_amount = data["max_amount"]
                 if max_amount.doubleValue != 0.0 {
-                    self.budgetLabel.text = "€\(String(format: "%.2f", arguments: [max_amount.doubleValue]))"
+//                    self.budgetLabel.text = "€\(String(format: "%.2f", arguments: [max_amount.doubleValue]))"
                 } else {
                     let alert = UIAlertController(title: "Error", message: "De transactie is mislukt, controleer uw verbinding en probeer het opnieuw.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
@@ -91,15 +90,19 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // todo: check if budget > 0
-        self.budgetLabel.text = "€\(String(format: "%.2f", arguments: [availableBudget]))"
+        print(availableBudget)
         
+//        self.budgetLabel.text = "€\(String(format: "%.2f", arguments: [availableBudget]))"
+
         expenceInputField.delegate = self
-        
+
         progressHUD = ProgressHUDView(text: "Verzenden")
         self.view.addSubview(progressHUD)
         self.progressHUD.isHidden = true
+        
+        expenceInputField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
