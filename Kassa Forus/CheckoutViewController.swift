@@ -24,6 +24,28 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate {
     }
     
     func confirmPayment() {
+        // update budget
+        Alamofire.request("http://mvp.forus.io/api/voucher/\(voucherCode)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+            .responseJSON { response in
+                if let json = response.data {
+                    let data = JSON(data: json)
+                    let maxUserSpendable = data["max_amount"].doubleValue
+                    let paymentRequestAmount = self.expenceInputField.text!.doubleValue
+                    if maxUserSpendable >= paymentRequestAmount {
+                        self.payWithSufficientBudget()
+                    } else if maxUserSpendable < paymentRequestAmount {
+                        self.pay(spendable: maxUserSpendable, amount: paymentRequestAmount)
+                    } else {
+                        let alert = UIAlertController(title: "Error", message: "De transactie is mislukt, controleer uw verbinding en probeer het opnieuw.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        
+                        self.present(alert, animated: true)
+                    }
+                }
+        }
+    }
+    
+    func payWithSufficientBudget() {
         if let amount = expenceInputField.text?.doubleValue {
             let refreshAlert = UIAlertController(title: "Betaling: €\(String(format: "%.2f", arguments: [amount]))", message: "Wilt u deze transactie uitvoeren?", preferredStyle: UIAlertControllerStyle.alert)
             
@@ -41,11 +63,40 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func pay(spendable: Double, amount: Double) {
+        let refreshAlert = UIAlertController(title: "Overschrijding", message: "Deze transactie overschrijd het budget van de klant met: €\(String(format: "%.2f", arguments: [abs(spendable-amount)]))", preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Klant betaald bij", style: .default, handler: { (action: UIAlertAction!) in
+            self.exeedingPayment(spendable: spendable, amount: amount)
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Annuleer", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
+    func exeedingPayment(spendable: Double, amount: Double) {
+        let refreshAlert = UIAlertController(title: "Bevestig", message: "Bevestig dat de klant €\(String(format: "%.2f", arguments: [abs(spendable-amount)])) heeft bijbetaald.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Bevestig", style: .default, handler: { (action: UIAlertAction!) in
+            self.progressHUD.isHidden = false
+            self.processPaymentFor(self.voucherCode, amount: spendable)
+            self.expenceInputField.text = ""
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Annuleer", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Handle Cancel Logic here")
+        }))
+        
+        present(refreshAlert, animated: true, completion: nil)
+    }
+    
     func processPaymentFor(_ code: String, amount: Double) {
+        print(amount)
         Alamofire.request("http://mvp.forus.io/api/voucher/\(code)", method: .post, parameters: ["amount": "\(amount)", "_method": "PUT"], encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
-//                self.updateBudget()
-                
                 self.progressHUD.isHidden = true
                 
                 let alert = UIAlertController(title: "Success", message: "De transactie was successvol", preferredStyle: .alert)
@@ -54,31 +105,6 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate {
                 }))
                 
                 self.present(alert, animated: true)
-
-                
-                // if shortage: display notification "Deze transactie overschrijd het budget met €x. [klant betaald bij] [annuleer]"
-                    // another notification "Bevestig dat de klant u €x heeft betaald [bevestig] [annuleer]"
-                
-                
-                // if success: display notification "Transactie Successvol. Er is €x afgeschreven"
-        }
-    }
-    
-    func getBudget() {
-        Alamofire.request("http://mvp.forus.io/api/voucher/\(voucherCode)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
-            .responseJSON { response in
-            if let json = response.data {
-                let data = JSON(data: json)
-                let max_amount = data["max_amount"]
-                if max_amount.doubleValue != 0.0 {
-//                    self.budgetLabel.text = "€\(String(format: "%.2f", arguments: [max_amount.doubleValue]))"
-                } else {
-                    let alert = UIAlertController(title: "Error", message: "De transactie is mislukt, controleer uw verbinding en probeer het opnieuw.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                    
-                    self.present(alert, animated: true)
-                }
-            }
         }
     }
     
