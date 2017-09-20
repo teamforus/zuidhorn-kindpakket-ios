@@ -23,6 +23,7 @@
 		89A3B1121F2387B9004986B6 /* ScannerMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3B1111F2387B9004986B6 /* ScannerMarkerView.swift */; };
 		89C894201F228720000C2318 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C8941F1F228720000C2318 /* Images.xcassets */; };
 		89C894221F22881B000C2318 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C894211F22881B000C2318 /* SetupViewController.swift */; };
+		89CFC60D1F72ABF800CC6BCF /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CFC60C1F72ABF800CC6BCF /* PaymentTableViewCell.swift */; };
 		DC68E63DC2E07D8F33D40CE1 /* Pods_Kassa_Forus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0868C0CBA828E81B949E0576 /* Pods_Kassa_Forus.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		89A3B1111F2387B9004986B6 /* ScannerMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScannerMarkerView.swift; path = "Kassa Forus/ScannerMarkerView.swift"; sourceTree = "<group>"; };
 		89C8941F1F228720000C2318 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Kassa Forus/Images.xcassets"; sourceTree = "<group>"; };
 		89C894211F22881B000C2318 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetupViewController.swift; path = "Kassa Forus/SetupViewController.swift"; sourceTree = "<group>"; };
+		89CFC60C1F72ABF800CC6BCF /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentTableViewCell.swift; path = "Kassa Forus/PaymentTableViewCell.swift"; sourceTree = "<group>"; };
 		CE412E8919D9A1E4000F294E /* Kassa Forus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kassa Forus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 				894C6DEB1F4DC10E0008D161 /* AddRegisterViewController.swift */,
 				890F46251F229A5400A2B006 /* ScannerViewController.swift */,
 				8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */,
+				89CFC60C1F72ABF800CC6BCF /* PaymentTableViewCell.swift */,
 				890F46211F229A3300A2B006 /* Launch Screen.storyboard */,
 				89A3B1111F2387B9004986B6 /* ScannerMarkerView.swift */,
 				89432A1B1F62803D00EA8602 /* ProgressHUDView.swift */,
@@ -263,6 +266,7 @@
 			files = (
 				89A3B1101F2350BA004986B6 /* DevConfig.swift in Sources */,
 				890F46241F229A3F00A2B006 /* AppDelegate.swift in Sources */,
+				89CFC60D1F72ABF800CC6BCF /* PaymentTableViewCell.swift in Sources */,
 				892D1F1D1F4B502300E0A0E7 /* RegistrationViewController.swift in Sources */,
 				89A3B1121F2387B9004986B6 /* ScannerMarkerView.swift in Sources */,
 				8993F9151F22AD7F00B3BCDB /* GlobalFunctions.swift in Sources */,

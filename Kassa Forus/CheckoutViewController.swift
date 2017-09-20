@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class CheckoutViewController: UIViewController, UITextFieldDelegate {
+class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource {
 
     @IBOutlet weak var expenceInputField: UITextField!
     
@@ -21,6 +21,24 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func confirmationButton(_ sender: Any) {
         confirmPayment()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 25
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.selectionStyle = .none
+        cell.textLabel?.text = "€12,50"
+        cell.detailTextLabel?.text = "20-10-2017"
+        cell.tag = indexPath.row
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Transactie geschiedenis"
     }
     
     func confirmPayment() {
