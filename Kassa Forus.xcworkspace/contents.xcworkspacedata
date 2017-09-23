@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Kassa Forus.xcodeproj">
+      location = "group:/Users/Jamal/Library/Mobile Documents/com~apple~CloudDocs/Development/Forus/kassa-forus-ios/Checkout Forus.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
