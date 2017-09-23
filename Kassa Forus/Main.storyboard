@@ -36,25 +36,25 @@
         <!--Scanner-->
         <scene sceneID="ioN-Xg-BUW">
             <objects>
-                <viewController id="xvb-pV-pSp" customClass="ScannerViewController" customModule="Kassa_Forus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xvb-pV-pSp" customClass="ScannerViewController" customModule="Checkout_Forus" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ufa-Ty-ouC"/>
                         <viewControllerLayoutGuide type="bottom" id="go1-YO-DwR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5Gd-0p-03Z">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VPt-mw-9Fm" userLabel="Preview View">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="GDY-98-8i1" customClass="ScannerMarkerView" customModule="Kassa_Forus" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="GDY-98-8i1" customClass="ScannerMarkerView" customModule="Checkout_Forus" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan de code op de voucher van een klant." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3O-yz-C9B">
-                                <rect key="frame" x="21" y="25" width="278" height="22"/>
+                                <rect key="frame" x="21" y="45" width="278" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="oMK-ry-Z0B"/>
                                 </constraints>
@@ -109,11 +109,11 @@
                         <viewControllerLayoutGuide type="bottom" id="zvB-7y-xyO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="76o-md-YpC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upr-le-fZ3">
-                                <rect key="frame" x="16" y="18.5" width="288" height="467"/>
+                                <rect key="frame" x="16" y="50.5" width="288" height="467"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="467" id="XNb-mm-6hd"/>
@@ -140,7 +140,7 @@
         <!--Aanmelden-->
         <scene sceneID="RiG-He-TSi">
             <objects>
-                <viewController id="3pP-7j-tCF" customClass="SetupViewController" customModule="Kassa_Forus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3pP-7j-tCF" customClass="SetupViewController" customModule="Checkout_Forus" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f6c-b2-zri"/>
                         <viewControllerLayoutGuide type="bottom" id="tY1-al-W23"/>
@@ -274,17 +274,17 @@
         <!--Afrekenen-->
         <scene sceneID="iW1-Lw-Cyz">
             <objects>
-                <viewController id="g5W-Mh-t2y" customClass="CheckoutViewController" customModule="Kassa_Forus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="g5W-Mh-t2y" customClass="CheckoutViewController" customModule="Checkout_Forus" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mfO-tZ-JUG"/>
                         <viewControllerLayoutGuide type="bottom" id="aI0-D1-0fG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5Dk-1b-5Jl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0,00" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="oVs-wl-gqP">
-                                <rect key="frame" x="43" y="16" width="140" height="36"/>
+                                <rect key="frame" x="43" y="36" width="140" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="1rz-Sx-pHm"/>
                                 </constraints>
@@ -293,15 +293,15 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eka-Zd-Ylv">
-                                <rect key="frame" x="0.0" y="68" width="320" height="436"/>
+                                <rect key="frame" x="0.0" y="88" width="320" height="480"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" focusStyle="custom" textLabel="k4K-j5-Ifk" detailTextLabel="eX3-HO-NbZ" style="IBUITableViewCellStyleSubtitle" id="d70-fh-Ile" customClass="PaymentTableViewCell" customModule="Kassa_Forus" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" focusStyle="custom" textLabel="k4K-j5-Ifk" detailTextLabel="eX3-HO-NbZ" style="IBUITableViewCellStyleSubtitle" id="d70-fh-Ile" customClass="PaymentTableViewCell" customModule="Checkout_Forus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d70-fh-Ile" id="a90-oX-Zat">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYE-GE-J7j">
@@ -313,14 +313,14 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k4K-j5-Ifk">
-                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="15" y="5" width="34" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eX3-HO-NbZ">
-                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                                    <rect key="frame" x="15" y="25" width="44" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -339,7 +339,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCJ-GW-EfV">
-                                <rect key="frame" x="245" y="16" width="59" height="36"/>
+                                <rect key="frame" x="245" y="36" width="59" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="0cg-Jm-KkY"/>
                                 </constraints>
@@ -349,7 +349,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7e-ko-UKQ">
-                                <rect key="frame" x="16" y="16" width="19" height="36"/>
+                                <rect key="frame" x="16" y="36" width="19" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -369,6 +369,11 @@
                             <constraint firstItem="i7e-ko-UKQ" firstAttribute="leading" secondItem="5Dk-1b-5Jl" secondAttribute="leading" constant="16" id="nIK-8u-pik"/>
                             <constraint firstItem="i7e-ko-UKQ" firstAttribute="top" secondItem="mfO-tZ-JUG" secondAttribute="bottom" constant="16" id="nmH-QP-gLm"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="eka-Zd-Ylv"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Afrekenen" id="o9m-Ls-i6Z">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="fyA-hY-Hms">
@@ -399,11 +404,11 @@
                         <viewControllerLayoutGuide type="bottom" id="rn6-jl-sCg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Pac-KL-OMB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="De betaling wordt automatisch van de rekening van de sponsor naar uw rekening overgemaakt. [retouneringen, etc..]" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVN-xp-Fao">
-                                <rect key="frame" x="16" y="18.5" width="288" height="467"/>
+                                <rect key="frame" x="16" y="50.5" width="288" height="467"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="467" id="liD-AU-ast"/>
@@ -464,17 +469,17 @@
         <!--Kassa Aanmelden-->
         <scene sceneID="j1a-Zv-8j0">
             <objects>
-                <viewController id="oxq-V8-xc5" customClass="AddRegisterViewController" customModule="Kassa_Forus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oxq-V8-xc5" customClass="AddRegisterViewController" customModule="Checkout_Forus" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3q8-gf-qmx"/>
                         <viewControllerLayoutGuide type="bottom" id="rx1-j5-gsu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="j7e-vO-T54">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Scan deze code om een extra apparaat als kassa toe te voegen." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dwF-WH-C5J">
-                                <rect key="frame" x="40" y="66" width="240" height="51"/>
+                                <rect key="frame" x="40" y="86" width="240" height="51"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="9bz-qM-5k0"/>
@@ -484,7 +489,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kqC-2h-eMh">
-                                <rect key="frame" x="40" y="137" width="240" height="240"/>
+                                <rect key="frame" x="40" y="157" width="240" height="240"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kqC-2h-eMh" secondAttribute="height" multiplier="1:1" id="sat-wl-7ez"/>
@@ -519,7 +524,7 @@
         <!--Registreren-->
         <scene sceneID="IUY-Ux-5Ju">
             <objects>
-                <viewController id="js4-Te-ZLF" customClass="RegistrationViewController" customModule="Kassa_Forus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="js4-Te-ZLF" customClass="RegistrationViewController" customModule="Checkout_Forus" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZWf-ot-U9S"/>
                         <viewControllerLayoutGuide type="bottom" id="pnh-lh-ff7"/>
@@ -618,6 +623,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="0U2-Mq-AVF"/>
         <segue reference="dDc-IS-RQg"/>
-        <segue reference="eyg-Te-Nn7"/>
+        <segue reference="dJZ-gh-Shi"/>
     </inferredMetricsTieBreakers>
 </document>
