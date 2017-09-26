@@ -305,9 +305,9 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYE-GE-J7j">
-                                                    <rect key="frame" x="212" y="17" width="90" height="19"/>
+                                                    <rect key="frame" x="212" y="12" width="90" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Retouneer"/>
+                                                    <state key="normal" title="Retourneer"/>
                                                     <connections>
                                                         <action selector="returnButton:" destination="d70-fh-Ile" eventType="touchUpInside" id="xaO-Mf-Eac"/>
                                                     </connections>
@@ -369,11 +369,6 @@
                             <constraint firstItem="i7e-ko-UKQ" firstAttribute="leading" secondItem="5Dk-1b-5Jl" secondAttribute="leading" constant="16" id="nIK-8u-pik"/>
                             <constraint firstItem="i7e-ko-UKQ" firstAttribute="top" secondItem="mfO-tZ-JUG" secondAttribute="bottom" constant="16" id="nmH-QP-gLm"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="eka-Zd-Ylv"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Afrekenen" id="o9m-Ls-i6Z">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="fyA-hY-Hms">

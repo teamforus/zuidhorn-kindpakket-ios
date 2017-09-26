@@ -11,6 +11,7 @@ import QRCodeReader
 import Alamofire
 import SwiftyJSON
 import UIKit
+import EtherealCereal
 
 class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegate {
     
@@ -207,6 +208,12 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         progressHUD = ProgressHUDView(text: "Verzenden")
         self.view.addSubview(progressHUD)
         self.progressHUD.isHidden = true
+        
+//        let etherealCereal = EtherealCereal()
+//
+//        let alert = UIAlertController(title: "Ethereum Keys", message: "Address: \(etherealCereal.address) \n Private key: \(etherealCereal.privateKey)", preferredStyle: .alert)
+//
+//        self.present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

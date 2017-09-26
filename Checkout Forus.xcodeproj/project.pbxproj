@@ -16,6 +16,8 @@
 		892D1F1D1F4B502300E0A0E7 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D1F1C1F4B502300E0A0E7 /* RegistrationViewController.swift */; };
 		892D1F1F1F4B595400E0A0E7 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D1F1E1F4B595400E0A0E7 /* APIHeader.swift */; };
 		89432A1C1F62803D00EA8602 /* ProgressHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89432A1B1F62803D00EA8602 /* ProgressHUDView.swift */; };
+		894902231F7A483D00DA7345 /* EtherealCereal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894902241F7A483D00DA7345 /* EtherealCereal.framework */; };
+		894902261F7A497000DA7345 /* EtherealCereal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 894902241F7A483D00DA7345 /* EtherealCereal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		894C6DEC1F4DC10E0008D161 /* AddRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C6DEB1F4DC10E0008D161 /* AddRegisterViewController.swift */; };
 		8993F9131F22AC4200B3BCDB /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */; };
 		8993F9151F22AD7F00B3BCDB /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */; };
@@ -26,6 +28,20 @@
 		89CFC60D1F72ABF800CC6BCF /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CFC60C1F72ABF800CC6BCF /* PaymentTableViewCell.swift */; };
 		DC68E63DC2E07D8F33D40CE1 /* Pods_Kassa_Forus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0868C0CBA828E81B949E0576 /* Pods_Kassa_Forus.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		894902271F7A497100DA7345 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				894902261F7A497000DA7345 /* EtherealCereal.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0868C0CBA828E81B949E0576 /* Pods_Kassa_Forus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kassa_Forus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +57,7 @@
 		892D1F1C1F4B502300E0A0E7 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = "Kassa Forus/RegistrationViewController.swift"; sourceTree = "<group>"; };
 		892D1F1E1F4B595400E0A0E7 /* APIHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHeader.swift; path = "Kassa Forus/APIHeader.swift"; sourceTree = "<group>"; };
 		89432A1B1F62803D00EA8602 /* ProgressHUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressHUDView.swift; path = "Kassa Forus/ProgressHUDView.swift"; sourceTree = "<group>"; };
+		894902241F7A483D00DA7345 /* EtherealCereal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EtherealCereal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		894C6DEB1F4DC10E0008D161 /* AddRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddRegisterViewController.swift; path = "Kassa Forus/AddRegisterViewController.swift"; sourceTree = "<group>"; };
 		8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutViewController.swift; path = "Kassa Forus/CheckoutViewController.swift"; sourceTree = "<group>"; };
 		8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalFunctions.swift; path = "Kassa Forus/GlobalFunctions.swift"; sourceTree = "<group>"; };
@@ -57,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				894902231F7A483D00DA7345 /* EtherealCereal.framework in Frameworks */,
 				DC68E63DC2E07D8F33D40CE1 /* Pods_Kassa_Forus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +85,7 @@
 		1BE45A09F3CFE57F84AE8F12 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				894902241F7A483D00DA7345 /* EtherealCereal.framework */,
 				0868C0CBA828E81B949E0576 /* Pods_Kassa_Forus.framework */,
 			);
 			name = Frameworks;
@@ -138,6 +157,7 @@
 				CE412E8719D9A1E4000F294E /* Resources */,
 				6C6A359D3725F48FCEB945FB /* [CP] Embed Pods Frameworks */,
 				6ACA3582D506CF5F795B55C5 /* [CP] Copy Pods Resources */,
+				894902271F7A497100DA7345 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

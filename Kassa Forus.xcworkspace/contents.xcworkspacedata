@@ -5,6 +5,9 @@
       location = "group:Checkout Forus.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:EtherealCereal/EtherealCereal.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
