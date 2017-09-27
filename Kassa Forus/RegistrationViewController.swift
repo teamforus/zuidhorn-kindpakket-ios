@@ -36,7 +36,6 @@ class RegistrationViewController: UIViewController {
     let IBANNameErrorMessage = "Vul a.u.b. een geldige IBAN rekeninghouder in."
     let emailErrorMessage = "Vul a.u.b. een geldig email adres in."
     
-    
     @IBAction func autofill(_ sender: Any) {
         KVKInput.text = "69097488"
         IBANInput.text = "NL06RABO0382896971"
@@ -60,18 +59,17 @@ class RegistrationViewController: UIViewController {
         if kvk != "" {
             self.kvk = kvk
             if !kvkValid {
-                Alamofire.request("https://api.kvk.nl/api/v2/profile/companies?q=\(kvk)&user_key=\(kvkKey)",
-                    method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-                        if let json = response.data {
-                            let data = JSON(data: json)
-                            if data["error"]["message"] == "NotFound" {
-                                self.display(error: self.KVKErrorMessage)
-                            } else {
-                                print("kvk valid: \(data["data"]["items"][0]["tradeNames"]["businessName"])")
-                                self.kvkValid = true
-                                self.attemptToCompleteSignup()
-                            }
+                Alamofire.request("https://api.kvk.nl/api/v2/profile/companies?q=\(kvk)&user_key=\(kvkKey)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                    if let json = response.data {
+                        let data = JSON(data: json)
+                        if data["error"]["message"] == "NotFound" {
+                            self.display(error: self.KVKErrorMessage)
+                        } else {
+                            print("kvk valid: \(data["data"]["items"][0]["tradeNames"]["businessName"])")
+                            self.kvkValid = true
+                            self.attemptToCompleteSignup()
                         }
+                    }
                 }
             }
         } else {
@@ -83,18 +81,17 @@ class RegistrationViewController: UIViewController {
         if iban != "" {
             self.iban = iban
             if !ibanValid {
-                Alamofire.request("https://openiban.com/validate/\(iban)?getBIC=false&validateBankCode=true",
-                    method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-                        if let json = response.data {
-                            let data = JSON(data: json)
-                            if data["valid"] == true {
-                                print("iban valid!")
-                                self.ibanValid = true
-                                self.attemptToCompleteSignup()
-                            } else {
-                                self.display(error: self.IBANErrorMessage)
-                            }
+                Alamofire.request("https://openiban.com/validate/\(iban)?getBIC=false&validateBankCode=true", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                    if let json = response.data {
+                        let data = JSON(data: json)
+                        if data["valid"] == true {
+                            print("iban valid!")
+                            self.ibanValid = true
+                            self.attemptToCompleteSignup()
+                        } else {
+                            self.display(error: self.IBANErrorMessage)
                         }
+                    }
                 }
             }
         } else {
@@ -133,16 +130,16 @@ class RegistrationViewController: UIViewController {
                     "kvk_number": "\(kvk)",
                     "iban": "\(iban)",
                     "email": "\(email)"
-                    ], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-                        if let json = response.data {
-                            let data = JSON(data: json)
-                            let token = data["access_token"]
-                            UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
-                            UserDefaults.standard.setValue("pending", forKey: "registrationStatus")
-                            headers["Authorization"] = "Bearer \(token)"
-                            
-                            self.returnToSetup()
-                        }
+                ], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                    if let json = response.data {
+                        let data = JSON(data: json)
+                        let token = data["access_token"]
+                        UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
+                        UserDefaults.standard.setValue("pending", forKey: "registrationStatus")
+                        headers["Authorization"] = "Bearer \(token)"
+                        
+                        self.returnToSetup()
+                    }
                 }
             }
         }

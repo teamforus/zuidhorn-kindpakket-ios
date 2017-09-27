@@ -16,9 +16,11 @@ class SetupViewController: UIViewController {
     @IBOutlet weak var setupView: UIView!
     @IBOutlet weak var pendingView: UIView!
     
-    var approved = false
+    var statusChecker = Timer()
+    var registrationApproved = false
     
     @IBAction func cancelRequest(_ sender: Any) {
+        // todo: add cancel logic
     }
     
     @IBAction func addRegister(_ sender: Any) {
@@ -29,6 +31,10 @@ class SetupViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated:true)
         
+        checkRegistrationStatus()
+    }
+    
+    func checkRegistrationStatus() {
         if let registrationStatus = UserDefaults.standard.value(forKey: "registrationStatus") as? String {
             if registrationStatus == "pending" {
                 setupView.isHidden = true
@@ -39,26 +45,30 @@ class SetupViewController: UIViewController {
         }
     }
     
-    @objc func getStatus() {
+    @objc func getRegistrationStatus() {
         Alamofire.request("http://mvp.forus.io/api/user", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let json = response.data {
                 let data = JSON(data: json)
                 if data["shop_keeper"]["state"] == "approved" {
-                    UserDefaults.standard.setValue("approved", forKey: "registrationStatus")
-                    self.stopStatusChecker()
-                    self.approved = true
-                    let alert = UIAlertController(title: "Aanvraag afgerond.", message: "U kunt vanaf nu vouchers scannen.", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Open Scanner", style: .cancel, handler: { (_) in
-                        self.performSegue(withIdentifier: "loadScanner", sender: self)
-                    }))
-                    
-                    self.present(alert, animated: true, completion: nil)
+                    self.approveRegistration()
                 }
             }
         }
     }
     
-    var statusChecker = Timer()
+    func approveRegistration() {
+        stopStatusChecker()
+        registrationApproved = true
+        
+        UserDefaults.standard.setValue("approved", forKey: "registrationStatus")
+        
+        let alert = UIAlertController(title: "Aanvraag afgerond.", message: "U kunt vanaf nu vouchers scannen.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Open Scanner", style: .cancel, handler: { (_) in
+            self.performSegue(withIdentifier: "loadScanner", sender: self)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     
     @objc func startStatusChecker() {
         let registrationStatus = UserDefaults.standard.value(forKey: "registrationStatus") as? String
@@ -67,7 +77,7 @@ class SetupViewController: UIViewController {
             if statusChecker.isValid {
                 self.statusChecker.invalidate()
             } else {
-                self.statusChecker = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getStatus), userInfo: nil, repeats: true)
+                self.statusChecker = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getRegistrationStatus), userInfo: nil, repeats: true)
             }
         }
     }
@@ -78,14 +88,10 @@ class SetupViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector:#selector(startStatusChecker), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,13 +101,11 @@ class SetupViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let target = segue.destination as? ScannerViewController {
-            if !approved {
+            if !registrationApproved {
                 target.addingDevice = true
                 let backItem = UIBarButtonItem()
                 navigationItem.backBarButtonItem = backItem
             }
-        }
-        
-        
+        } 
     }
 }

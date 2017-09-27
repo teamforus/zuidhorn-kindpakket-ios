@@ -10,8 +10,6 @@
 		890F46221F229A3300A2B006 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 890F46211F229A3300A2B006 /* Launch Screen.storyboard */; };
 		890F46241F229A3F00A2B006 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F46231F229A3F00A2B006 /* AppDelegate.swift */; };
 		890F46261F229A5400A2B006 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F46251F229A5400A2B006 /* ScannerViewController.swift */; };
-		890F463E1F229A7300A2B006 /* #1. Splash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 890F463C1F229A7300A2B006 /* #1. Splash.jpg */; };
-		890F463F1F229A7300A2B006 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 890F463D1F229A7300A2B006 /* Info.plist */; };
 		8926674E1F446F250018398E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8926674D1F446F250018398E /* Main.storyboard */; };
 		892D1F1D1F4B502300E0A0E7 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D1F1C1F4B502300E0A0E7 /* RegistrationViewController.swift */; };
 		892D1F1F1F4B595400E0A0E7 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D1F1E1F4B595400E0A0E7 /* APIHeader.swift */; };
@@ -47,18 +45,18 @@
 		0868C0CBA828E81B949E0576 /* Pods_Kassa_Forus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kassa_Forus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D57449A542148B4D47AEB4D /* Pods-Kassa Forus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kassa Forus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Kassa Forus/Pods-Kassa Forus.debug.xcconfig"; sourceTree = "<group>"; };
 		35A3C590316E1D7882E608B4 /* Pods-Kassa Forus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kassa Forus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Kassa Forus/Pods-Kassa Forus.release.xcconfig"; sourceTree = "<group>"; };
-		890F46211F229A3300A2B006 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "Kassa Forus/Resources/Launch Screen.storyboard"; sourceTree = "<group>"; };
+		890F46211F229A3300A2B006 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		890F46231F229A3F00A2B006 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Kassa Forus/AppDelegate.swift"; sourceTree = "<group>"; };
 		890F46251F229A5400A2B006 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScannerViewController.swift; path = "Kassa Forus/ScannerViewController.swift"; sourceTree = "<group>"; };
-		890F463C1F229A7300A2B006 /* #1. Splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "#1. Splash.jpg"; path = "Kassa Forus/Resources/#1. Splash.jpg"; sourceTree = SOURCE_ROOT; };
-		890F463D1F229A7300A2B006 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Kassa Forus/Resources/Info.plist"; sourceTree = SOURCE_ROOT; };
-		891E92B61F417E5B007B4FE0 /* API.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = API.playground; sourceTree = "<group>"; };
+		891E92B61F417E5B007B4FE0 /* API.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = API.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8926674D1F446F250018398E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "Kassa Forus/Main.storyboard"; sourceTree = "<group>"; };
 		892D1F1C1F4B502300E0A0E7 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = "Kassa Forus/RegistrationViewController.swift"; sourceTree = "<group>"; };
 		892D1F1E1F4B595400E0A0E7 /* APIHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHeader.swift; path = "Kassa Forus/APIHeader.swift"; sourceTree = "<group>"; };
 		89432A1B1F62803D00EA8602 /* ProgressHUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressHUDView.swift; path = "Kassa Forus/ProgressHUDView.swift"; sourceTree = "<group>"; };
 		894902241F7A483D00DA7345 /* EtherealCereal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EtherealCereal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		894C6DEB1F4DC10E0008D161 /* AddRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddRegisterViewController.swift; path = "Kassa Forus/AddRegisterViewController.swift"; sourceTree = "<group>"; };
+		89856F601F7B878F009F1CB7 /* #1. Splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "#1. Splash.jpg"; sourceTree = "<group>"; };
+		89856F611F7B878F009F1CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutViewController.swift; path = "Kassa Forus/CheckoutViewController.swift"; sourceTree = "<group>"; };
 		8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalFunctions.swift; path = "Kassa Forus/GlobalFunctions.swift"; sourceTree = "<group>"; };
 		89A3B10F1F2350BA004986B6 /* DevConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DevConfig.swift; path = "Kassa Forus/DevConfig.swift"; sourceTree = "<group>"; };
@@ -100,18 +98,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		89856F5F1F7B878F009F1CB7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				890F46211F229A3300A2B006 /* Launch Screen.storyboard */,
+				89856F601F7B878F009F1CB7 /* #1. Splash.jpg */,
+				89856F611F7B878F009F1CB7 /* Info.plist */,
+			);
+			name = Resources;
+			path = "Kassa Forus/Resources";
+			sourceTree = "<group>";
+		};
 		CE412E8019D9A1E4000F294E = {
 			isa = PBXGroup;
 			children = (
-				89A3B10F1F2350BA004986B6 /* DevConfig.swift */,
 				8926674D1F446F250018398E /* Main.storyboard */,
+				89A3B10F1F2350BA004986B6 /* DevConfig.swift */,
 				89C894211F22881B000C2318 /* SetupViewController.swift */,
 				892D1F1C1F4B502300E0A0E7 /* RegistrationViewController.swift */,
 				894C6DEB1F4DC10E0008D161 /* AddRegisterViewController.swift */,
 				890F46251F229A5400A2B006 /* ScannerViewController.swift */,
 				8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */,
 				89CFC60C1F72ABF800CC6BCF /* PaymentTableViewCell.swift */,
-				890F46211F229A3300A2B006 /* Launch Screen.storyboard */,
 				89A3B1111F2387B9004986B6 /* ScannerMarkerView.swift */,
 				89432A1B1F62803D00EA8602 /* ProgressHUDView.swift */,
 				8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */,
@@ -119,7 +127,7 @@
 				892D1F1E1F4B595400E0A0E7 /* APIHeader.swift */,
 				89C8941F1F228720000C2318 /* Images.xcassets */,
 				891E92B61F417E5B007B4FE0 /* API.playground */,
-				CE412E8C19D9A1E4000F294E /* Supporting Files */,
+				89856F5F1F7B878F009F1CB7 /* Resources */,
 				CE412E8A19D9A1E4000F294E /* Products */,
 				51FAD56FFE9B1058EC1D08BA /* Pods */,
 				1BE45A09F3CFE57F84AE8F12 /* Frameworks */,
@@ -132,16 +140,6 @@
 				CE412E8919D9A1E4000F294E /* Checkout Forus.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		CE412E8C19D9A1E4000F294E /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				890F463C1F229A7300A2B006 /* #1. Splash.jpg */,
-				890F463D1F229A7300A2B006 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			path = QRCodeReader.swift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,10 +207,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				890F463E1F229A7300A2B006 /* #1. Splash.jpg in Resources */,
 				890F46221F229A3300A2B006 /* Launch Screen.storyboard in Resources */,
 				89C894201F228720000C2318 /* Images.xcassets in Resources */,
-				890F463F1F229A7300A2B006 /* Info.plist in Resources */,
 				8926674E1F446F250018398E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

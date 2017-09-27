@@ -42,7 +42,6 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
     }
     
     func confirmPayment() {
-        // update budget
         Alamofire.request("http://mvp.forus.io/api/voucher/\(voucherCode)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
                 if let json = response.data {
@@ -54,13 +53,17 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
                     } else if maxUserSpendable < paymentRequestAmount {
                         self.pay(spendable: maxUserSpendable, amount: paymentRequestAmount)
                     } else {
-                        let alert = UIAlertController(title: "Error", message: "De transactie is mislukt, controleer uw verbinding en probeer het opnieuw.", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                        
-                        self.present(alert, animated: true)
+                        self.displayTransactionError()
                     }
                 }
         }
+    }
+    
+    func displayTransactionError() {
+        let alert = UIAlertController(title: "Error", message: "De transactie is mislukt, controleer uw verbinding en probeer het opnieuw.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
     }
     
     func payWithSufficientBudget() {
@@ -138,8 +141,6 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
         // todo: check if budget > 0
         print(availableBudget)
         
-//        self.budgetLabel.text = "€\(String(format: "%.2f", arguments: [availableBudget]))"
-
         expenceInputField.delegate = self
 
         progressHUD = ProgressHUDView(text: "Verzenden")

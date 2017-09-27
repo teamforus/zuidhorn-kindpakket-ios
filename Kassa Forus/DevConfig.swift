@@ -8,4 +8,18 @@
 
 import Foundation
 
-var loadSetup = false
+
+// MARK: - Notes
+
+/*
+ Generate ethereum keys:
+ 
+ import EtherealCereal
+ 
+ let etherealCereal = EtherealCereal()
+ 
+ let alert = UIAlertController(title: "Ethereum Keys", message: "Address: \(etherealCereal.address) \n Private key: \(etherealCereal.privateKey)", preferredStyle: .alert)
+ 
+ self.present(alert, animated: true, completion: nil)
+
+ */

@@ -36,19 +36,16 @@ class AddRegisterViewController: UIViewController {
     }
     
     func getToken() {
-        Alamofire.request("http://mvp.forus.io/api/shop-keeper/device/token", method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers)
-            .responseJSON { response in
+        Alamofire.request("http://mvp.forus.io/api/shop-keeper/device/token", method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            if let json = response.data {
+                let data = JSON(data: json)
+                let token = data["token"]
                 
-                if let json = response.data {
-                    let data = JSON(data: json)
-                    let token = data["token"]
-                    
-                    print(String(describing: token))
-                    
-                    let message = self.generateQRCode(from: String(describing: token))
-                    self.qrCode.image = message
-                }
+                print(String(describing: token))
                 
+                let message = self.generateQRCode(from: String(describing: token))
+                self.qrCode.image = message
+            }
         }
     }
 

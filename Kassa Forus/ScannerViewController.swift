@@ -11,7 +11,6 @@ import QRCodeReader
 import Alamofire
 import SwiftyJSON
 import UIKit
-import EtherealCereal
 
 class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegate {
     
@@ -87,49 +86,62 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     func checkCode(_ code: String) {
-        if !addingDevice {
-            Alamofire.request("http://mvp.forus.io/api/voucher/\(code)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-                if let json = response.data {
-                    let data = JSON(data: json)
-                    let max_amount = data["max_amount"]
-                    
-                    if max_amount.doubleValue != 0.0 {
-                        self.budget = max_amount.doubleValue
-                        self.performSegue(withIdentifier: "proceedToCheckout", sender: self)
-                    } else {
-                        let alert = UIAlertController(title: "Error", message: "Dit is geen valide voucher of er was een verbindingsprobleem.", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
-                            self.loadScanner()
-                            self.progressHUD.isHidden = true
-                        }))
-                        
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                }
-            }
+        if addingDevice {
+            addDevice(code)
         } else {
-            Alamofire.request("http://mvp.forus.io/api/shop-keeper/device", method: .post, parameters: ["token": "\(code)"], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-                if let json = response.data {
-                    // TODO: check for positive confirmation
-                    let data = JSON(data: json)
-                    let token = data["access_token"]
-                    UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
-                    UserDefaults.standard.setValue("approved", forKey: "registrationStatus")
-                    headers["Authorization"] = "Bearer \(token)"
-                    
-                    // notification that it worked, then loadscanner
-                    let alert = UIAlertController(title: "Success", message: "Dit apparaat is succesvol toegevoegd", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
-                        self.addingDevice = false
-                        self.instruction.text = "Scan de code op de voucher van een klant."
+            checkVoucher(code)
+        }
+    }
+    
+    func checkVoucher(_ code: String) {
+        Alamofire.request("http://mvp.forus.io/api/voucher/\(code)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            if let json = response.data {
+                let data = JSON(data: json)
+                let max_amount = data["max_amount"]
+                
+                if max_amount.doubleValue != 0.0 {
+                    self.budget = max_amount.doubleValue
+                    self.performSegue(withIdentifier: "proceedToCheckout", sender: self)
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Dit is geen valide voucher of er was een verbindingsprobleem.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
                         self.loadScanner()
-                        self.showAddDeviceButton()
+                        self.progressHUD.isHidden = true
                     }))
                     
-                    self.present(alert, animated: true)
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
+    }
+    
+    func addDevice(_ code: String) {
+        Alamofire.request("http://mvp.forus.io/api/shop-keeper/device", method: .post, parameters: ["token": "\(code)"], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            if let json = response.data {
+                // TODO: check for positive confirmation
+                let data = JSON(data: json)
+                let token = data["access_token"]
+                UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
+                UserDefaults.standard.setValue("approved", forKey: "registrationStatus")
+                headers["Authorization"] = "Bearer \(token)"
+                
+                self.displayDeviceAddedConfirmation()
+            }
+        }
+    }
+    
+    func displayDeviceAddedConfirmation() {
+        self.progressHUD.isHidden = true
+        
+        let alert = UIAlertController(title: "Success", message: "Dit apparaat is succesvol toegevoegd", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.addingDevice = false
+            self.instruction.text = "Scan de code op de voucher van een klant."
+            self.loadScanner()
+            self.showAddDeviceButton()
+        }))
+        
+        self.present(alert, animated: true)
     }
     
     // MARK: - QRCodeReader Delegate Methods
@@ -176,44 +188,43 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        setHeaderAndToken()
+        
+        if !loadSetup() {
+            loadScanner()
+        }
+    }
+    
+    func setHeaderAndToken() {
         headers["Device-Id"] = UIDevice.current.identifierForVendor!.uuidString
         
         if let token = UserDefaults.standard.value(forKey: "APItoken") {
             headers["Authorization"] = "Bearer \(token)"
         }
-        
-        print("adding device = \(addingDevice)")
-        
+    }
+    
+    func loadSetup() -> Bool {
         if !addingDevice {
-            if let registrationStatus = UserDefaults.standard.value(forKey: "registrationStatus") as? String {
-                if registrationStatus == "pending" {
-                    print("Registration pending!")
-                    performSegue(withIdentifier: "loadSetup", sender: self)
-                    return
-                }
+            if UserDefaults.standard.value(forKey: "APItoken") == nil {
+                performSegue(withIdentifier: "loadSetup", sender: self)
+                return true
             }
             
-            if UserDefaults.standard.value(forKey: "APItoken") == nil || loadSetup == true {
-                performSegue(withIdentifier: "loadSetup", sender: self)
-                loadSetup = false
-            } else {
-                loadScanner()
+            if let registrationStatus = UserDefaults.standard.value(forKey: "registrationStatus") as? String {
+                if registrationStatus == "pending" {
+                    performSegue(withIdentifier: "loadSetup", sender: self)
+                    return true
+                }
             }
-        } else {
-            loadScanner()
         }
+        
+        return false
     }
     
     override func viewDidLoad() {
         progressHUD = ProgressHUDView(text: "Verzenden")
         self.view.addSubview(progressHUD)
         self.progressHUD.isHidden = true
-        
-//        let etherealCereal = EtherealCereal()
-//
-//        let alert = UIAlertController(title: "Ethereum Keys", message: "Address: \(etherealCereal.address) \n Private key: \(etherealCereal.privateKey)", preferredStyle: .alert)
-//
-//        self.present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
