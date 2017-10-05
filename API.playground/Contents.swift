@@ -30,7 +30,7 @@ func checkCode(_ code: String) {
 
 
 func signup(kvk: String, iban: String, email: String) {
-    Alamofire.request("http://mvp.forus.io/api/shop-keeper/sign-up", method: .post, parameters: [
+    Alamofire.request("http://test-mvp.forus.io/api/shop-keepers/sign-up", method: .post, parameters: [
         "kvk_number": "\(kvk)",
         "iban": "\(iban)",
         "email": "\(email)"
@@ -44,7 +44,7 @@ func signup(kvk: String, iban: String, email: String) {
     }
 }
 
-//signup(kvk: "69097488", iban: "NL91RABO0134369122", email: "jamal@jamal@stichtingforus.nl")
+signup(kvk: "69097488", iban: "NL91RABO0134369122", email: "jamal@stichtingforus.nl")
 
 
 func processPaymentFor(_ code: String, amount: Double) {

@@ -24,7 +24,7 @@ class RegistrationViewController: UIViewController {
     var ibanName = String()
     var ibanNameValid = true // TODO: add iban name check when available
     var kvk = String()
-    var kvkValid = false
+    var kvkValid = true // TODO: set to false
     var email = String()
     var emailValid = false
     
@@ -40,13 +40,14 @@ class RegistrationViewController: UIViewController {
         KVKInput.text = "69097488"
         IBANInput.text = "NL06RABO0382896971"
         IBANNameInput.text = "Fietsen Zuidhorn"
-        emailInput.text = "jamal@stichtingforus.nl"
+        emailInput.text = "jamal@codeweekend.nl"
     }
     
     @IBAction func registerButton(_ sender: Any) {
         self.progressHUD.isHidden = false
         
-        check(kvk: KVKInput.text!)
+//        check(kvk: KVKInput.text!)
+        kvk = KVKInput.text!
         check(iban: IBANInput.text!)
         check(ibanName: IBANNameInput.text!)
         check(email: emailInput.text!)
@@ -124,15 +125,16 @@ class RegistrationViewController: UIViewController {
         if !self.signupAttempted {
             if ibanValid && ibanNameValid && kvkValid && emailValid {
                 signupAttempted = true
-                print("signup attempted")
+                print("signup attempted using: \(kvk) \(iban) \(email)")
                 
-                Alamofire.request("http://mvp.forus.io/api/shop-keeper/sign-up", method: .post, parameters: [
+                Alamofire.request("http://test-mvp.forus.io/api/shop-keepers/sign-up", method: .post, parameters: [
                     "kvk_number": "\(kvk)",
                     "iban": "\(iban)",
                     "email": "\(email)"
                 ], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                     if let json = response.data {
                         let data = JSON(data: json)
+                        print(data)
                         let token = data["access_token"]
                         UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
                         UserDefaults.standard.setValue("pending", forKey: "registrationStatus")

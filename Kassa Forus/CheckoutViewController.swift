@@ -41,21 +41,26 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
         return "Transactie geschiedenis"
     }
     
-    func confirmPayment() {
-        Alamofire.request("http://mvp.forus.io/api/voucher/\(voucherCode)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+    func getTransactions() {
+        Alamofire.request("http://test-mvp.forus.io/api/vouchers/\(voucherCode)/transactions", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
                 if let json = response.data {
                     let data = JSON(data: json)
-                    let maxUserSpendable = data["max_amount"].doubleValue
-                    let paymentRequestAmount = self.expenceInputField.text!.doubleValue
-                    if maxUserSpendable >= paymentRequestAmount {
-                        self.payWithSufficientBudget()
-                    } else if maxUserSpendable < paymentRequestAmount {
-                        self.pay(spendable: maxUserSpendable, amount: paymentRequestAmount)
-                    } else {
-                        self.displayTransactionError()
-                    }
+                    print(data)
                 }
+        }
+    }
+    
+    func confirmPayment() {
+        let maxUserSpendable = self.availableBudget
+        let paymentRequestAmount = self.expenceInputField.text!.doubleValue
+        
+        if maxUserSpendable >= paymentRequestAmount {
+            self.payWithSufficientBudget()
+        } else if maxUserSpendable < paymentRequestAmount {
+            self.pay(spendable: maxUserSpendable, amount: paymentRequestAmount)
+        } else {
+            self.displayTransactionError()
         }
     }
     
@@ -116,8 +121,13 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
     
     func processPaymentFor(_ code: String, amount: Double) {
         print(amount)
-        Alamofire.request("http://mvp.forus.io/api/voucher/\(code)", method: .post, parameters: ["amount": "\(amount)", "_method": "PUT"], encoding: JSONEncoding.default, headers: headers)
-            .responseJSON { response in
+//        let extra = 15
+        Alamofire.request("http://test-mvp.forus.io/api/vouchers/\(code)/transactions", method: .post, parameters: [
+            "amount": "\(amount)",
+            "extra_amount": "0"
+            ], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                
+                print(response)
                 self.progressHUD.isHidden = true
                 
                 let alert = UIAlertController(title: "Success", message: "De transactie was successvol", preferredStyle: .alert)
@@ -139,7 +149,9 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
         super.viewDidLoad()
 
         // todo: check if budget > 0
-        print(availableBudget)
+        print("budget: \(availableBudget)")
+        
+        getTransactions() // temp
         
         expenceInputField.delegate = self
 
