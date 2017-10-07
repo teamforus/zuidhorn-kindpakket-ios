@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+var voucher = String() // temp; store in cell
+
 class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource {
 
     @IBOutlet weak var expenceInputField: UITextField!
@@ -19,20 +21,42 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
     var availableBudget = Double()
     var voucherCode = String()
     
+    var tableView = UITableView()
+    
+    var transactionsJSON = JSON()
+    var transactions: [Transaction] = []
+    
+    struct Transaction {
+        var date = String()
+        var amount = Double()
+        var id = Int()
+        
+        init(date: String, amount: Double, id: Int) {
+            self.date = date
+            self.amount = amount
+            self.id = id
+        }
+    }
+    
     @IBAction func confirmationButton(_ sender: Any) {
         confirmPayment()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 25
+        self.tableView = tableView
+        return transactions.count  // if transactions = 0, hide tableview
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
         cell.selectionStyle = .none
-        cell.textLabel?.text = "€12,50"
-        cell.detailTextLabel?.text = "20-10-2017"
-        cell.tag = indexPath.row
+        
+        let transaction = transactions[indexPath.item]
+
+        cell.textLabel?.text = String("€ \(transaction.amount)")
+        cell.detailTextLabel?.text = transaction.date
+        cell.tag = transaction.id
         
         return cell
     }
@@ -46,9 +70,28 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
             .responseJSON { response in
                 if let json = response.data {
                     let data = JSON(data: json)
-                    print(data)
+
+                    self.transactionsJSON = data
+                    self.loadTransactions()
                 }
         }
+    }
+    
+    func loadTransactions() {
+        if let amount = transactionsJSON.array?.count {
+            for i in 0 ..< amount {
+                
+                let transaction = transactionsJSON[i]
+                
+                let id = transaction["id"].int
+                let amount = transaction["amount"].double
+                let date = transaction["created_at"].string
+                
+                transactions.append(Transaction(date: date!, amount: amount!, id: id!))
+            }
+        }
+        
+        self.tableView.reloadData()
     }
     
     func confirmPayment() {
@@ -160,7 +203,11 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
         self.progressHUD.isHidden = true
         
         expenceInputField.becomeFirstResponder()
+        
+        voucher = voucherCode // temp
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class PaymentTableViewCell: UITableViewCell {
     
@@ -14,6 +16,21 @@ class PaymentTableViewCell: UITableViewCell {
     
     @IBAction func returnButton(_ sender: Any) {
         print(self.tag)
+        
+        returnTransaction(id: self.tag)
+        // return the transaction with this tag
+    }
+    
+    func returnTransaction(id: Int) {
+        let url = "http://test-mvp.forus.io/api/vouchers/\(voucher)/transactions/\(id)/refund"
+
+        Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            if let json = response.data {
+                let data = JSON(data: json)
+                print(data)
+            }
+            print(response)
+        }
     }
     
     override func awakeFromNib() {

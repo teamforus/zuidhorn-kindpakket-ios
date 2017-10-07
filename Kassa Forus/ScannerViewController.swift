@@ -221,10 +221,37 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         return false
     }
     
+    func getRefundAmount() {
+        Alamofire.request("http://test-mvp.forus.io/api/refund/amount", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+            .responseJSON { response in
+                if let json = response.data {
+                    let data = JSON(data: json)
+                    print("refund amount: \(data)")
+                }
+        }
+    }
+    
+    func getRefundLink() {
+        Alamofire.request("http://test-mvp.forus.io/api/refund/link", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+            .responseJSON { response in
+                if let json = response.data {
+                    let data = JSON(data: json)
+                    print("refund link: \(data)")
+                    // go to link
+                }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         progressHUD = ProgressHUDView(text: "Verzenden")
         self.view.addSubview(progressHUD)
         self.progressHUD.isHidden = true
+        
+        delay(0.2) {
+            self.getRefundAmount()
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
