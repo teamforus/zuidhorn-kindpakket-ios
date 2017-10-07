@@ -206,8 +206,6 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
         
         voucher = voucherCode // temp
     }
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
