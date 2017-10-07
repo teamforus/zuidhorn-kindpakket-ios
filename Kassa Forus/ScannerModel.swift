@@ -64,6 +64,14 @@ class ScannerModel {
         return QRCodeReaderViewController(builder: builder)
     }()
     
+    func setHeaderAndToken() {
+        headers["Device-Id"] = UIDevice.current.identifierForVendor!.uuidString
+        
+        if let token = UserDefaults.standard.value(forKey: "APItoken") {
+            headers["Authorization"] = "Bearer \(token)"
+        }
+    }
+    
     func checkCode(_ code: String) {
         if addingDevice {
             addDevice(code)
@@ -106,6 +114,28 @@ class ScannerModel {
                 
                 self.viewController.displayDeviceAddedConfirmation()
             }
+        }
+    }
+    
+    func getRefundAmount() {
+        Alamofire.request("http://test-mvp.forus.io/api/refund/amount", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+            .responseJSON { response in
+                if let json = response.data {
+                    let data = JSON(data: json)
+                    let amount = data["amount"]
+                    self.viewController.refundLabel.text = "Openstaand: €\(amount)"
+                }
+        }
+    }
+    
+    func payDebt() {
+        Alamofire.request("http://test-mvp.forus.io/api/refund/link", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+            .responseJSON { response in
+                if let json = response.data {
+                    let data = JSON(data: json)
+                    let url = String(describing: data["url"])
+                    UIApplication.shared.openURL(URL(string: url)!)
+                }
         }
     }
     

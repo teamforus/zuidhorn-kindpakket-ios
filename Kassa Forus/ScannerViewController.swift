@@ -24,10 +24,8 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     @IBOutlet weak var previewView: UIView!
     
     @IBAction func settleDebt(_ sender: Any) {
-        // get and open payment url
-        payDebt()
+        model?.payDebt()
     }
-    
     
     lazy var reader: QRCodeReader = QRCodeReader()
     lazy var readerVC: QRCodeReaderViewController = {
@@ -38,8 +36,6 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         
         return QRCodeReaderViewController(builder: builder)
     }()
-    
-    // MARK: - Actions
     
     func loadScanner() {
         guard (model?.checkScanPermissions())!, !reader.isRunning else { return }
@@ -91,18 +87,6 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         dismiss(animated: true, completion: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        model = ScannerModel(viewController: self)
-        
-        if !(model?.addingDevice)! {
-            showAddDeviceButton()
-        } else {
-            instruction.text = "Scan de code op het andere apparaat."
-        }
-    }
-    
     func showAddDeviceButton() {
         let leftButton: UIButton = UIButton(type: UIButtonType.contactAdd)
         leftButton.addTarget(self, action: #selector(ScannerViewController.showToken), for: UIControlEvents.touchUpInside)
@@ -115,19 +99,23 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         self.performSegue(withIdentifier: "showToken", sender: self)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        setHeaderAndToken()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        if !loadSetup() {
-            loadScanner()
+        model = ScannerModel(viewController: self)
+        
+        if !(model?.addingDevice)! {
+            showAddDeviceButton()
+        } else {
+            instruction.text = "Scan de code op het andere apparaat."
         }
     }
     
-    func setHeaderAndToken() {
-        headers["Device-Id"] = UIDevice.current.identifierForVendor!.uuidString
+    override func viewDidAppear(_ animated: Bool) {
+        model?.setHeaderAndToken()
         
-        if let token = UserDefaults.standard.value(forKey: "APItoken") {
-            headers["Authorization"] = "Bearer \(token)"
+        if !loadSetup() {
+            loadScanner()
         }
     }
     
@@ -149,45 +137,20 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         return false
     }
     
-    func getRefundAmount() {
-        Alamofire.request("http://test-mvp.forus.io/api/refund/amount", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
-            .responseJSON { response in
-                if let json = response.data {
-                    let data = JSON(data: json)
-                    print("refund amount: \(data)")
-                    let amount = data["amount"]
-                    print(amount)
-                    self.refundLabel.text = "Openstaand: €\(amount)"
-                }
-        }
-    }
-    
-    func payDebt() {
-        Alamofire.request("http://test-mvp.forus.io/api/refund/link", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
-            .responseJSON { response in
-                if let json = response.data {
-                    let data = JSON(data: json)
-                    print("refund link: \(data)")
-                    let url = String(describing: data["url"])
-                    UIApplication.shared.openURL(URL(string: url)!)
-                }
-        }
-    }
-    
     override func viewDidLoad() {
         progressHUD = ProgressHUDView(text: "Verzenden")
         self.view.addSubview(progressHUD)
         self.progressHUD.isHidden = true
         
         delay(0.2) {
-            self.getRefundAmount()
+            self.model?.getRefundAmount()
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let target = segue.destination as? CheckoutViewController {
-            target.availableBudget = (self.model?.budget)!
-            target.voucherCode = (self.model?.scanResult)!
+            target.availableBudget = self.model!.budget
+            target.voucherCode = self.model!.scanResult
             self.progressHUD.isHidden = true	
         }
     }
