@@ -62,16 +62,45 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLG-qv-6LK">
+                                <rect key="frame" x="0.0" y="528" width="320" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Cw-XI-A5f">
+                                        <rect key="frame" x="259" y="5" width="43" height="30"/>
+                                        <state key="normal" title="Betaal"/>
+                                        <connections>
+                                            <action selector="settleDebt:" destination="xvb-pV-pSp" eventType="touchUpInside" id="RVh-ix-rE3"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Er staat geen bedrag open." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cuq-wD-XTJ">
+                                        <rect key="frame" x="18" y="9" width="207.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.60249779929577463" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Cuq-wD-XTJ" firstAttribute="centerY" secondItem="wLG-qv-6LK" secondAttribute="centerY" id="0tE-9x-mhS"/>
+                                    <constraint firstItem="1Cw-XI-A5f" firstAttribute="centerY" secondItem="wLG-qv-6LK" secondAttribute="centerY" id="AD5-la-jk2"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Cw-XI-A5f" secondAttribute="trailing" constant="18" id="YHE-NC-QZm"/>
+                                    <constraint firstItem="Cuq-wD-XTJ" firstAttribute="leading" secondItem="wLG-qv-6LK" secondAttribute="leading" constant="18" id="eJB-G3-uXG"/>
+                                    <constraint firstAttribute="height" constant="40" id="zy7-oh-2EB"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GDY-98-8i1" firstAttribute="width" secondItem="5Gd-0p-03Z" secondAttribute="width" id="3ot-WF-Itg"/>
                             <constraint firstItem="VPt-mw-9Fm" firstAttribute="height" secondItem="5Gd-0p-03Z" secondAttribute="height" id="Cw4-Cz-2Vt"/>
+                            <constraint firstItem="wLG-qv-6LK" firstAttribute="leading" secondItem="5Gd-0p-03Z" secondAttribute="leading" id="DcD-TK-Ke7"/>
                             <constraint firstItem="S3O-yz-C9B" firstAttribute="centerX" secondItem="5Gd-0p-03Z" secondAttribute="centerX" id="LaG-bQ-cwC"/>
                             <constraint firstItem="GDY-98-8i1" firstAttribute="centerX" secondItem="5Gd-0p-03Z" secondAttribute="centerX" id="NAS-TV-BhH"/>
                             <constraint firstItem="VPt-mw-9Fm" firstAttribute="centerX" secondItem="5Gd-0p-03Z" secondAttribute="centerX" id="OLf-74-zmq"/>
+                            <constraint firstAttribute="trailing" secondItem="wLG-qv-6LK" secondAttribute="trailing" id="Yhj-7g-ckK"/>
                             <constraint firstItem="VPt-mw-9Fm" firstAttribute="centerY" secondItem="5Gd-0p-03Z" secondAttribute="centerY" id="hXf-FK-S48"/>
                             <constraint firstItem="S3O-yz-C9B" firstAttribute="top" secondItem="Ufa-Ty-ouC" secondAttribute="bottom" constant="25" id="kum-3z-IEb"/>
+                            <constraint firstItem="go1-YO-DwR" firstAttribute="top" secondItem="wLG-qv-6LK" secondAttribute="bottom" id="l4I-ht-9KK"/>
                             <constraint firstItem="VPt-mw-9Fm" firstAttribute="width" secondItem="5Gd-0p-03Z" secondAttribute="width" id="nso-jP-lIe"/>
                             <constraint firstItem="GDY-98-8i1" firstAttribute="centerY" secondItem="5Gd-0p-03Z" secondAttribute="centerY" id="wwX-oM-J59"/>
                             <constraint firstItem="GDY-98-8i1" firstAttribute="height" secondItem="5Gd-0p-03Z" secondAttribute="height" id="zgi-VI-drv"/>
@@ -91,6 +120,7 @@
                     <connections>
                         <outlet property="instruction" destination="S3O-yz-C9B" id="tgE-2Q-eHJ"/>
                         <outlet property="previewView" destination="VPt-mw-9Fm" id="Stk-eY-XhQ"/>
+                        <outlet property="refundLabel" destination="Cuq-wD-XTJ" id="2cW-xF-0Jk"/>
                         <segue destination="3pP-7j-tCF" kind="show" identifier="loadSetup" id="Ynq-Mx-az2"/>
                         <segue destination="g5W-Mh-t2y" kind="show" identifier="proceedToCheckout" id="uZD-xh-U6q"/>
                         <segue destination="oxq-V8-xc5" kind="show" identifier="showToken" id="Yoa-bF-HoL"/>
@@ -616,8 +646,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="uZD-xh-U6q"/>
         <segue reference="0U2-Mq-AVF"/>
-        <segue reference="dDc-IS-RQg"/>
+        <segue reference="Ynq-Mx-az2"/>
         <segue reference="dJZ-gh-Shi"/>
     </inferredMetricsTieBreakers>
 </document>

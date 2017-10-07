@@ -15,6 +15,7 @@ import UIKit
 class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegate {
     
     @IBOutlet weak var instruction: UILabel!
+    @IBOutlet weak var refundLabel: UILabel!
     
     var progressHUD = UIVisualEffectView()
     
@@ -24,6 +25,12 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     var addingDevice = false
     
     @IBOutlet weak var previewView: UIView!
+    
+    @IBAction func settleDebt(_ sender: Any) {
+        // get and open payment url
+        payDebt()
+    }
+    
     
     lazy var reader: QRCodeReader = QRCodeReader()
     lazy var readerVC: QRCodeReaderViewController = {
@@ -227,17 +234,21 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
                 if let json = response.data {
                     let data = JSON(data: json)
                     print("refund amount: \(data)")
+                    let amount = data["amount"]
+                    print(amount)
+                    self.refundLabel.text = "Openstaand: €\(amount)"
                 }
         }
     }
     
-    func getRefundLink() {
+    func payDebt() {
         Alamofire.request("http://test-mvp.forus.io/api/refund/link", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
                 if let json = response.data {
                     let data = JSON(data: json)
                     print("refund link: \(data)")
-                    // go to link
+                    let url = String(describing: data["url"])
+                    UIApplication.shared.openURL(URL(string: url)!)
                 }
         }
     }
