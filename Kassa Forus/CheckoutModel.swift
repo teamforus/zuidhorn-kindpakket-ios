@@ -60,7 +60,7 @@ class CheckoutModel {
     }
     
     func getTransactions() {
-        Alamofire.request("http://test-mvp.forus.io/api/vouchers/\(viewController.voucherCode)/transactions", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+        Alamofire.request(baseURL+"vouchers/\(viewController.voucherCode)/transactions", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
                 if let json = response.data {
                     let data = JSON(data: json)
@@ -120,7 +120,7 @@ class CheckoutModel {
     }
     
     func processPaymentFor(_ code: String, amount: Double) {
-        Alamofire.request("http://test-mvp.forus.io/api/vouchers/\(code)/transactions", method: .post, parameters: [
+        Alamofire.request(baseURL+"vouchers/\(code)/transactions", method: .post, parameters: [
             "amount": "\(amount)",
             "extra_amount": "0"
             ], encoding: JSONEncoding.default, headers: headers).responseJSON { response in

@@ -81,7 +81,7 @@ class ScannerModel {
     }
     
     func checkVoucher(_ code: String) {
-        Alamofire.request("http://test-mvp.forus.io/api/vouchers/\(code)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        Alamofire.request(baseURL+"vouchers/\(code)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let json = response.data {
                 let data = JSON(data: json)
                 let max_amount = data["max_amount"]
@@ -103,7 +103,7 @@ class ScannerModel {
     }
     
     func addDevice(_ code: String) {
-        Alamofire.request("http://test-mvp.forus.io/api/shop-keepers/device", method: .post, parameters: ["token": "\(code)"], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        Alamofire.request(baseURL+"shop-keepers/device", method: .post, parameters: ["token": "\(code)"], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let json = response.data {
                 // TODO: check for positive confirmation
                 let data = JSON(data: json)
@@ -118,7 +118,7 @@ class ScannerModel {
     }
     
     func getRefundAmount() {
-        Alamofire.request("http://test-mvp.forus.io/api/refund/amount", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+        Alamofire.request(baseURL+"refund/amount", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
                 if let json = response.data {
                     let data = JSON(data: json)
@@ -129,7 +129,7 @@ class ScannerModel {
     }
     
     func payDebt() {
-        Alamofire.request("http://test-mvp.forus.io/api/refund/link", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+        Alamofire.request(baseURL+"refund/link", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
                 if let json = response.data {
                     let data = JSON(data: json)

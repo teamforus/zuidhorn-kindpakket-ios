@@ -12,14 +12,13 @@
 		890F46261F229A5400A2B006 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F46251F229A5400A2B006 /* ScannerViewController.swift */; };
 		8926674E1F446F250018398E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8926674D1F446F250018398E /* Main.storyboard */; };
 		892D1F1D1F4B502300E0A0E7 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D1F1C1F4B502300E0A0E7 /* RegistrationViewController.swift */; };
-		892D1F1F1F4B595400E0A0E7 /* APIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D1F1E1F4B595400E0A0E7 /* APIHeader.swift */; };
+		892D1F1F1F4B595400E0A0E7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D1F1E1F4B595400E0A0E7 /* API.swift */; };
 		89432A1C1F62803D00EA8602 /* ProgressHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89432A1B1F62803D00EA8602 /* ProgressHUDView.swift */; };
 		894902231F7A483D00DA7345 /* EtherealCereal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 894902241F7A483D00DA7345 /* EtherealCereal.framework */; };
 		894902261F7A497000DA7345 /* EtherealCereal.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 894902241F7A483D00DA7345 /* EtherealCereal.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		894C6DEC1F4DC10E0008D161 /* AddRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894C6DEB1F4DC10E0008D161 /* AddRegisterViewController.swift */; };
 		8993F9131F22AC4200B3BCDB /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */; };
 		8993F9151F22AD7F00B3BCDB /* GlobalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */; };
-		899A56901F89246000632CD8 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899A568F1F89246000632CD8 /* ScannerView.swift */; };
 		89A3B1101F2350BA004986B6 /* DevConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3B10F1F2350BA004986B6 /* DevConfig.swift */; };
 		89A3B1121F2387B9004986B6 /* ScannerMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3B1111F2387B9004986B6 /* ScannerMarkerView.swift */; };
 		89C894201F228720000C2318 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C8941F1F228720000C2318 /* Images.xcassets */; };
@@ -54,7 +53,7 @@
 		891E92B61F417E5B007B4FE0 /* API.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = API.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8926674D1F446F250018398E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "Kassa Forus/Main.storyboard"; sourceTree = "<group>"; };
 		892D1F1C1F4B502300E0A0E7 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = "Kassa Forus/RegistrationViewController.swift"; sourceTree = "<group>"; };
-		892D1F1E1F4B595400E0A0E7 /* APIHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHeader.swift; path = "Kassa Forus/APIHeader.swift"; sourceTree = "<group>"; };
+		892D1F1E1F4B595400E0A0E7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = "Kassa Forus/API.swift"; sourceTree = "<group>"; };
 		89432A1B1F62803D00EA8602 /* ProgressHUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressHUDView.swift; path = "Kassa Forus/ProgressHUDView.swift"; sourceTree = "<group>"; };
 		894902241F7A483D00DA7345 /* EtherealCereal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EtherealCereal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		894C6DEB1F4DC10E0008D161 /* AddRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddRegisterViewController.swift; path = "Kassa Forus/AddRegisterViewController.swift"; sourceTree = "<group>"; };
@@ -62,7 +61,6 @@
 		89856F611F7B878F009F1CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8993F9121F22AC4200B3BCDB /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutViewController.swift; path = "Kassa Forus/CheckoutViewController.swift"; sourceTree = "<group>"; };
 		8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalFunctions.swift; path = "Kassa Forus/GlobalFunctions.swift"; sourceTree = "<group>"; };
-		899A568F1F89246000632CD8 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScannerView.swift; path = "Kassa Forus/ScannerView.swift"; sourceTree = "<group>"; };
 		89A3B10F1F2350BA004986B6 /* DevConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DevConfig.swift; path = "Kassa Forus/DevConfig.swift"; sourceTree = "<group>"; };
 		89A3B1111F2387B9004986B6 /* ScannerMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScannerMarkerView.swift; path = "Kassa Forus/ScannerMarkerView.swift"; sourceTree = "<group>"; };
 		89C8941F1F228720000C2318 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Kassa Forus/Images.xcassets"; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 				890F46251F229A5400A2B006 /* ScannerViewController.swift */,
 				89A3B1111F2387B9004986B6 /* ScannerMarkerView.swift */,
 				89CC2F251F8914F9001123E3 /* ScannerModel.swift */,
-				899A568F1F89246000632CD8 /* ScannerView.swift */,
 			);
 			name = Scanner;
 			sourceTree = "<group>";
@@ -152,7 +149,7 @@
 			children = (
 				8926674D1F446F250018398E /* Main.storyboard */,
 				89A3B10F1F2350BA004986B6 /* DevConfig.swift */,
-				892D1F1E1F4B595400E0A0E7 /* APIHeader.swift */,
+				892D1F1E1F4B595400E0A0E7 /* API.swift */,
 				89CC2F241F89146F001123E3 /* Setup */,
 				89CC2F271F89183B001123E3 /* Scanner */,
 				89CC2F281F891886001123E3 /* Checkout */,
@@ -318,14 +315,13 @@
 				89CFC60D1F72ABF800CC6BCF /* PaymentTableViewCell.swift in Sources */,
 				892D1F1D1F4B502300E0A0E7 /* RegistrationViewController.swift in Sources */,
 				89A3B1121F2387B9004986B6 /* ScannerMarkerView.swift in Sources */,
-				899A56901F89246000632CD8 /* ScannerView.swift in Sources */,
 				8993F9151F22AD7F00B3BCDB /* GlobalFunctions.swift in Sources */,
 				89432A1C1F62803D00EA8602 /* ProgressHUDView.swift in Sources */,
 				89CBD0741F894E38009C38BE /* CheckoutModel.swift in Sources */,
 				894C6DEC1F4DC10E0008D161 /* AddRegisterViewController.swift in Sources */,
 				89CC2F261F8914F9001123E3 /* ScannerModel.swift in Sources */,
 				89C894221F22881B000C2318 /* SetupViewController.swift in Sources */,
-				892D1F1F1F4B595400E0A0E7 /* APIHeader.swift in Sources */,
+				892D1F1F1F4B595400E0A0E7 /* API.swift in Sources */,
 				8993F9131F22AC4200B3BCDB /* CheckoutViewController.swift in Sources */,
 				890F46261F229A5400A2B006 /* ScannerViewController.swift in Sources */,
 			);

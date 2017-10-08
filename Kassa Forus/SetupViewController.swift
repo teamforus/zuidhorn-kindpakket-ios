@@ -46,7 +46,7 @@ class SetupViewController: UIViewController {
     }
     
     @objc func getRegistrationStatus() {
-        Alamofire.request("http://test-mvp.forus.io/api/user", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+        Alamofire.request(baseURL+"user", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let json = response.data {
                 let data = JSON(data: json)
                 print("status: \(data)")

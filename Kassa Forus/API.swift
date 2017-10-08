@@ -11,3 +11,5 @@ import Alamofire
 var headers: HTTPHeaders = [
     "Accept": "application/json",
 ]
+
+let baseURL = "http://test-mvp.forus.io/api/"

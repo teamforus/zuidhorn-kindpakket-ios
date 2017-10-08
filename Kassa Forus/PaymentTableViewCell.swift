@@ -22,7 +22,7 @@ class PaymentTableViewCell: UITableViewCell {
     }
     
     func returnTransaction(id: Int) {
-        let url = "http://test-mvp.forus.io/api/vouchers/\(voucher)/transactions/\(id)/refund"
+        let url = baseURL+"vouchers/\(voucher)/transactions/\(id)/refund"
 
         Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let json = response.data {

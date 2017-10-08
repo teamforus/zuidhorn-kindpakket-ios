@@ -127,7 +127,7 @@ class RegistrationViewController: UIViewController {
                 signupAttempted = true
                 print("signup attempted using: \(kvk) \(iban) \(email)")
                 
-                Alamofire.request("http://test-mvp.forus.io/api/shop-keepers/sign-up", method: .post, parameters: [
+                Alamofire.request(baseURL+"shop-keepers/sign-up", method: .post, parameters: [
                     "kvk_number": "\(kvk)",
                     "iban": "\(iban)",
                     "email": "\(email)"
