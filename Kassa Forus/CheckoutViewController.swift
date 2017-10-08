@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 var voucher = String() // temp; store in cell
+var checkoutVC = CheckoutViewController()
 // todo: check if budget > 0
 
 class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource {
@@ -84,6 +85,8 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
         self.progressHUD.isHidden = true
         
         expenceInputField.becomeFirstResponder()
+        
+        checkoutVC = self
     }
 
     override func didReceiveMemoryWarning() {

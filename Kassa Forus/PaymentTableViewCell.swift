@@ -14,23 +14,31 @@ class PaymentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var returnButton: UIButton!
     
+    var viewController = CheckoutViewController()
+    
     @IBAction func returnButton(_ sender: Any) {
-        print(self.tag)
-        
-        returnTransaction(id: self.tag)
-        // return the transaction with this tag
+        refund(transaction: self.tag)
     }
     
-    func returnTransaction(id: Int) {
+    func refund(transaction id: Int) {
         let url = baseURL+"vouchers/\(voucher)/transactions/\(id)/refund"
 
         Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let json = response.data {
                 let data = JSON(data: json)
-                print(data)
+                
+                if data["status"] == "refund" {
+                    self.displaySuccessAlert()
+                }
             }
-            print(response)
         }
+    }
+    
+    func displaySuccessAlert() {
+        let alert = UIAlertController(title: "Success", message: "Retournering geslaagd", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        
+        checkoutVC.present(alert, animated: true)
     }
     
     override func awakeFromNib() {
