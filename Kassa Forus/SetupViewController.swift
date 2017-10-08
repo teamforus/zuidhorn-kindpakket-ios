@@ -103,7 +103,7 @@ class SetupViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let target = segue.destination as? ScannerViewController {
             if !registrationApproved {
-                target.model?.addingDevice = true
+                target.addingDevice = true
                 let backItem = UIBarButtonItem()
                 navigationItem.backBarButtonItem = backItem
             }

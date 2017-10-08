@@ -18,8 +18,6 @@ class ScannerModel {
     var scanResult = String()
     var budget = Double()
     
-    var addingDevice = false
-    
     func checkScanPermissions() -> Bool {
         do {
             return try QRCodeReader.supportsMetadataObjectTypes()
@@ -73,7 +71,7 @@ class ScannerModel {
     }
     
     func checkCode(_ code: String) {
-        if addingDevice {
+        if viewController.addingDevice {
             addDevice(code)
         } else {
             checkVoucher(code)

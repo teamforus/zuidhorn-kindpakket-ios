@@ -20,6 +20,7 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     var progressHUD = UIVisualEffectView()
     
     var model: ScannerModel?
+    var addingDevice = false
     
     @IBOutlet weak var previewView: UIView!
     
@@ -56,7 +57,7 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         
         let alert = UIAlertController(title: "Success", message: "Dit apparaat is succesvol toegevoegd", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
-            self.model?.addingDevice = false
+            self.addingDevice = false
             self.instruction.text = "Scan de code op de voucher van een klant."
             self.loadScanner()
             self.showAddDeviceButton()
@@ -104,7 +105,7 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         
         model = ScannerModel(viewController: self)
         
-        if !(model?.addingDevice)! {
+        if !addingDevice {
             showAddDeviceButton()
         } else {
             instruction.text = "Scan de code op het andere apparaat."
@@ -120,7 +121,7 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     func loadSetup() -> Bool {
-        if !(model?.addingDevice)! {
+        if !addingDevice {
             if UserDefaults.standard.value(forKey: "APItoken") == nil {
                 performSegue(withIdentifier: "loadSetup", sender: self)
                 return true
