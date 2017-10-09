@@ -14,14 +14,25 @@ class PaymentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var returnButton: UIButton!
     
-    var viewController = CheckoutViewController()
-    
     @IBAction func returnButton(_ sender: Any) {
-        refund(transaction: self.tag)
+        confirmRefund()
     }
     
-    func refund(transaction id: Int) {
-        let url = baseURL+"vouchers/\(voucher)/transactions/\(id)/refund"
+    func confirmRefund() {
+        let alert = UIAlertController(title: "Retournering", message: "Weet je zeker dat je deze betaling wil retourneren?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Bevestig", style: .default, handler: { (_) in
+            self.refund()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Annuleer", style: .cancel, handler: { (_) in
+            // cancel logic
+        }))
+        
+        checkoutVC.present(alert, animated: true, completion: nil)
+    }
+    
+    func refund() {
+        let url = baseURL+"vouchers/\(voucher)/transactions/\(self.tag)/refund"
 
         Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let json = response.data {

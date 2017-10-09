@@ -128,9 +128,12 @@ class ScannerModel {
     }
     
     func payDebt() {
+        viewController.progressHUD.isHidden = false
         Alamofire.request(baseURL+"refund/link", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
             .responseJSON { response in
                 if let json = response.data {
+                    self.viewController.progressHUD.isHidden = true
+                    
                     let data = JSON(data: json)
                     let url = String(describing: data["url"])
                     UIApplication.shared.openURL(URL(string: url)!)
