@@ -121,6 +121,7 @@
                         <outlet property="instruction" destination="S3O-yz-C9B" id="tgE-2Q-eHJ"/>
                         <outlet property="previewView" destination="VPt-mw-9Fm" id="Stk-eY-XhQ"/>
                         <outlet property="refundLabel" destination="Cuq-wD-XTJ" id="2cW-xF-0Jk"/>
+                        <outlet property="refundView" destination="wLG-qv-6LK" id="p9X-EX-6dR"/>
                         <segue destination="3pP-7j-tCF" kind="show" identifier="loadSetup" id="Ynq-Mx-az2"/>
                         <segue destination="g5W-Mh-t2y" kind="show" identifier="proceedToCheckout" id="uZD-xh-U6q"/>
                         <segue destination="oxq-V8-xc5" kind="show" identifier="showToken" id="Yoa-bF-HoL"/>
@@ -646,6 +647,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="uZD-xh-U6q"/>
         <segue reference="0U2-Mq-AVF"/>
         <segue reference="Ynq-Mx-az2"/>
         <segue reference="dJZ-gh-Shi"/>

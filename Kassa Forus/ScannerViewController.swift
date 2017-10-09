@@ -12,10 +12,13 @@ import Alamofire
 import SwiftyJSON
 import UIKit
 
+var scannerVC = ScannerViewController() // workaround
+
 class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegate {
     
     @IBOutlet weak var instruction: UILabel!
     @IBOutlet weak var refundLabel: UILabel!
+    @IBOutlet weak var refundView: UIView!
     
     var progressHUD = UIVisualEffectView()
     
@@ -142,6 +145,9 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         progressHUD = ProgressHUDView(text: "Verzenden")
         self.view.addSubview(progressHUD)
         self.progressHUD.isHidden = true
+        
+        refundView.isHidden = true
+        scannerVC = self
         
         delay(0.2) {
             self.model?.getRefundAmount()

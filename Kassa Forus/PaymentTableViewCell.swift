@@ -29,6 +29,7 @@ class PaymentTableViewCell: UITableViewCell {
                 
                 if data["status"] == "refund" {
                     self.displaySuccessAlert()
+                    scannerVC.model?.getRefundAmount()
                 }
             }
         }

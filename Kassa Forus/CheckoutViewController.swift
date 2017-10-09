@@ -11,8 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 var voucher = String() // temp; store in cell
-var checkoutVC = CheckoutViewController()
-// todo: check if budget > 0
+var checkoutVC = CheckoutViewController() // workaround
 
 class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource {
 
