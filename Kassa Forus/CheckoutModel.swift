@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+var refundedTransactions: [Int] = []
+
 class CheckoutModel {
     
     var viewController: CheckoutViewController
@@ -38,6 +40,8 @@ class CheckoutModel {
                 let id = transaction["id"].int
                 let amount = transaction["amount"].double
                 let date = transaction["created_at"].string
+                
+                if transaction["status"] == "refund" {refundedTransactions.append(id!)}
                 
                 transactions.append(Transaction(date: date!, amount: amount!, id: id!))
             }

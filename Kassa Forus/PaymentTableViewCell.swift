@@ -28,7 +28,9 @@ class PaymentTableViewCell: UITableViewCell {
                 let data = JSON(data: json)
                 
                 if data["status"] == "refund" {
+                    refundedTransactions.append(self.tag)
                     self.displaySuccessAlert()
+                    checkoutVC.tableView.reloadData()
                     scannerVC.model?.getRefundAmount()
                 }
             }
@@ -41,15 +43,13 @@ class PaymentTableViewCell: UITableViewCell {
         
         checkoutVC.present(alert, animated: true)
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+        if refundedTransactions.contains(self.tag) {returnButton.isEnabled = false}
+        
+        print("tag is: \(self.tag)")
         // Configure the view for the selected state
     }
 }
