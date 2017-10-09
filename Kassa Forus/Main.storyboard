@@ -414,6 +414,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="expenceInputField" destination="oVs-wl-gqP" id="7XX-qX-orV"/>
+                        <outlet property="transactionTableView" destination="eka-Zd-Ylv" id="2De-Af-NJp"/>
                         <segue destination="xvb-pV-pSp" kind="show" identifier="returnToScanner" id="dJZ-gh-Shi"/>
                     </connections>
                 </viewController>
@@ -647,7 +648,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uZD-xh-U6q"/>
         <segue reference="0U2-Mq-AVF"/>
         <segue reference="Ynq-Mx-az2"/>
         <segue reference="dJZ-gh-Shi"/>

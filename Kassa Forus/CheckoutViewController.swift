@@ -24,6 +24,7 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
     
     var progressHUD = UIVisualEffectView()
     
+    @IBOutlet weak var transactionTableView: UITableView!
     var tableView = UITableView()
     
     @IBAction func confirmationButton(_ sender: Any) {
@@ -32,20 +33,34 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.tableView = tableView
-        return (model?.transactions.count)!  // if transactions = 0, hide tableview
+        return (model?.transactions.count)! + 7  // if transactions = 0, hide tableview
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        if let transactions = model?.transactions.count {
+            if transactions > 0 {
+                transactionTableView.isHidden = false
+                
+                if indexPath.item < transactions {
+                    print("index item \(indexPath.item)")
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+                    
+                    cell.selectionStyle = .none
+                    
+                    let transaction = model!.transactions[indexPath.item]
+                    
+                    cell.textLabel?.text = String("€ \(transaction.amount)")
+                    cell.detailTextLabel?.text = transaction.date
+                    cell.tag = transaction.id
+                    
+                    return cell
+                }
+            } else {
+                transactionTableView.isHidden = true
+            }
+        }
         
-        cell.selectionStyle = .none
-        
-        let transaction = model!.transactions[indexPath.item]
-
-        cell.textLabel?.text = String("€ \(transaction.amount)")
-        cell.detailTextLabel?.text = transaction.date
-        cell.tag = transaction.id
-        
+        let cell = UITableViewCell()
         return cell
     }
     
