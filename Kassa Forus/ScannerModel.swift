@@ -71,8 +71,12 @@ class ScannerModel {
     }
     
     func checkCode(_ code: String) {
-        if viewController.addingDevice {
-            addDevice(code)
+        if code.count > 42 {
+            if viewController.addingDevice {
+                addDevice(code)
+            } else {
+                authorizeToken(code)
+            }
         } else {
             checkVoucher(code)
         }
@@ -112,6 +116,13 @@ class ScannerModel {
                 
                 self.viewController.displayDeviceAddedConfirmation()
             }
+        }
+    }
+    
+    func authorizeToken(_ code: String) {
+        Alamofire.request(baseURL+"shop-keepers/devices/token/\(code)", method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            self.viewController.loadScanner()
+            self.viewController.progressHUD.isHidden = true
         }
     }
     
