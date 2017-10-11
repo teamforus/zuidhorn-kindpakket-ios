@@ -89,6 +89,12 @@ class SetupViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let target = segue.destination as? ScannerViewController {
+            target.navigationItem.setHidesBackButton(true, animated:false)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -98,15 +104,5 @@ class SetupViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let target = segue.destination as? ScannerViewController {
-            if !registrationApproved {
-                target.addingDevice = true
-                let backItem = UIBarButtonItem()
-                navigationItem.backBarButtonItem = backItem
-            }
-        } 
     }
 }

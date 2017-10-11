@@ -72,11 +72,7 @@ class ScannerModel {
     
     func checkCode(_ code: String) {
         if code.count > 42 {
-            if viewController.addingDevice {
-                addDevice(code)
-            } else {
-                authorizeToken(code)
-            }
+            authorizeToken(code)
         } else {
             checkVoucher(code)
         }
@@ -100,21 +96,6 @@ class ScannerModel {
                     
                     self.viewController.present(alert, animated: true, completion: nil)
                 }
-            }
-        }
-    }
-    
-    func addDevice(_ code: String) {
-        Alamofire.request(baseURL+"shop-keepers/device", method: .post, parameters: ["token": "\(code)"], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            if let json = response.data {
-                // TODO: check for positive confirmation
-                let data = JSON(data: json)
-                let token = data["access_token"]
-                UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
-                UserDefaults.standard.setValue("approved", forKey: "registrationStatus")
-                headers["Authorization"] = "Bearer \(token)"
-                
-                self.viewController.displayDeviceAddedConfirmation()
             }
         }
     }

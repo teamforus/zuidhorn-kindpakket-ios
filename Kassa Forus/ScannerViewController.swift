@@ -23,7 +23,6 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     var progressHUD = UIVisualEffectView()
     
     var model: ScannerModel?
-    var addingDevice = false
     
     @IBOutlet weak var previewView: UIView!
     
@@ -55,20 +54,6 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         }
     }
     
-    func displayDeviceAddedConfirmation() {
-        self.progressHUD.isHidden = true
-        
-        let alert = UIAlertController(title: "Success", message: "Dit apparaat is succesvol toegevoegd", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
-            self.addingDevice = false
-            self.instruction.text = "Scan de code op de voucher van een klant."
-            self.loadScanner()
-            self.showAddDeviceButton()
-        }))
-        
-        self.present(alert, animated: true)
-    }
-    
     // MARK: - QRCodeReader Delegate Methods
     
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
@@ -91,14 +76,6 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         dismiss(animated: true, completion: nil)
     }
     
-    func showAddDeviceButton() {
-//        let leftButton: UIButton = UIButton(type: UIButtonType.contactAdd)
-//        leftButton.addTarget(self, action: #selector(ScannerViewController.showToken), for: UIControlEvents.touchUpInside)
-//
-//        let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
-//        self.navigationItem.setLeftBarButton(leftBarButtonItem, animated: false)
-    }
-    
     @objc func showToken() {
         self.performSegue(withIdentifier: "showToken", sender: self)
     }
@@ -107,12 +84,6 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         super.viewWillAppear(animated)
         
         model = ScannerModel(viewController: self)
-        
-        if !addingDevice {
-            showAddDeviceButton()
-        } else {
-            instruction.text = "Scan de code op het andere apparaat."
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -124,17 +95,15 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     func loadSetup() -> Bool {
-        if !addingDevice {
-            if UserDefaults.standard.value(forKey: "APItoken") == nil {
+        if UserDefaults.standard.value(forKey: "APItoken") == nil {
+            performSegue(withIdentifier: "loadSetup", sender: self)
+            return true
+        }
+        
+        if let registrationStatus = UserDefaults.standard.value(forKey: "registrationStatus") as? String {
+            if registrationStatus == "pending" {
                 performSegue(withIdentifier: "loadSetup", sender: self)
                 return true
-            }
-            
-            if let registrationStatus = UserDefaults.standard.value(forKey: "registrationStatus") as? String {
-                if registrationStatus == "pending" {
-                    performSegue(withIdentifier: "loadSetup", sender: self)
-                    return true
-                }
             }
         }
         
