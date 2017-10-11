@@ -14,6 +14,8 @@ class AddRegisterViewController: UIViewController {
 
     @IBOutlet weak var qrCode: UIImageView!
     
+    var token = String()
+    
     func generateQRCode(from string: String) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)
         
@@ -33,16 +35,57 @@ class AddRegisterViewController: UIViewController {
         Alamofire.request(baseURL+"shop-keepers/devices/token", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let json = response.data {
                 let data = JSON(data: json)
-                let token = data["token"]
-                print(data)
-                print(String(describing: token))
+                self.token = String(describing: data["token"])
                 
-                let message = self.generateQRCode(from: String(describing: token))
-                self.qrCode.image = message
+                let tokenQR = self.generateQRCode(from: self.token)
+                self.qrCode.image = tokenQR
+                
+                self.startStatusChecker()
             }
         }
     }
 
+    
+    var statusChecker = Timer()
+
+    @objc func startStatusChecker() {
+        if statusChecker.isValid {
+            self.statusChecker.invalidate()
+        } else {
+            self.statusChecker = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getRegistrationStatus), userInfo: nil, repeats: true)
+        }
+    }
+    
+    func stopStatusChecker() {
+        if statusChecker.isValid {
+            self.statusChecker.invalidate()
+        }
+    }
+    
+    @objc func getRegistrationStatus() {
+        Alamofire.request(baseURL+"shop-keepers/devices/token/\(token)/state", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            if let json = response.data {
+                let data = JSON(data: json)
+                if data["authorized"] == true {
+                    self.stopStatusChecker()
+                    
+                    let token = data["access_token"]
+                    UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
+                    UserDefaults.standard.setValue("approved", forKey: "registrationStatus")
+                    headers["Authorization"] = "Bearer \(token)"
+                    
+                    self.performSegue(withIdentifier: "openScanner", sender: self)
+                }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let target = segue.destination as? ScannerViewController {
+            target.navigationItem.setHidesBackButton(true, animated:false)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

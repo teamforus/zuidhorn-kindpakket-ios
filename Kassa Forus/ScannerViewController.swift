@@ -92,11 +92,11 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     func showAddDeviceButton() {
-        let leftButton: UIButton = UIButton(type: UIButtonType.contactAdd)
-        leftButton.addTarget(self, action: #selector(ScannerViewController.showToken), for: UIControlEvents.touchUpInside)
-        
-        let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
-        self.navigationItem.setLeftBarButton(leftBarButtonItem, animated: false)
+//        let leftButton: UIButton = UIButton(type: UIButtonType.contactAdd)
+//        leftButton.addTarget(self, action: #selector(ScannerViewController.showToken), for: UIControlEvents.touchUpInside)
+//
+//        let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
+//        self.navigationItem.setLeftBarButton(leftBarButtonItem, animated: false)
     }
     
     @objc func showToken() {

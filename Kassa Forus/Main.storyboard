@@ -124,7 +124,6 @@
                         <outlet property="refundView" destination="wLG-qv-6LK" id="p9X-EX-6dR"/>
                         <segue destination="3pP-7j-tCF" kind="show" identifier="loadSetup" id="Ynq-Mx-az2"/>
                         <segue destination="g5W-Mh-t2y" kind="show" identifier="proceedToCheckout" id="uZD-xh-U6q"/>
-                        <segue destination="oxq-V8-xc5" kind="show" identifier="showToken" id="Yoa-bF-HoL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfb-zo-kpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -187,7 +186,7 @@
                                         <rect key="frame" x="107.5" y="337.5" width="106" height="30"/>
                                         <state key="normal" title="Meld kassa aan"/>
                                         <connections>
-                                            <action selector="addRegister:" destination="3pP-7j-tCF" eventType="touchUpInside" id="F74-Tc-hdS"/>
+                                            <segue destination="oxq-V8-xc5" kind="show" id="X4d-Oz-wPh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diK-g2-LiJ">
@@ -283,7 +282,6 @@
                     <navigationItem key="navigationItem" title="Aanmelden" id="ReR-gX-GoS">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="znf-P9-wdu">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="WqB-XO-B9b">
-                                <rect key="frame" x="282" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="autofill:" destination="js4-Te-ZLF" eventType="touchUpOutside" id="45H-EF-zgW"/>
@@ -332,7 +330,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d70-fh-Ile" id="a90-oX-Zat">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYE-GE-J7j">
@@ -542,11 +540,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="qrCode" destination="kqC-2h-eMh" id="kVR-8h-5vo"/>
+                        <segue destination="xvb-pV-pSp" kind="show" identifier="openScanner" id="Il5-Af-zIv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ht-rQ-eYe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-287" y="-558"/>
+            <point key="canvasLocation" x="503" y="1635"/>
         </scene>
         <!--Registreren-->
         <scene sceneID="IUY-Ux-5Ju">
@@ -650,6 +649,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="0U2-Mq-AVF"/>
         <segue reference="Ynq-Mx-az2"/>
-        <segue reference="dJZ-gh-Shi"/>
+        <segue reference="Il5-Af-zIv"/>
     </inferredMetricsTieBreakers>
 </document>
