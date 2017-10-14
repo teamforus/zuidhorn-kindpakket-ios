@@ -89,12 +89,6 @@ class SetupViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let target = segue.destination as? ScannerViewController {
-            target.navigationItem.setHidesBackButton(true, animated:false)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

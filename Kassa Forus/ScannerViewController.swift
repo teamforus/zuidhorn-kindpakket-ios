@@ -111,6 +111,7 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     override func viewDidLoad() {
+        navigationItem.setHidesBackButton(true, animated:false)
         progressHUD = ProgressHUDView(text: "Verzenden")
         self.view.addSubview(progressHUD)
         self.progressHUD.isHidden = true
