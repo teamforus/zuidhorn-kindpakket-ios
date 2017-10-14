@@ -90,9 +90,19 @@ class SetupViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        let rightButton: UIButton = UIButton(type: UIButtonType.infoLight)
+        rightButton.addTarget(self, action: #selector(showInfo), for: UIControlEvents.touchUpInside)
+        
+        let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: rightButton)
+        self.navigationItem.setRightBarButton(rightBarButtonItem, animated: false)
+        
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector:#selector(startStatusChecker), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+    }
+    
+    @objc func showInfo() {
+        self.performSegue(withIdentifier: "showInfo", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
