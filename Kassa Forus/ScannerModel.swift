@@ -82,6 +82,9 @@ class ScannerModel {
         Alamofire.request(baseURL+"vouchers/\(code)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let json = response.data {
                 let data = JSON(data: json)
+                print(data)
+                if data["error"] == "no-available-categories" {self.categoryError()}
+                
                 let max_amount = data["max_amount"]
                 
                 if max_amount.doubleValue != 0.0 {
@@ -98,6 +101,16 @@ class ScannerModel {
                 }
             }
         }
+    }
+        
+    func categoryError() {
+        let alert = UIAlertController(title: "Error", message: "Ga naar winkelier.forus.io en voeg een catagorie toe om vouchers te kunnen accepteren.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+            self.viewController.loadScanner()
+            self.viewController.progressHUD.isHidden = true
+        }))
+        
+        self.viewController.present(alert, animated: true, completion: nil)
     }
     
     func authorizeToken(_ code: String) {
