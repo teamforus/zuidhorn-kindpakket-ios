@@ -84,6 +84,7 @@ class ScannerModel {
                 let data = JSON(data: json)
                 print(data)
                 if data["error"] == "no-available-categories" {self.categoryError()}
+                if data["error"] == "shopkeeper-pending" {self.pendingError()}
                 
                 let max_amount = data["max_amount"]
                 
@@ -104,7 +105,17 @@ class ScannerModel {
     }
         
     func categoryError() {
-        let alert = UIAlertController(title: "Error", message: "Ga naar winkelier.forus.io en voeg een catagorie toe om vouchers te kunnen accepteren.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Catagorie vereist.", message: "Ga naar winkelier.forus.io en voeg een catagorie toe om vouchers te kunnen accepteren.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+            self.viewController.loadScanner()
+            self.viewController.progressHUD.isHidden = true
+        }))
+        
+        self.viewController.present(alert, animated: true, completion: nil)
+    }
+    
+    func pendingError() {
+        let alert = UIAlertController(title: "Validatie vereist.", message: "U bent momenteel niet gevalideerd als winkelier, neem contact op met de gemeente voor meer informatie.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
             self.viewController.loadScanner()
             self.viewController.progressHUD.isHidden = true
