@@ -11,6 +11,7 @@ import QRCodeReader
 import Alamofire
 import SwiftyJSON
 import UIKit
+import EtherealCereal
 
 var scannerVC = ScannerViewController() // workaround
 
@@ -95,6 +96,10 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
     }
     
     func loadSetup() -> Bool {
+        if UserDefaults.standard.value(forKey: "publicKey") == nil {
+            setKeypair()
+        }
+        
         if UserDefaults.standard.value(forKey: "APItoken") == nil {
             performSegue(withIdentifier: "loadSetup", sender: self)
             return true
@@ -108,6 +113,13 @@ class ScannerViewController: UIViewController, QRCodeReaderViewControllerDelegat
         }
         
         return false
+    }
+    
+    func setKeypair() {
+        let etherealCereal = EtherealCereal()
+        UserDefaults.standard.setValue(String(describing: etherealCereal.address), forKey: "publicKey")
+        UserDefaults.standard.setValue(String(describing: etherealCereal.privateKey), forKey: "privateKey")
+        headers["Device-Id"] = etherealCereal.address
     }
     
     override func viewDidLoad() {

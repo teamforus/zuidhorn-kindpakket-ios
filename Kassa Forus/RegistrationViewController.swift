@@ -9,7 +9,6 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import EtherealCereal
 
 class RegistrationViewController: UIViewController {
 
@@ -52,7 +51,7 @@ class RegistrationViewController: UIViewController {
         check(iban: IBANInput.text!)
         check(ibanName: IBANNameInput.text!)
         check(email: emailInput.text!)
-        attemptToCompleteSignup()
+        attemptSignup()
     }
     
     func check(kvk: String) {
@@ -69,7 +68,7 @@ class RegistrationViewController: UIViewController {
                         } else {
                             print("kvk valid: \(data["data"]["items"][0]["tradeNames"]["businessName"])")
                             self.kvkValid = true
-                            self.attemptToCompleteSignup()
+                            self.attemptSignup()
                         }
                     }
                 }
@@ -89,7 +88,7 @@ class RegistrationViewController: UIViewController {
                         if data["valid"] == true {
                             print("iban valid!")
                             self.ibanValid = true
-                            self.attemptToCompleteSignup()
+                            self.attemptSignup()
                         } else {
                             self.display(error: self.IBANErrorMessage)
                         }
@@ -116,45 +115,74 @@ class RegistrationViewController: UIViewController {
         
         if emailTest.evaluate(with: email) {
             emailValid = true
-            self.attemptToCompleteSignup()
+            self.attemptSignup()
         } else {
             display(error: emailErrorMessage)
         }
     }
     
-    func attemptToCompleteSignup() {
+    func attemptSignup() {
         if !self.signupAttempted {
             if ibanValid && ibanNameValid && kvkValid && emailValid {
                 signupAttempted = true
                 print("signup attempted using: \(kvk) \(iban) \(email)")
-                
-                setKeypair()
                 
                 Alamofire.request(baseURL+"shop-keepers/sign-up", method: .post, parameters: [
                     "kvk_number": "\(kvk)",
                     "iban": "\(iban)",
                     "email": "\(email)"
                 ], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-                    if let json = response.data {
-                        let data = JSON(data: json)
-                        print(data)
-                        let token = data["access_token"]
-                        UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
-                        UserDefaults.standard.setValue("pending", forKey: "registrationStatus")
-                        headers["Authorization"] = "Bearer \(token)"
-                        
-                        self.returnToSetup()
+                    if let data = response.data {
+                        self.processSignup(json: data)
+                    } else {
+                        print("no server response") // Todo: make error
                     }
                 }
             }
         }
     }
     
-    func setKeypair() {
-        let etherealCereal = EtherealCereal()
-        UserDefaults.standard.setValue(String(describing: etherealCereal.address), forKey: "publicKey")
-        UserDefaults.standard.setValue(String(describing: etherealCereal.privateKey), forKey: "privateKey")
-        headers["Device-Id"] = etherealCereal.address
+    func processSignup(json: Data) {
+        if json.isEmpty {
+            noData()
+        } else {
+            let data = JSON(data: json)
+
+            if data["token_type"] == "Bearer" {
+                completeSignup(data: data)
+            } else {
+                displayError(error: data)
+            }
+        }
+    }
+    
+    func displayError(error: JSON) {
+        let alert = UIAlertController(title: "Foutmelding", message: "Er ging iets fout: \(error)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.progressHUD.isHidden = true
+            self.signupAttempted = false
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func completeSignup(data: JSON) {
+        let token = data["access_token"]
+        UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
+        UserDefaults.standard.setValue("pending", forKey: "registrationStatus")
+        headers["Authorization"] = "Bearer \(token)"
+        
+        self.returnToSetup()
+    }
+    
+    func noData() {
+        let alert = UIAlertController(title: "Geen verbinding", message: "Er is geen verbinding tot stand gekomen. Probeer het later opnieuw.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.progressHUD.isHidden = true
+            self.signupAttempted = false
+        }))
+        
+        self.present(alert, animated: true)
     }
     
     func display(error: String) {
