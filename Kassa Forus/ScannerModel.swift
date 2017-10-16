@@ -93,6 +93,9 @@ class ScannerModel {
                 if max_amount.doubleValue != 0.0 {
                     self.budget = max_amount.doubleValue
                     self.viewController.performSegue(withIdentifier: "proceedToCheckout", sender: self)
+                } else if max_amount.doubleValue == 0.0 {
+                    self.budget = max_amount.doubleValue
+                    self.noBudgetWarning()
                 } else {
                     let alert = UIAlertController(title: "Error", message: "Dit is geen valide voucher of er was een verbindingsprobleem.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
@@ -104,6 +107,15 @@ class ScannerModel {
                 }
             }
         }
+    }
+    
+    func noBudgetWarning() {
+        let alert = UIAlertController(title: "Voucher is op", message: "Er staat geen budget meer op de voucher", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+            self.viewController.performSegue(withIdentifier: "proceedToCheckout", sender: self)
+        }))
+        
+        self.viewController.present(alert, animated: true, completion: nil)
     }
         
     func categoryError() {
@@ -141,7 +153,7 @@ class ScannerModel {
                     print("refund amount: \(data)")
                     let amount = data["amount"]
                     if amount > 0.0 {self.viewController.refundView.isHidden = false}
-                    self.viewController.refundLabel.text = "Openstaand: €\(amount)"
+                    self.viewController.refundLabel.text = "Openstaand: €\(Double(round(100*amount.double!)/100))"
                 }
         }
     }

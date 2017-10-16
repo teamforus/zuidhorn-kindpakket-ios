@@ -51,7 +51,7 @@ class PaymentTableViewCell: UITableViewCell {
     func performRefund(extraAmount: Double) {
         print("perform refund, extra amount: \(extraAmount)")
         if extraAmount > 0.0 {
-            let alert = UIAlertController(title: "Bijbetaling", message: "Bevestig dat u de klant \(extraAmount) uit de kassa heeft terug betaald om deze retournerening af te ronden.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Bijbetaling", message: "Bevestig dat u de klant €\(extraAmount) uit de kassa heeft terug betaald om deze retournerening af te ronden.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Bevestig", style: .default, handler: { (_) in
                 self.finishRefund()
             }))
@@ -68,6 +68,7 @@ class PaymentTableViewCell: UITableViewCell {
     }
     
     func finishRefund() {
+        checkoutVC.progressHUD.isHidden = false
         let url = baseURL+"vouchers/\(voucher)/transactions/\(self.tag)/refund"
         
         Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
@@ -90,7 +91,7 @@ class PaymentTableViewCell: UITableViewCell {
     func displaySuccessAlert() {
         let alert = UIAlertController(title: "Success", message: "Retournering geslaagd", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        
+        checkoutVC.progressHUD.isHidden = true
         checkoutVC.present(alert, animated: true)
     }
 
