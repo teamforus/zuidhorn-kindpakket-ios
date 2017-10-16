@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import EtherealCereal
 
 class RegistrationViewController: UIViewController {
 
@@ -127,6 +128,8 @@ class RegistrationViewController: UIViewController {
                 signupAttempted = true
                 print("signup attempted using: \(kvk) \(iban) \(email)")
                 
+                setKeypair()
+                
                 Alamofire.request(baseURL+"shop-keepers/sign-up", method: .post, parameters: [
                     "kvk_number": "\(kvk)",
                     "iban": "\(iban)",
@@ -145,6 +148,13 @@ class RegistrationViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func setKeypair() {
+        let etherealCereal = EtherealCereal()
+        UserDefaults.standard.setValue(String(describing: etherealCereal.address), forKey: "publicKey")
+        UserDefaults.standard.setValue(String(describing: etherealCereal.privateKey), forKey: "privateKey")
+        headers["Device-Id"] = etherealCereal.address
     }
     
     func display(error: String) {

@@ -63,7 +63,9 @@ class ScannerModel {
     }()
     
     func setHeaderAndToken() {
-        headers["Device-Id"] = UIDevice.current.identifierForVendor!.uuidString
+        if let publicKey = UserDefaults.standard.value(forKey: "publicKey") {
+            headers["Device-Id"] = "\(publicKey)"
+        }
         
         if let token = UserDefaults.standard.value(forKey: "APItoken") {
             headers["Authorization"] = "Bearer \(token)"
