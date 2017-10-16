@@ -81,7 +81,7 @@ class CheckoutModel {
             
             refreshAlert.addAction(UIAlertAction(title: "Bevestig", style: .default, handler: { (action: UIAlertAction!) in
                 self.viewController.progressHUD.isHidden = false
-                self.processPaymentFor(self.viewController.voucherCode, amount: amount)
+                self.processPaymentFor(self.viewController.voucherCode, amount: amount, extraAmount: 0.0)
                 self.viewController.expenceInputField.text = ""
             }))
             
@@ -108,11 +108,12 @@ class CheckoutModel {
     }
     
     func exeedingPayment(spendable: Double, amount: Double) {
-        let refreshAlert = UIAlertController(title: "Bevestig", message: "Bevestig dat de klant €\(String(format: "%.2f", arguments: [abs(spendable-amount)])) heeft bijbetaald.", preferredStyle: UIAlertControllerStyle.alert)
+        let extraAmount = Double(abs(spendable-amount))
+        let refreshAlert = UIAlertController(title: "Bevestig", message: "Bevestig dat de klant €\(String(format: "%.2f", arguments: [extraAmount])) heeft bijbetaald.", preferredStyle: UIAlertControllerStyle.alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Bevestig", style: .default, handler: { (action: UIAlertAction!) in
             self.viewController.progressHUD.isHidden = false
-            self.processPaymentFor(self.viewController.voucherCode, amount: spendable)
+            self.processPaymentFor(self.viewController.voucherCode, amount: spendable, extraAmount: extraAmount)
             self.viewController.expenceInputField.text = ""
         }))
         
@@ -123,10 +124,11 @@ class CheckoutModel {
         viewController.present(refreshAlert, animated: true, completion: nil)
     }
     
-    func processPaymentFor(_ code: String, amount: Double) {
+    func processPaymentFor(_ code: String, amount: Double, extraAmount: Double) {
+        print("pay extra: \(extraAmount)")
         Alamofire.request(baseURL+"vouchers/\(code)/transactions", method: .post, parameters: [
             "amount": "\(amount)",
-            "extra_amount": "0"
+            "extra_amount": "\(extraAmount)"
             ], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                 
                 print(response)

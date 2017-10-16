@@ -136,6 +136,7 @@ class ScannerModel {
             .responseJSON { response in
                 if let json = response.data {
                     let data = JSON(data: json)
+                    print("refund amount: \(data)")
                     let amount = data["amount"]
                     if amount > 0.0 {self.viewController.refundView.isHidden = false}
                     self.viewController.refundLabel.text = "Openstaand: €\(amount)"
