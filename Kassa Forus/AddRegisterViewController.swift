@@ -36,13 +36,25 @@ class AddRegisterViewController: UIViewController {
             if let json = response.data {
                 let data = JSON(data: json)
                 self.token = String(describing: data["token"])
-                
-                let tokenQR = self.generateQRCode(from: self.token)
-                self.qrCode.image = tokenQR
-                
-                self.startStatusChecker()
+                if self.token.count > 10 {
+                    let tokenQR = self.generateQRCode(from: self.token)
+                    self.qrCode.image = tokenQR
+                    
+                    self.startStatusChecker()
+                } else {
+                    self.displayConnectionError()
+                }
             }
         }
+    }
+    
+    func displayConnectionError() {
+        let alert = UIAlertController(title: "Error", message: "Er was een verbindingsprobleem, probeer het later opnieuw.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 
     
