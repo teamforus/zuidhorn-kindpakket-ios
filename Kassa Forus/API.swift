@@ -12,4 +12,4 @@ var headers: HTTPHeaders = [
     "Accept": "application/json",
 ]
 
-let baseURL = "https://api.zuidhorn.forus.io/"
+let baseURL = "https://test.forus-backend.forus.io/api/"
