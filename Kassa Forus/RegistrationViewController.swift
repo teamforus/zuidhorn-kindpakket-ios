@@ -37,10 +37,10 @@ class RegistrationViewController: UIViewController {
     let emailErrorMessage = "Vul a.u.b. een geldig email adres in."
     
     @IBAction func autofill(_ sender: Any) {
-        KVKInput.text = "69097488"
-        IBANInput.text = "NL06RABO0382896971"
-        IBANNameInput.text = "Fietsen Zuidhorn"
-        emailInput.text = "jamal@codeweekend.nl"
+        KVKInput.text = "69488266"
+        IBANInput.text = "NL88BUNQ2025155751"
+        IBANNameInput.text = "Jamals Voetbals"
+        emailInput.text = "xyz@stichtingforus.nl"
     }
     
     @IBAction func registerButton(_ sender: Any) {
