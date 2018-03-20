@@ -78,7 +78,7 @@ class PaymentTableViewCell: UITableViewCell {
 
                 print(data)
                 
-                if data["status"] == "refund" {
+                if data["status"] == "refunded" {
                     refundedTransactions.append(self.tag)
                     self.displaySuccessAlert()
                     checkoutVC.tableView.reloadData()
@@ -90,7 +90,10 @@ class PaymentTableViewCell: UITableViewCell {
     
     func displaySuccessAlert() {
         let alert = UIAlertController(title: "Success", message: "Retournering geslaagd", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            checkoutVC.performSegue(withIdentifier: "returnToScanner", sender: self)
+        }))
+        
         checkoutVC.progressHUD.isHidden = true
         checkoutVC.present(alert, animated: true)
     }

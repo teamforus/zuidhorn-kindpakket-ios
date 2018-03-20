@@ -152,13 +152,13 @@
 				8926674D1F446F250018398E /* Main.storyboard */,
 				89A3B10F1F2350BA004986B6 /* DevConfig.swift */,
 				892D1F1E1F4B595400E0A0E7 /* API.swift */,
-				89CC2F241F89146F001123E3 /* Setup */,
 				89CC2F271F89183B001123E3 /* Scanner */,
 				89CC2F281F891886001123E3 /* Checkout */,
 				899A4B1A1F926FC8004F6D2D /* NavigationController.swift */,
 				89432A1B1F62803D00EA8602 /* ProgressHUDView.swift */,
 				8993F9141F22AD7F00B3BCDB /* GlobalFunctions.swift */,
 				89C8941F1F228720000C2318 /* Images.xcassets */,
+				89CC2F241F89146F001123E3 /* Setup */,
 				891E92B61F417E5B007B4FE0 /* API.playground */,
 				89856F5F1F7B878F009F1CB7 /* Resources */,
 				CE412E8A19D9A1E4000F294E /* Products */,
@@ -429,7 +429,7 @@
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				INFOPLIST_FILE = "$(SRCROOT)/Kassa Forus/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = shopkeeper.forus.io;
+				PRODUCT_BUNDLE_IDENTIFIER = test.shopkeeper.forus.io;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -446,7 +446,7 @@
 				DEVELOPMENT_TEAM = FNTR3V85ZM;
 				INFOPLIST_FILE = "$(SRCROOT)/Kassa Forus/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = shopkeeper.forus.io;
+				PRODUCT_BUNDLE_IDENTIFIER = test.shopkeeper.forus.io;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
