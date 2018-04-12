@@ -20,23 +20,14 @@ class SetupViewController: UIViewController {
     var registrationApproved = false
     
     @IBAction func cancelRequest(_ sender: Any) {
-        // todo: add cancel logic
-        
         let url = baseURL+"shop-keepers/revoke"
         
         Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            if let json = response.data {
-                let data = JSON(data: json)
-                print(json)
-                
-                print(data)
-                
-                if data["success"] == "true" {
-                    print("success yo!")
-                }
-            }
+            self.pendingView.isHidden = true
+            self.setupView.isHidden = false
+            UserDefaults.standard.setValue(nil, forKey: "registrationStatus")
+            self.stopStatusChecker()
         }
-        
     }
     
     @IBAction func addRegister(_ sender: Any) {
