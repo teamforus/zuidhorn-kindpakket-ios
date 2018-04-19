@@ -41,7 +41,9 @@ class CheckoutModel {
                 let amount = transaction["amount"].double
                 let date = transaction["created_at"].string
                 
-                if transaction["status"] == "refund" {refundedTransactions.append(id!)}
+                if transaction["status"] == "refund" || transaction["status"] == "refunded" {
+                    refundedTransactions.append(id!)
+                }
                 
                 transactions.append(Transaction(date: date!, amount: amount!, id: id!))
             }
