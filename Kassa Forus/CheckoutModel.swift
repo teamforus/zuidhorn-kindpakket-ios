@@ -96,7 +96,7 @@ class CheckoutModel {
     }
     
     func pay(spendable: Double, amount: Double) {
-        let refreshAlert = UIAlertController(title: "Overschrijding", message: "Deze transactie overschrijd het budget van de klant met: €\(String(format: "%.2f", arguments: [abs(spendable-amount)]))", preferredStyle: UIAlertControllerStyle.alert)
+        let refreshAlert = UIAlertController(title: "Overschrijding", message: "Deze transactie overschrijdt het budget van de klant met: €\(String(format: "%.2f", arguments: [abs(spendable-amount)]))", preferredStyle: UIAlertControllerStyle.alert)
         
         refreshAlert.addAction(UIAlertAction(title: "Klant betaalt bij", style: .default, handler: { (action: UIAlertAction!) in
             self.exeedingPayment(spendable: spendable, amount: amount)
