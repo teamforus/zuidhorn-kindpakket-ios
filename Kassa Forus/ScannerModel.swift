@@ -26,7 +26,8 @@ class ScannerModel {
             
             switch error.code {
             case -11852:
-                alert = UIAlertController(title: "Error", message: "This app is not authorized to use Back Camera.", preferredStyle: .alert)
+                let message = popupMessages["backCameraPermission"]
+                alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
                 
                 alert?.addAction(UIAlertAction(title: "Setting", style: .default, handler: { (_) in
                     DispatchQueue.main.async {
@@ -38,7 +39,8 @@ class ScannerModel {
                 
                 alert?.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             case -11814:
-                alert = UIAlertController(title: "Error", message: "Reader not supported by the current device", preferredStyle: .alert)
+                let message = popupMessages["unsupportedReader"]
+                alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
                 alert?.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             default:
                 alert = nil
@@ -109,7 +111,10 @@ class ScannerModel {
     }
     
     func connectionError() {
-        let alert = UIAlertController(title: "Error", message: "Dit is geen valide voucher of er was een verbindingsprobleem.", preferredStyle: .alert)
+        let message = popupMessages["noConnection"]
+        
+        var alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
+        alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
             self.viewController.loadScanner()
             self.viewController.progressHUD.isHidden = true
@@ -119,7 +124,10 @@ class ScannerModel {
     }
     
     func noBudgetWarning() {
-        let alert = UIAlertController(title: "Voucher is op", message: "Er staat geen budget meer op de voucher", preferredStyle: .alert)
+        let message = popupMessages["noBudget"]
+        
+        var alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
+        alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
             self.viewController.performSegue(withIdentifier: "proceedToCheckout", sender: self)
         }))
@@ -128,7 +136,10 @@ class ScannerModel {
     }
         
     func categoryError() {
-        let alert = UIAlertController(title: "Catagorie vereist.", message: "Ga naar winkelier.forus.io en voeg een catagorie toe om vouchers te kunnen accepteren.", preferredStyle: .alert)
+        let message = popupMessages["noCategory"]
+        
+        var alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
+        alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
             self.viewController.loadScanner()
             self.viewController.progressHUD.isHidden = true
@@ -138,7 +149,10 @@ class ScannerModel {
     }
     
     func pendingError() {
-        let alert = UIAlertController(title: "Validatie vereist.", message: "U bent momenteel niet gevalideerd als winkelier, neem contact op met de gemeente voor meer informatie.", preferredStyle: .alert)
+        let message = popupMessages["noCatagorie"]
+        
+        var alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
+        alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
             self.viewController.loadScanner()
             self.viewController.progressHUD.isHidden = true

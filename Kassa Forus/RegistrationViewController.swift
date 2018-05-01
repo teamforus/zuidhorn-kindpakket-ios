@@ -176,7 +176,9 @@ class RegistrationViewController: UIViewController {
     }
     
     func noData() {
-        let alert = UIAlertController(title: "Geen verbinding", message: "Er is geen verbinding tot stand gekomen. Probeer het later opnieuw.", preferredStyle: .alert)
+        let message = popupMessages["noConnection2"]
+        
+        let alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
             self.progressHUD.isHidden = true
             self.signupAttempted = false

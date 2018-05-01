@@ -69,7 +69,8 @@ class CheckoutViewController: UIViewController, UITextFieldDelegate, UITableView
     }
     
     func displayTransactionError() {
-        let alert = UIAlertController(title: "Error", message: "De transactie is mislukt, controleer uw verbinding en probeer het opnieuw.", preferredStyle: .alert)
+        let message = popupMessages["transactionFailed"]
+        let alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         
         self.present(alert, animated: true)

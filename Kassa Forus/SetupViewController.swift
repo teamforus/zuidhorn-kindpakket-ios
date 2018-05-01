@@ -70,7 +70,8 @@ class SetupViewController: UIViewController {
         
         UserDefaults.standard.setValue("approved", forKey: "registrationStatus")
         
-        let alert = UIAlertController(title: "Aanvraag afgerond.", message: "U kunt vanaf nu vouchers scannen.", preferredStyle: .alert)
+        let message = popupMessages["applicationFinished"]
+        let alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Open Scanner", style: .cancel, handler: { (_) in
             self.performSegue(withIdentifier: "loadScanner", sender: self)
         }))

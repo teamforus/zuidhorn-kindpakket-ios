@@ -27,6 +27,7 @@
 		89CBD0741F894E38009C38BE /* CheckoutModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CBD0731F894E38009C38BE /* CheckoutModel.swift */; };
 		89CC2F261F8914F9001123E3 /* ScannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CC2F251F8914F9001123E3 /* ScannerModel.swift */; };
 		89CFC60D1F72ABF800CC6BCF /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CFC60C1F72ABF800CC6BCF /* PaymentTableViewCell.swift */; };
+		89E7C8E820988A5500A379B5 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E7C8E720988A5500A379B5 /* Alerts.swift */; };
 		DC68E63DC2E07D8F33D40CE1 /* Pods_Kassa_Forus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0868C0CBA828E81B949E0576 /* Pods_Kassa_Forus.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		89CBD0731F894E38009C38BE /* CheckoutModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutModel.swift; path = "Kassa Forus/CheckoutModel.swift"; sourceTree = "<group>"; };
 		89CC2F251F8914F9001123E3 /* ScannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScannerModel.swift; path = "Kassa Forus/ScannerModel.swift"; sourceTree = "<group>"; };
 		89CFC60C1F72ABF800CC6BCF /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PaymentTableViewCell.swift; path = "Kassa Forus/PaymentTableViewCell.swift"; sourceTree = "<group>"; };
+		89E7C8E720988A5500A379B5 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		CE412E8919D9A1E4000F294E /* Checkout Forus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Checkout Forus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -151,6 +153,7 @@
 			children = (
 				8926674D1F446F250018398E /* Main.storyboard */,
 				89A3B10F1F2350BA004986B6 /* DevConfig.swift */,
+				89E7C8E720988A5500A379B5 /* Alerts.swift */,
 				892D1F1E1F4B595400E0A0E7 /* API.swift */,
 				89CC2F271F89183B001123E3 /* Scanner */,
 				89CC2F281F891886001123E3 /* Checkout */,
@@ -315,6 +318,7 @@
 			files = (
 				89A3B1101F2350BA004986B6 /* DevConfig.swift in Sources */,
 				890F46241F229A3F00A2B006 /* AppDelegate.swift in Sources */,
+				89E7C8E820988A5500A379B5 /* Alerts.swift in Sources */,
 				89CFC60D1F72ABF800CC6BCF /* PaymentTableViewCell.swift in Sources */,
 				892D1F1D1F4B502300E0A0E7 /* RegistrationViewController.swift in Sources */,
 				89A3B1121F2387B9004986B6 /* ScannerMarkerView.swift in Sources */,
