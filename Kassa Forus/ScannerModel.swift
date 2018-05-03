@@ -93,7 +93,7 @@ class ScannerModel {
                     self.connectionError()
                 } else {
                     print(data)
-                    if data["error"] == "no-available-categories" {self.categoryError()}
+                    if data["error"] == "voucher-unavailable-categories" {self.categoryError()}
                     if data["error"] == "shopkeeper-pending" {self.pendingError()}
                     
                     let max_amount = data["max_amount"]
