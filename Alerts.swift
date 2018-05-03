@@ -10,6 +10,7 @@ import Foundation
 
 let popupMessages = [
     "applicationFinished" : ["Aanvraag afgerond.", "U kunt vanaf nu vouchers scannen."],
+    "applicationDisapproved" : ["Aanvraag afgekeurd.", "Uw aanvraag was afgekeurd."],
     "backCameraPermission" : ["Error", "This app is not authorized to use Back Camera."],
     "unsupportedReader" : ["Error", "Reader not supported by the current device."],
     "noConnection" : ["Error", "Dit is geen valide voucher of er was een verbindingsprobleem."],
@@ -20,12 +21,3 @@ let popupMessages = [
     "transactionFailed" : ["Error", "De transactie is mislukt, controleer uw verbinding en probeer het opnieuw."],
     "confirmRefund" : ["Retournering", "Weet je zeker dat je deze betaling wil retourneren?"],
 ]
-
-
-
-/*
- let message = popupMessages["noCatagorie"]
- 
- let alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
- alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
- */

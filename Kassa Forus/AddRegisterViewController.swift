@@ -49,7 +49,9 @@ class AddRegisterViewController: UIViewController {
     }
     
     func displayConnectionError() {
-        let alert = UIAlertController(title: "Error", message: "Er was een verbindingsprobleem, probeer het later opnieuw.", preferredStyle: .alert)
+        let message = popupMessages["noConnection2"]
+        
+        let alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
             self.navigationController?.popViewController(animated: true)
         }))

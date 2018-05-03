@@ -20,14 +20,7 @@ class SetupViewController: UIViewController {
     var registrationApproved = false
     
     @IBAction func cancelRequest(_ sender: Any) {
-        let url = baseURL+"shop-keepers/revoke"
-        
-        Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            self.pendingView.isHidden = true
-            self.setupView.isHidden = false
-            UserDefaults.standard.setValue(nil, forKey: "registrationStatus")
-            self.stopStatusChecker()
-        }
+        revokeRegistration()
     }
     
     @IBAction func addRegister(_ sender: Any) {
@@ -39,6 +32,17 @@ class SetupViewController: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated:true)
         
         checkRegistrationStatus()
+    }
+    
+    func revokeRegistration() {
+        let url = baseURL+"shop-keepers/revoke"
+        
+        Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            self.pendingView.isHidden = true
+            self.setupView.isHidden = false
+            UserDefaults.standard.setValue(nil, forKey: "registrationStatus")
+            self.stopStatusChecker()
+        }
     }
     
     func checkRegistrationStatus() {
@@ -56,7 +60,12 @@ class SetupViewController: UIViewController {
         Alamofire.request(baseURL+"user", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if let json = response.data {
                 let data = JSON(data: json)
-                print("status: \(data)")
+                print("\(data)")
+                
+                if data["shop_keeper"]["state"] == "declined" {
+                    self.disapproveRegistration()
+                }
+                
                 if data["shop_keeper"]["state"] == "approved" {
                     self.approveRegistration()
                 }
@@ -65,6 +74,7 @@ class SetupViewController: UIViewController {
     }
     
     func approveRegistration() {
+        print("registration approved")
         stopStatusChecker()
         registrationApproved = true
         
@@ -74,6 +84,25 @@ class SetupViewController: UIViewController {
         let alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Open Scanner", style: .cancel, handler: { (_) in
             self.performSegue(withIdentifier: "loadScanner", sender: self)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func disapproveRegistration() {
+        stopStatusChecker()
+        
+        let message = popupMessages["applicationDisapproved"]
+        let alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { (_) in
+            UserDefaults.standard.setValue(nil, forKey: "APItoken")
+            UserDefaults.standard.setValue(nil, forKey: "registrationStatus")
+            headers["Authorization"] = nil
+            
+            self.pendingView.isHidden = true
+            self.setupView.isHidden = false
+            UserDefaults.standard.setValue(nil, forKey: "registrationStatus")
+            self.stopStatusChecker()
         }))
         
         self.present(alert, animated: true, completion: nil)
