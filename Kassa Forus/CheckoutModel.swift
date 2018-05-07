@@ -79,6 +79,8 @@ class CheckoutModel {
     
     func payWithSufficientBudget() {
         if let amount = viewController.expenceInputField.text?.doubleValue {
+            if amount == 0.0 {viewController.displayTransactionError(); return}
+            
             let refreshAlert = UIAlertController(title: "Betaling: €\(String(format: "%.2f", arguments: [amount]))", message: "Wilt u deze transactie uitvoeren?", preferredStyle: UIAlertControllerStyle.alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Bevestig", style: .default, handler: { (action: UIAlertAction!) in
