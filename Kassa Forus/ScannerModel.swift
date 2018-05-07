@@ -149,7 +149,7 @@ class ScannerModel {
     }
     
     func pendingError() {
-        let message = popupMessages["noCatagorie"]
+        let message = popupMessages["shopkeeperPending"]
         
         var alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
