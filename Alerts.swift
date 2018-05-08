@@ -9,6 +9,10 @@
 import Foundation
 
 let popupMessages = [
+    "KVKErrorMessage" : ["KVK error", "Vul a.u.b. een geldig KVK nummer in."],
+    "IBANErrorMessage" : ["IBAN error", "Vul a.u.b. een geldig IBAN nummer in."],
+    "IBANNameErrorMessage" : ["IBAN naam error", "Vul a.u.b. een geldige IBAN rekeninghouder in."],
+    "emailErrorMessage" : ["Email error", "Vul a.u.b. een geldig email adres in."],
     "applicationFinished" : ["Aanvraag afgerond.", "U kunt vanaf nu vouchers scannen."],
     "applicationDisapproved" : ["Aanvraag afgekeurd.", "Uw aanvraag was afgekeurd."],
     "backCameraPermission" : ["Error", "This app is not authorized to use Back Camera."],
