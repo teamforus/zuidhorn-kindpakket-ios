@@ -136,14 +136,27 @@ class CheckoutModel {
             ], encoding: JSONEncoding.default, headers: headers).responseJSON { response in
                 
                 print(response)
-                self.viewController.progressHUD.isHidden = true
                 
-                let alert = UIAlertController(title: "Success", message: "De transactie was successvol", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Open Scanner", style: .cancel, handler: { (action: UIAlertAction!) in
-                    self.viewController.performSegue(withIdentifier: "returnToScanner", sender: self)
-                }))
-                
-                self.viewController.present(alert, animated: true)
+                if let json = response.data {
+                    let data = JSON(data: json)
+                    
+                    if response.response!.statusCode != 200 {
+                        self.viewController.displayTransactionError()
+                    }
+                    
+                    if data["error"] != JSON.null {
+                        self.viewController.displayTransactionError()
+                    } else {
+                        self.viewController.progressHUD.isHidden = true
+                        
+                        let alert = UIAlertController(title: "Success", message: "De transactie was successvol", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Open Scanner", style: .cancel, handler: { (action: UIAlertAction!) in
+                            self.viewController.performSegue(withIdentifier: "returnToScanner", sender: self)
+                        }))
+                        
+                        self.viewController.present(alert, animated: true)
+                    }
+                }
         }
     }
     
