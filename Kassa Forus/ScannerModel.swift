@@ -90,11 +90,13 @@ class ScannerModel {
                 let data = JSON(data: json)
                 
                 if data.isEmpty {
-                    self.connectionError()
+                    self.display(popupMessage: "noConnection")
+                    
                 } else {
                     print(data)
-                    if data["error"] == "voucher-unavailable-categories" {self.categoryError()}
-                    if data["error"] == "shopkeeper-pending" {self.pendingError()}
+                    if data["error"] == "voucher-unavailable-categories" {self.display(popupMessage: "noCategory")}
+                    if data["error"] == "shopkeeper-pending" {self.display(popupMessage: "shopkeeperPending")}
+                    if data["error"] == "shopkeeper-declined" {self.display(popupMessage: "shopkeeperDeclined")}
                     
                     let max_amount = data["max_amount"]
                     
@@ -110,19 +112,6 @@ class ScannerModel {
         }
     }
     
-    func connectionError() {
-        let message = popupMessages["noConnection"]
-        
-        var alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
-        alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
-            self.viewController.loadScanner()
-            self.viewController.progressHUD.isHidden = true
-        }))
-        
-        self.viewController.present(alert, animated: true, completion: nil)
-    }
-    
     func noBudgetWarning() {
         let message = popupMessages["noBudget"]
         
@@ -134,22 +123,9 @@ class ScannerModel {
         
         self.viewController.present(alert, animated: true, completion: nil)
     }
-        
-    func categoryError() {
-        let message = popupMessages["noCategory"]
-        
-        var alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
-        alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
-            self.viewController.loadScanner()
-            self.viewController.progressHUD.isHidden = true
-        }))
-        
-        self.viewController.present(alert, animated: true, completion: nil)
-    }
     
-    func pendingError() {
-        let message = popupMessages["shopkeeperPending"]
+    func display(popupMessage: String) {
+        let message = popupMessages[popupMessage]
         
         var alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
