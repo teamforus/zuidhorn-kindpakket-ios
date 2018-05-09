@@ -80,7 +80,7 @@ class PaymentTableViewCell: UITableViewCell {
 
                 print(data)
                 
-                if data["status"] == "refunded" {
+                if data["status"] == "refunded" || data["status"] == "refund"{
                     refundedTransactions.append(self.tag)
                     self.displaySuccessAlert()
                     checkoutVC.tableView.reloadData()
