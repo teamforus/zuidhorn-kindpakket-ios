@@ -149,7 +149,7 @@ class CheckoutModel {
                     } else {
                         self.viewController.progressHUD.isHidden = true
                         
-                        let alert = UIAlertController(title: "Success", message: "De transactie was successvol", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Success", message: "De transactie was succesvol.", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Open Scanner", style: .cancel, handler: { (action: UIAlertAction!) in
                             self.viewController.performSegue(withIdentifier: "returnToScanner", sender: self)
                         }))
