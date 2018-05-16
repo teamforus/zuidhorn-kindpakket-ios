@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Checkout Forus.xcodeproj">
+      location = "group:/Users/jamal/_repos/zuidhorn-kindpakket-ios/Checkout Forus.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:EtherealCereal/EtherealCereal.xcodeproj">

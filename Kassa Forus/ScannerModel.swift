@@ -26,7 +26,8 @@ class ScannerModel {
             
             switch error.code {
             case -11852:
-                alert = UIAlertController(title: "Error", message: "This app is not authorized to use Back Camera.", preferredStyle: .alert)
+                let message = popupMessages["backCameraPermission"]
+                alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
                 
                 alert?.addAction(UIAlertAction(title: "Setting", style: .default, handler: { (_) in
                     DispatchQueue.main.async {
@@ -38,7 +39,8 @@ class ScannerModel {
                 
                 alert?.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             case -11814:
-                alert = UIAlertController(title: "Error", message: "Reader not supported by the current device", preferredStyle: .alert)
+                let message = popupMessages["unsupportedReader"]
+                alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
                 alert?.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             default:
                 alert = nil
@@ -88,11 +90,13 @@ class ScannerModel {
                 let data = JSON(data: json)
                 
                 if data.isEmpty {
-                    self.connectionError()
+                    self.display(popupMessage: "noConnection")
+                    
                 } else {
                     print(data)
-                    if data["error"] == "no-available-categories" {self.categoryError()}
-                    if data["error"] == "shopkeeper-pending" {self.pendingError()}
+                    if data["error"] == "voucher-unavailable-categories" {self.display(popupMessage: "noCategory")}
+                    if data["error"] == "shopkeeper-pending" {self.display(popupMessage: "shopkeeperPending")}
+                    if data["error"] == "shopkeeper-declined" {self.display(popupMessage: "shopkeeperDeclined")}
                     
                     let max_amount = data["max_amount"]
                     
@@ -108,37 +112,23 @@ class ScannerModel {
         }
     }
     
-    func connectionError() {
-        let alert = UIAlertController(title: "Error", message: "Dit is geen valide voucher of er was een verbindingsprobleem.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
-            self.viewController.loadScanner()
-            self.viewController.progressHUD.isHidden = true
-        }))
-        
-        self.viewController.present(alert, animated: true, completion: nil)
-    }
-    
     func noBudgetWarning() {
-        let alert = UIAlertController(title: "Voucher is op", message: "Er staat geen budget meer op de voucher", preferredStyle: .alert)
+        let message = popupMessages["noBudget"]
+        
+        var alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
+        alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
             self.viewController.performSegue(withIdentifier: "proceedToCheckout", sender: self)
         }))
         
         self.viewController.present(alert, animated: true, completion: nil)
     }
-        
-    func categoryError() {
-        let alert = UIAlertController(title: "Catagorie vereist.", message: "Ga naar winkelier.forus.io en voeg een catagorie toe om vouchers te kunnen accepteren.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
-            self.viewController.loadScanner()
-            self.viewController.progressHUD.isHidden = true
-        }))
-        
-        self.viewController.present(alert, animated: true, completion: nil)
-    }
     
-    func pendingError() {
-        let alert = UIAlertController(title: "Validatie vereist.", message: "U bent momenteel niet gevalideerd als winkelier, neem contact op met de gemeente voor meer informatie.", preferredStyle: .alert)
+    func display(popupMessage: String) {
+        let message = popupMessages[popupMessage]
+        
+        var alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
+        alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
             self.viewController.loadScanner()
             self.viewController.progressHUD.isHidden = true

@@ -31,11 +31,6 @@ class RegistrationViewController: UIViewController {
     var signupAttempted = false
     var displayingError = false
     
-    let KVKErrorMessage = "Vul a.u.b. een geldig KVK nummer in."
-    let IBANErrorMessage = "Vul a.u.b. een geldig IBAN nummer in."
-    let IBANNameErrorMessage = "Vul a.u.b. een geldige IBAN rekeninghouder in."
-    let emailErrorMessage = "Vul a.u.b. een geldig email adres in."
-    
     @IBAction func autofill(_ sender: Any) {
         KVKInput.text = "69488266"
         IBANInput.text = "NL88BUNQ2025155751"
@@ -64,7 +59,7 @@ class RegistrationViewController: UIViewController {
                     if let json = response.data {
                         let data = JSON(data: json)
                         if data["error"]["message"] == "NotFound" {
-                            self.display(error: self.KVKErrorMessage)
+                            self.display(popupMessage: "KVKErrorMessage")
                         } else {
                             print("kvk valid: \(data["data"]["items"][0]["tradeNames"]["businessName"])")
                             self.kvkValid = true
@@ -74,7 +69,7 @@ class RegistrationViewController: UIViewController {
                 }
             }
         } else {
-            display(error: KVKErrorMessage)
+            display(popupMessage: "KVKErrorMessage")
         }
     }
     
@@ -90,13 +85,13 @@ class RegistrationViewController: UIViewController {
                             self.ibanValid = true
                             self.attemptSignup()
                         } else {
-                            self.display(error: self.IBANErrorMessage)
+                            self.display(popupMessage: "IBANErrorMessage")
                         }
                     }
                 }
             }
         } else {
-            display(error: IBANErrorMessage)
+            display(popupMessage: "IBANErrorMessage")
         }
     }
     
@@ -104,7 +99,7 @@ class RegistrationViewController: UIViewController {
         if ibanName != "" {
             self.ibanName = ibanName
         } else {
-            display(error: IBANNameErrorMessage)
+            display(popupMessage: "IBANNameErrorMessage")
         }
     }
     
@@ -117,7 +112,7 @@ class RegistrationViewController: UIViewController {
             emailValid = true
             self.attemptSignup()
         } else {
-            display(error: emailErrorMessage)
+            display(popupMessage: "emailErrorMessage")
         }
     }
     
@@ -136,6 +131,7 @@ class RegistrationViewController: UIViewController {
                         self.processSignup(json: data)
                     } else {
                         print("no server response") // Todo: make error
+                        self.display(popupMessage: "noConnection2")
                     }
                 }
             }
@@ -151,6 +147,9 @@ class RegistrationViewController: UIViewController {
             if data["token_type"] == "Bearer" {
                 completeSignup(data: data)
             } else {
+                if data["kvk_number"] != JSON.null {display(popupMessage: "KVKErrorMessage")}
+                if data["iban"] != JSON.null {display(popupMessage: "IBANErrorMessage")}
+                if data["email"] != JSON.null {display(popupMessage: "emailErrorMessage")}
                 displayError(error: data)
             }
         }
@@ -166,6 +165,21 @@ class RegistrationViewController: UIViewController {
         self.present(alert, animated: true)
     }
     
+    func display(popupMessage: String) {
+        if !displayingError {
+            displayingError = true
+            progressHUD.isHidden = true
+            
+            let message = popupMessages[popupMessage]
+            let alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
+                self.displayingError = false
+            }))
+            
+            self.present(alert, animated: true)
+        }
+    }
+    
     func completeSignup(data: JSON) {
         let token = data["access_token"]
         UserDefaults.standard.setValue(String(describing: token), forKey: "APItoken")
@@ -176,26 +190,15 @@ class RegistrationViewController: UIViewController {
     }
     
     func noData() {
-        let alert = UIAlertController(title: "Geen verbinding", message: "Er is geen verbinding tot stand gekomen. Probeer het later opnieuw.", preferredStyle: .alert)
+        let message = popupMessages["noConnection2"]
+        
+        let alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
             self.progressHUD.isHidden = true
             self.signupAttempted = false
         }))
         
         self.present(alert, animated: true)
-    }
-    
-    func display(error: String) {
-        if !displayingError {
-            displayingError = true
-            progressHUD.isHidden = true
-            let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action: UIAlertAction!) in
-                self.displayingError = false
-            }))
-            
-            self.present(alert, animated: true)
-        }
     }
     
     func returnToSetup() {

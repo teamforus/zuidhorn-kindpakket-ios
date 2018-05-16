@@ -19,7 +19,9 @@ class PaymentTableViewCell: UITableViewCell {
     }
     
     func confirmRefund() {
-        let alert = UIAlertController(title: "Retournering", message: "Weet je zeker dat je deze betaling wil retourneren?", preferredStyle: .alert)
+        let message = popupMessages["confirmRefund"]
+        
+        let alert = UIAlertController(title: message?[0], message: message?[1], preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Bevestig", style: .default, handler: { (_) in
             self.initiateRefund()
         }))
@@ -78,7 +80,7 @@ class PaymentTableViewCell: UITableViewCell {
 
                 print(data)
                 
-                if data["status"] == "refunded" {
+                if data["status"] == "refunded" || data["status"] == "refund"{
                     refundedTransactions.append(self.tag)
                     self.displaySuccessAlert()
                     checkoutVC.tableView.reloadData()
